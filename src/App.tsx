@@ -17,7 +17,7 @@ export default function App() {
         wheelMult={1.0}
         dragMult={1.2}
         friction={0.95}
-        parallax={0.42}
+        
         
       />
     </main>

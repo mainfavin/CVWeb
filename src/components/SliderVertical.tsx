@@ -5,92 +5,97 @@ type Props = {
   gapVh?: number;
   wheelMult?: number;
   dragMult?: number;
-  friction?: number;
-  parallax?: number; // intensidad del efecto (zoom y desplazamiento)
+  friction?: number;     // 0.90..0.98 inercia
+  scaleAmp?: number;     // amplitud del zoom extra
+  moveAmp?: number;      // amplitud del movimiento interno (px por px)
 };
 
 export default function SliderVertical({
   images,
-  gapVh = 8,
+  gapVh = 6,
   wheelMult = 1.0,
   dragMult = 1.0,
-  friction = 0.94,
-  parallax = 0.4,
+  friction = 0.95,
+  scaleAmp = 0.12,   // 0.10–0.18
+  moveAmp = 0.25,    // 0.20–0.35
 }: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const offset = useRef(0);
-  const velocity = useRef(0);
-  const isDragging = useRef(false);
-  const dragStartY = useRef(0);
+  const offset   = useRef(0);
+  const vel      = useRef(0);
+  const dragging = useRef(false);
+  const lastY    = useRef(0);
 
   useEffect(() => {
     const track = trackRef.current!;
-    const onWheel = (e: WheelEvent) => {
-      velocity.current += e.deltaY * wheelMult;
+    const onWheel = (e: WheelEvent) => (vel.current += e.deltaY * wheelMult);
+    const onDown  = (e: PointerEvent) => { dragging.current = true; lastY.current = e.clientY; (e.target as HTMLElement).setPointerCapture?.(e.pointerId); };
+    const onMove  = (e: PointerEvent) => {
+      if (!dragging.current) return;
+      const dy = e.clientY - lastY.current;
+      lastY.current = e.clientY;
+      vel.current += -dy * dragMult;
     };
-    const onPointerDown = (e: PointerEvent) => {
-      isDragging.current = true;
-      dragStartY.current = e.clientY;
-      (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-    };
-    const onPointerMove = (e: PointerEvent) => {
-      if (!isDragging.current) return;
-      const dy = e.clientY - dragStartY.current;
-      dragStartY.current = e.clientY;
-      velocity.current += -dy * dragMult;
-    };
-    const onPointerUp = () => (isDragging.current = false);
+    const onUp    = () => (dragging.current = false);
 
     window.addEventListener("wheel", onWheel, { passive: true });
-    window.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
-    window.addEventListener("pointercancel", onPointerUp);
+    window.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
 
     let raf = 0;
-    const tick = () => {
+    const loop = () => {
       const half = track.scrollHeight / 2;
-      offset.current += velocity.current;
-      velocity.current *= friction;
+
+      offset.current += vel.current;
+      vel.current *= friction;
+
+      // loop infinito protegido
       if (offset.current >= half) offset.current -= half;
-      if (offset.current < 0) offset.current += half;
+      if (offset.current < 0)     offset.current += half;
 
       track.style.transform = `translate3d(0, ${-offset.current}px, 0)`;
 
-      // Parallax dinámico con zoom
+      // === Parallax interno estable (clamp) ===
       const slides = Array.from(track.children) as HTMLElement[];
       const vh = window.innerHeight;
       const center = vh / 2;
 
       for (const slide of slides) {
-        const rect = slide.getBoundingClientRect();
-        const slideCenter = rect.top + rect.height / 2;
-        const dist = slideCenter - center;
-
-        // Escala basada en distancia al centro
-        const t = Math.min(Math.abs(dist / vh), 1); // 0..1
-        const scale = 1.1 - t * parallax * 0.3; // zoom-out al alejarse
-        const translateY = -dist * parallax * 0.3; // pequeño desplazamiento
-
         const img = slide.querySelector("img") as HTMLImageElement | null;
-        if (img) {
-          img.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-        }
+        if (!img) continue;
+
+        const r = slide.getBoundingClientRect();
+        const slideCenter = r.top + r.height / 2;
+        const dist = slideCenter - center;          // px (positivo si está abajo)
+        const norm = Math.min(Math.abs(dist) / (vh * 0.7), 1); // 0..1 (suave)
+
+        // zoom: máximo en el centro, menor en extremos (pero NUNCA < base)
+        const baseScale = 1.18;                     // zoom base para tapar bordes
+        const extra     = (1 - norm) * scaleAmp;    // 0..scaleAmp
+        const scale     = baseScale + extra;        // [1.18 .. 1.30 aprox]
+
+        // movimiento vertical interno: contramovimiento suave
+        const rawShift  = -dist * moveAmp;          // px
+        const maxShift  = r.height * 0.12;          // límite 12% de la altura
+        const shift     = Math.max(-maxShift, Math.min(maxShift, rawShift));
+
+        img.style.transform = `translate(-50%,-50%) translateY(${shift}px) scale(${scale})`;
       }
 
-      raf = requestAnimationFrame(tick);
+      raf = requestAnimationFrame(loop);
     };
+    raf = requestAnimationFrame(loop);
 
-    raf = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", onPointerUp);
-      window.removeEventListener("pointercancel", onPointerUp);
+      window.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
     };
-  }, [wheelMult, dragMult, friction, parallax]);
+  }, [wheelMult, dragMult, friction, scaleAmp, moveAmp]);
 
   return (
     <div
@@ -107,7 +112,6 @@ export default function SliderVertical({
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           gap: `${gapVh}vh`,
           willChange: "transform",
           touchAction: "none",
@@ -119,67 +123,45 @@ export default function SliderVertical({
             key={i}
             style={{
               position: "relative",
-              width: "min(90vw, 1100px)",
-              height: "min(80vh, 720px)",
+              width: "100vw",                 // ocupa todo el ancho
+              height: "min(80vh, 800px)",
+              margin: 0,
               overflow: "hidden",
-              borderRadius: "28px",
+              borderRadius: 36,
               background: "#111",
               boxShadow: "0 18px 60px rgba(0,0,0,0.55)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
-            {/* Imagen interna */}
+            {/* Imagen SIEMPRE centrada; el parallax añade translateY + scale */}
             <img
               src={src}
               alt={`slide-${i}`}
               draggable={false}
               style={{
-                width: "110%",
-                height: "110%",
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: "120%",
+                height: "120%",
                 objectFit: "cover",
-                transition: "filter 0.3s ease",
-                willChange: "transform",
+                transform: "translate(-50%,-50%) scale(1.18)",
                 transformOrigin: "center center",
-                filter: "brightness(0.92)",
+                willChange: "transform",
+                filter: "brightness(0.95)",
+                transition: "filter 0.25s ease",
               }}
             />
 
-            {/* Máscara y vignette cinematográfica */}
+            {/* Vignette + marco superior/inferior, por TARJETA */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
                 background:
-                  "radial-gradient(140% 100% at 50% 50%, rgba(0,0,0,0.0) 65%, rgba(0,0,0,0.4) 100%)," +
-                  "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0) 35%, rgba(0,0,0,0.5))",
-                pointerEvents: "none",
+                  "radial-gradient(120% 80% at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.45) 100%), " +
+                  "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0) 35%, rgba(0,0,0,0.6))",
                 mixBlendMode: "multiply",
-              }}
-            />
-
-            {/* Borde curvado superior/inferior tipo proyección */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: "30px",
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.8), transparent)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: "30px",
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+                pointerEvents: "none",
               }}
             />
           </div>
