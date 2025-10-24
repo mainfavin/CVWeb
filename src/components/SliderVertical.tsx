@@ -5,9 +5,8 @@ type Props = {
   gapVh?: number;
   wheelMult?: number;
   dragMult?: number;
-  friction?: number;   // 0.9..0.99 (inercia)
-  parallax?: number;   // 0..1 cuánto “reacciona” la imagen interna al centro
-  baseDrift?: number;  // 0..1 cuánto se mueve SIEMPRE con el scroll (todas)
+  friction?: number;
+  parallax?: number; // intensidad del efecto (zoom y desplazamiento)
 };
 
 export default function SliderVertical({
@@ -16,8 +15,7 @@ export default function SliderVertical({
   wheelMult = 1.0,
   dragMult = 1.0,
   friction = 0.94,
-  parallax = 0.35,
-  baseDrift = 0.06,
+  parallax = 0.4,
 }: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
   const offset = useRef(0);
@@ -41,28 +39,25 @@ export default function SliderVertical({
       dragStartY.current = e.clientY;
       velocity.current += -dy * dragMult;
     };
-    const onPointerUp = () => { isDragging.current = false; };
+    const onPointerUp = () => (isDragging.current = false);
 
     window.addEventListener("wheel", onWheel, { passive: true });
     window.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
     window.addEventListener("pointercancel", onPointerUp);
-    window.addEventListener("blur", onPointerUp);
 
     let raf = 0;
     const tick = () => {
       const half = track.scrollHeight / 2;
-
       offset.current += velocity.current;
       velocity.current *= friction;
-
       if (offset.current >= half) offset.current -= half;
-      if (offset.current < 0)     offset.current += half;
+      if (offset.current < 0) offset.current += half;
 
       track.style.transform = `translate3d(0, ${-offset.current}px, 0)`;
 
-      // PARALLAX interno para TODAS:
+      // Parallax dinámico con zoom
       const slides = Array.from(track.children) as HTMLElement[];
       const vh = window.innerHeight;
       const center = vh / 2;
@@ -72,27 +67,21 @@ export default function SliderVertical({
         const slideCenter = rect.top + rect.height / 2;
         const dist = slideCenter - center;
 
-        // desplazamiento base ligado al scroll total (todas se mueven)
-        const base = -offset.current * baseDrift;
-
-        // desplazamiento por distancia al centro (efecto “estabilización”)
-        const maxShift = rect.height * 0.15;
-        const react = -dist * parallax;
-
-        let shift = base + react;
-        if (shift >  maxShift) shift =  maxShift;
-        if (shift < -maxShift) shift = -maxShift;
+        // Escala basada en distancia al centro
+        const t = Math.min(Math.abs(dist / vh), 1); // 0..1
+        const scale = 1.1 - t * parallax * 0.3; // zoom-out al alejarse
+        const translateY = -dist * parallax * 0.3; // pequeño desplazamiento
 
         const img = slide.querySelector("img") as HTMLImageElement | null;
         if (img) {
-          img.style.transform = `translate3d(0, ${shift}px, 0) scale(1.22)`;
+          img.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
         }
       }
 
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
 
+    raf = requestAnimationFrame(tick);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("wheel", onWheel);
@@ -100,16 +89,15 @@ export default function SliderVertical({
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
       window.removeEventListener("pointercancel", onPointerUp);
-      window.removeEventListener("blur", onPointerUp);
     };
-  }, [wheelMult, dragMult, friction, parallax, baseDrift]);
+  }, [wheelMult, dragMult, friction, parallax]);
 
   return (
     <div
       style={{
         position: "relative",
         height: "100vh",
-        width: "100%",
+        width: "100vw",
         overflow: "hidden",
         background: "#0e0e0e",
       }}
@@ -131,42 +119,67 @@ export default function SliderVertical({
             key={i}
             style={{
               position: "relative",
-              width: "min(92vw, 1100px)",
-              height: "min(78vh, 700px)",
+              width: "min(90vw, 1100px)",
+              height: "min(80vh, 720px)",
               overflow: "hidden",
-              borderRadius: 24,
-              background: "#141414",
-              boxShadow: "0 14px 44px rgba(0,0,0,0.48)",
+              borderRadius: "28px",
+              background: "#111",
+              boxShadow: "0 18px 60px rgba(0,0,0,0.55)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
+            {/* Imagen interna */}
             <img
               src={src}
               alt={`slide-${i}`}
               draggable={false}
               style={{
-                width: "122%",
-                height: "122%",
+                width: "110%",
+                height: "110%",
                 objectFit: "cover",
-                position: "absolute",
-                top: "-11%",
-                left: "-11%",
-                filter: "brightness(0.94)",
-                transform: "scale(1.22)",
-                transition: "filter 0.25s ease",
+                transition: "filter 0.3s ease",
                 willChange: "transform",
+                transformOrigin: "center center",
+                filter: "brightness(0.92)",
               }}
             />
 
-            {/* Vignette + gradiente por IMAGEN (no en la ventana) */}
+            {/* Máscara y vignette cinematográfica */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                // borde oscurecido suave + top/bottom fade
                 background:
-                  "radial-gradient(120% 80% at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%), " +
-                  "linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 35%, rgba(0,0,0,0.55))",
+                  "radial-gradient(140% 100% at 50% 50%, rgba(0,0,0,0.0) 65%, rgba(0,0,0,0.4) 100%)," +
+                  "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0) 35%, rgba(0,0,0,0.5))",
                 pointerEvents: "none",
+                mixBlendMode: "multiply",
+              }}
+            />
+
+            {/* Borde curvado superior/inferior tipo proyección */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "30px",
+                background:
+                  "linear-gradient(to bottom, rgba(0,0,0,0.8), transparent)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: "30px",
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
               }}
             />
           </div>

@@ -18,7 +18,7 @@ export default function App() {
         dragMult={1.2}
         friction={0.95}
         parallax={0.42}
-        baseDrift={0.08}
+        
       />
     </main>
   );
