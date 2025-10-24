@@ -1,7 +1,7 @@
-import SliderVertical from "./components/SliderVertical";
 import FabMenu from "./components/FabMenu";
+import SliderVertical from "./components/SliderVertical";
 
-export default function App() {
+function App() {
   const images = [
     "/images/image1.jpg",
     "/images/image2.jpg",
@@ -10,16 +10,15 @@ export default function App() {
   ];
 
   return (
-    <main style={{ background: "#0e0e0e", color: "#fff", height: "100vh", overflow: "hidden" }}>
-      <FabMenu shape="squircle" />
-      <SliderVertical
+    <main style={{ background: "#0e0e0e",color: "#fff", height: "100vh", overflow: "hidden" }}>
+      <FabMenu />
+      <SliderVertical       
         images={images}
-        wheelMult={1.0}
-        dragMult={1.2}
-        friction={0.95}
-        
-        
-      />
+        wheelMult={0.25}
+        dragMult={0.25}
+        friction={0.96} />
     </main>
   );
 }
+
+export default App;

@@ -1,33 +1,30 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-type Shape = "pill" | "squircle";
-
-export default function FabMenu({
-  shape = "squircle",
-}: { shape?: Shape }) {
+export default function FabMenu() {
   const [open, setOpen] = useState(false);
+  const boxRef = useRef<HTMLDivElement>(null);
 
-  const baseBtn: React.CSSProperties = {
-    width: 56,
-    height: 48,
-    border: "1px solid rgba(255,255,255,0.14)",
-    background: "rgba(15,15,15,0.65)",
-    backdropFilter: "blur(8px)",
-    color: "#fff",
-    cursor: "pointer",
-    boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
-  };
-
-  const shapes: Record<Shape, React.CSSProperties> = {
-    pill: { borderRadius: 9999 },
-    squircle: { borderRadius: "28px 22px 26px 24px" },
-  };
+  // cerrar al clicar fuera / Esc
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (!boxRef.current) return;
+      if (!boxRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("keydown", onEsc);
+    return () => {
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("keydown", onEsc);
+    };
+  }, []);
 
   return (
     <div
+      ref={boxRef}
       style={{
         position: "fixed",
-        top: 18,
+        top: "14px",
         left: "50%",
         transform: "translateX(-50%)",
         zIndex: 100,
@@ -38,48 +35,89 @@ export default function FabMenu({
       }}
     >
       <button
+        aria-expanded={open}
+        aria-haspopup="menu"
         onClick={() => setOpen(v => !v)}
-        aria-label="Toggle menu"
-        style={{ ...baseBtn, ...shapes[shape] }}
+        style={{
+          border: "2px solid rgba(255,255,255,0.65)",
+          borderRadius: "32px",
+          width: 56,
+          height: 56,
+          background: "rgba(20,20,20,0.55)",
+          color: "#fff",
+          backdropFilter: "blur(8px)",
+          cursor: "pointer",
+          boxShadow: open ? "0 0 14px rgba(255,255,255,0.25)" : "0 6px 18px rgba(0,0,0,0.45)",
+          transition: "all .25s ease",
+        }}
       >
         ☰
       </button>
 
-      {open && (
+      <div
+        style={{
+          position: "relative",
+          pointerEvents: open ? "auto" : "none",
+          opacity: open ? 1 : 0,
+          transform: `translateY(${open ? 0 : -8}px)`,
+          transition: "opacity .18s ease, transform .18s ease",
+        }}
+      >
+        {/* caret */}
         <div
           style={{
-            width: 260,
-            border: "1px solid rgba(255,255,255,0.12)",
+            position: "absolute",
+            top: -6,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 12,
+            height: 12,
             background: "rgba(10,10,10,0.92)",
-            color: "#fff",
-            padding: 12,
-            borderRadius: 16,
-            boxShadow: "0 12px 30px rgba(0,0,0,0.45)",
+            borderLeft: "1px solid rgba(255,255,255,0.14)",
+            borderTop: "1px solid rgba(255,255,255,0.14)",
+            rotate: "45deg",
+          }}
+        />
+        {/* panel */}
+        <nav
+          role="menu"
+          style={{
+            width: 260,
+            border: "1px solid rgba(255,255,255,0.14)",
+            background: "rgba(10,10,10,0.92)",
             backdropFilter: "blur(10px)",
+            color: "#fff",
+            borderRadius: 14,
+            boxShadow: "0 12px 30px rgba(0,0,0,0.45)",
+            overflow: "hidden",
           }}
         >
-          <MenuLink href="#home">Home</MenuLink>
-          <MenuLink href="#projects">Projects</MenuLink>
-          <MenuLink href="#about">About</MenuLink>
-          <MenuLink href="#contact">Contact</MenuLink>
-        </div>
-      )}
+          {[
+            { href: "#home", label: "Home" },
+            { href: "#projects", label: "Projects" },
+            { href: "#about", label: "About" },
+            { href: "#contact", label: "Contact" },
+          ].map(item => (
+            <a
+              key={item.href}
+              role="menuitem"
+              href={item.href}
+              style={{
+                display: "block",
+                padding: "12px 14px",
+                textDecoration: "none",
+                color: "#fff",
+                opacity: 0.95,
+              }}
+              onClick={() => setOpen(false)}
+              onMouseEnter={e => ((e.currentTarget.style.background = "rgba(255,255,255,0.08)"))}
+              onMouseLeave={e => ((e.currentTarget.style.background = "transparent"))}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </div>
-  );
-}
-
-function MenuLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return (
-    <a
-      {...props}
-      style={{
-        display: "block",
-        padding: "10px 8px",
-        borderRadius: 10,
-        textDecoration: "none",
-        color: "#fff",
-        opacity: 0.92,
-      }}
-    />
   );
 }
