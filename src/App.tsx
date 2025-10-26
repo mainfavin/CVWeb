@@ -1,24 +1,52 @@
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Home from "./pages/Home";
+import Project from "./pages/Project";
 import FabMenu from "./components/FabMenu";
-import SliderVertical from "./components/SliderVertical";
 
-function App() {
-  const images = [
-    "/images/image1.jpg",
-    "/images/image2.jpg",
-    "/images/image3.jpg",
-    "/images/image4.jpg",
-  ];
+
+function AnimatedRoutes() {
+  const location = useLocation();
 
   return (
-    <main style={{ background: "#0e0e0e",color: "#fff", height: "100vh", overflow: "hidden" }}>
-      <FabMenu />
-      <SliderVertical       
-        images={images}
-        wheelMult={0.25}
-        dragMult={0.25}
-        friction={0.96} />
-    </main>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <motion.div
+              initial={{ opacity: 0, scale: 1.02, filter: "blur(8px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 0.98, filter: "blur(8px)" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <Home />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/project/:slug"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+              <Project />
+            </motion.div>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <FabMenu />
+      <AnimatedRoutes />
+    </BrowserRouter>
+  );
+}

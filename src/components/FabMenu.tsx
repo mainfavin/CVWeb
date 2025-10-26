@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import lottie, {type AnimationItem } from "lottie-web";
 
 export default function FabMenu() {
   const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<HTMLDivElement>(null);
+  const animationInstance = useRef<AnimationItem | null>(null);
 
-  // cerrar al clicar fuera / Esc
+  // cerrar al clicar fuera / ESC
   useEffect(() => {
     const onDown = (e: MouseEvent) => {
       if (!boxRef.current) return;
@@ -19,14 +25,45 @@ export default function FabMenu() {
     };
   }, []);
 
+  // carga del icono animado
+  useEffect(() => {
+    if (!animRef.current) return;
+    animationInstance.current = lottie.loadAnimation({
+      container: animRef.current,
+      renderer: "svg",
+      loop: false,
+      autoplay: false,
+      path: "/animations/menu.json",
+      rendererSettings: { preserveAspectRatio: "xMidYMid meet" },
+    });
+    return () => animationInstance.current?.destroy();
+  }, []);
+
+  // controla animación de apertura/cierre con retardo
+  useEffect(() => {
+    const anim = animationInstance.current;
+    if (!anim) return;
+
+    if (open) {
+      anim.setDirection(1);
+      anim.play();
+    } else {
+      setClosing(true);
+      setTimeout(() => {
+        anim.setDirection(-1);
+        anim.play();
+        setClosing(false);
+      }, 250);
+    }
+  }, [open]);
+
   return (
     <div
       ref={boxRef}
       style={{
         position: "fixed",
-        top: "14px",
-        left: "50%",
-        transform: "translateX(-50%)",
+        top: "20px",
+        right: "20px",
         zIndex: 100,
         display: "flex",
         flexDirection: "column",
@@ -34,87 +71,103 @@ export default function FabMenu() {
         gap: 10,
       }}
     >
+      {/* === Botón === */}
       <button
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen(v => !v)}
+        disabled={closing}
         style={{
-          border: "2px solid rgba(255,255,255,0.65)",
-          borderRadius: "32px",
-          width: 56,
-          height: 56,
-          background: "rgba(20,20,20,0.55)",
-          color: "#fff",
-          backdropFilter: "blur(8px)",
+          width: 60,
+          height: 60,
           cursor: "pointer",
-          boxShadow: open ? "0 0 14px rgba(255,255,255,0.25)" : "0 6px 18px rgba(0,0,0,0.45)",
-          transition: "all .25s ease",
+          background: "#fff",
+          border: "1.5px solid rgba(0,0,0,0.1)",
+          borderRadius: "50%",
+          boxShadow: open
+            ? "0 0 16px rgba(0,0,0,0.25)"
+            : "0 6px 20px rgba(0,0,0,0.20)",
+          transition: "box-shadow .25s ease, transform .25s ease",
+          display: "grid",
+          placeItems: "center",
+          overflow: "hidden",
         }}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
+        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1.0)")}
       >
-        ☰
+        <div
+          ref={animRef}
+          style={{
+            width: "34px",
+            height: "34px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        />
       </button>
 
+      {/* === Desplegable === */}
       <div
         style={{
           position: "relative",
           pointerEvents: open ? "auto" : "none",
           opacity: open ? 1 : 0,
           transform: `translateY(${open ? 0 : -8}px)`,
-          transition: "opacity .18s ease, transform .18s ease",
+          transition: "opacity .25s ease, transform .25s ease",
         }}
       >
-        {/* caret */}
         <div
           style={{
             position: "absolute",
             top: -6,
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-50%) rotate(45deg)",
             width: 12,
             height: 12,
-            background: "rgba(10,10,10,0.92)",
-            borderLeft: "1px solid rgba(255,255,255,0.14)",
-            borderTop: "1px solid rgba(255,255,255,0.14)",
-            rotate: "45deg",
+            background: "#fff",
+            borderLeft: "1px solid rgba(0,0,0,0.1)",
+            borderTop: "1px solid rgba(0,0,0,0.1)",
           }}
         />
-        {/* panel */}
         <nav
           role="menu"
           style={{
-            width: 260,
-            border: "1px solid rgba(255,255,255,0.14)",
-            background: "rgba(10,10,10,0.92)",
-            backdropFilter: "blur(10px)",
-            color: "#fff",
+            width: 220,
+            border: "1px solid rgba(0,0,0,0.1)",
+            background: "#fff",
+            color: "#000",
             borderRadius: 14,
-            boxShadow: "0 12px 30px rgba(0,0,0,0.45)",
+            boxShadow: "0 12px 30px rgba(0,0,0,0.15)",
             overflow: "hidden",
           }}
         >
           {[
-            { href: "#home", label: "Home" },
-            { href: "#projects", label: "Projects" },
-            { href: "#about", label: "About" },
-            { href: "#contact", label: "Contact" },
+            { to: "/", label: "Home" },
+            { to: "/project/ana-maxim", label: "Ana Maxim" },
+            { to: "/project/moon-in-the-12th", label: "Moon in the 12th" },
+            { to: "/about", label: "About" },
           ].map(item => (
-            <a
-              key={item.href}
-              role="menuitem"
-              href={item.href}
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={() => setOpen(false)}
               style={{
                 display: "block",
                 padding: "12px 14px",
                 textDecoration: "none",
-                color: "#fff",
-                opacity: 0.95,
+                color: "#000",
+                opacity: 0.9,
               }}
-              onClick={() => setOpen(false)}
-              onMouseEnter={e => ((e.currentTarget.style.background = "rgba(255,255,255,0.08)"))}
-              onMouseLeave={e => ((e.currentTarget.style.background = "transparent"))}
+              onMouseEnter={e =>
+                (e.currentTarget.style.background = "rgba(0,0,0,0.05)")
+              }
+              onMouseLeave={e =>
+                (e.currentTarget.style.background = "transparent")
+              }
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
