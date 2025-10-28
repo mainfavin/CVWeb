@@ -3,6 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Project from "./pages/Project";
 import FabMenu from "./components/FabMenu";
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import SiteLogo from "./components/SiteLogo";
 
 
 function AnimatedRoutes() {
@@ -37,6 +41,9 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );
@@ -45,6 +52,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <SiteLogo />
       <FabMenu />
       <AnimatedRoutes />
     </BrowserRouter>
