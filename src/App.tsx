@@ -15,7 +15,7 @@ import Cookie from "./pages/Cookie";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import PageTransition from "./components/PageTransition";
-import Work from "./components/Work";
+import Work from "./pages/Work";
 
 
 

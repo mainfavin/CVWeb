@@ -77,8 +77,8 @@ export default function About() {
           </FilmFrame>
         </section>
 
-    {/* Frase de Filosofía Destacada */}
-      <MovingQuote quote="The only constant in life is change, never stop moving." fontSize="clamp(1.5rem, 8vw, 4.2rem)" speed={3} />
+        {/* Frase de Filosofía Destacada */}
+        <MovingQuote quote="The only constant in life is change, never stop moving." fontSize="clamp(1.5rem, 8vw, 4.2rem)" speed={3} />
 
 
         {/* Mini-galería */}
@@ -86,7 +86,7 @@ export default function About() {
           <MiniGallery items={gallery} />
         </section>
 
-      <ProfileCV />
+        <ProfileCV />
 
         {/* CTA suave (lo mantenemos) */}
         <section

@@ -42,7 +42,7 @@ export default function Contact() {
             }}
           >
             <FxLink href="/about">ABOUT</FxLink>
-            <FxLink href="/#work">WORK</FxLink>
+            <FxLink href="/work">WORK</FxLink>
             <FxLink href="/contact">CONTACT</FxLink>
           </nav>
 

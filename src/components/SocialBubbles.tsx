@@ -1,65 +1,106 @@
-// src/components/SocialBubbles.tsx
 import Icon from "./Icon";
 
-type Item = {
+export type SocialItem = {
   href: string;
   name: "instagram" | "linkedin" | "mail" | "github";
   title?: string;
 };
 
-export default function SocialBubbles({
-  items = [
-    { name: "instagram", href: "https://www.instagram.com/marcos__in/", title: "Instagram" },
-    { name: "linkedin",  href: "https://www.linkedin.com/in/marcosinfantevin/", title: "LinkedIn" },
-    { name: "mail",      href: "mailto:contact@marcosinfante.com", title: "Email" },
-    { name: "github",   href: "https://github.com/mainfavin?tab=repositories", title: "GitHub" },
-  ],
-  top = "32px",
-  right = "96px", // deja hueco para el FAB
-}: {
-  items?: Item[];
+type Props = {
+  items?: SocialItem[];
+  fixed?: boolean;
+  direction?: "row" | "column";
+  gap?: number;
+  bubbleSize?: number;
+  iconSize?: number;
+  bubbleBg?: string;
+  iconColor?: string;
+  brandHover?: boolean;
   top?: string;
   right?: string;
-}) {
-   return (
-    <div
-      style={{
-        
-        top,
-        right,
-        zIndex: 90,
+};
+
+const BRAND_COLORS: Record<string, string> = {
+  instagram: "#E1306C",
+  linkedin:  "#0A66C2",
+  mail:      "#810000ff",
+  github:    "#242424f7",
+};
+
+export default function SocialBubbles({
+  items = [
+    { name: "instagram", href: "https://www.instagram.com/marcos__in/" },
+    { name: "linkedin",  href: "https://www.linkedin.com/in/marcosinfantevin/"  },
+    { name: "mail",      href: "mailto:contact@marcosinfante.com" },
+    { name: "github",   href: "https://github.com/mainfavin?tab=repositories" },
+  
+  ],
+  fixed = false,
+  direction = "row",
+  gap = 14,
+  bubbleSize = 60,
+  iconSize = 22,
+  bubbleBg = "#fff",
+  iconColor = "#000",
+  brandHover = false,
+  top,
+  right,
+}: Props) {
+  const wrapStyle: React.CSSProperties = fixed
+    ? {
+        position: "fixed",
+        top: top ?? "auto",
+        right: right ?? "auto",
+        zIndex: 20,
         display: "flex",
-        gap: 10,
-      }}
-    >
+        flexDirection: direction,
+        gap,
+      }
+    : {
+        display: "flex",
+        flexDirection: direction,
+        gap,
+      };
+
+  return (
+    <div style={wrapStyle}>
       {items.map((it) => (
         <a
-          key={it.href}
+          key={it.href + it.name}
           href={it.href}
-          target={it.href.startsWith("http") ? "_blank" : "_self"}
+          target="_blank"
           rel="noreferrer"
-          title={it.title || it.name}
+          title={it.title ?? it.name}
           style={{
-            width: 44,
-            height: 44,
-            background: "#fff",
+            "--icon-color": iconColor,
+            width: bubbleSize,
+            height: bubbleSize,
             borderRadius: "50%",
+            background: bubbleBg,
+            boxShadow: "0 6px 18px rgba(0,0,0,0.20)",
             display: "grid",
             placeItems: "center",
-            boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
-            border: "1px solid rgba(0,0,0,0.12)",
-            transition: "transform .15s ease, box-shadow .15s ease",
-          }}
+            transition: "transform .18s ease, background .18s ease",
+          } as React.CSSProperties}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "translateY(-2px)";
-            e.currentTarget.style.boxShadow = "0 10px 22px rgba(0,0,0,0.28)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+            if (brandHover) {
+              (e.currentTarget as HTMLAnchorElement).style.background = BRAND_COLORS[it.name] ?? bubbleBg;
+              (e.currentTarget as HTMLAnchorElement).style.setProperty("--icon-color", "#fff");
+            }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.25)";
+            (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+            (e.currentTarget as HTMLAnchorElement).style.background = bubbleBg;
+            (e.currentTarget as HTMLAnchorElement).style.setProperty("--icon-color", iconColor);
           }}
         >
-          <Icon name={it.name} size={20} color="#000" title={it.title} />
+          <Icon
+            name={it.name}
+            size={iconSize}
+            
+            color="var(--icon-color)"
+          />
         </a>
       ))}
     </div>

@@ -29,8 +29,6 @@ export default function FabMenu() {
     { to: "/contact", label: "Contact" },
   ];
 
- 
-
   return (
     <div
       style={{
@@ -40,7 +38,6 @@ export default function FabMenu() {
         zIndex: 100,
       }}
     >
-      {/* ancla fija para posicionar menú absoluto */}
       <div ref={boxRef} style={{ position: "relative", width: 60, height: 60 }}>
         {/* Botón */}
         <button
@@ -83,72 +80,107 @@ export default function FabMenu() {
           </span>
         </button>
 
-        {/* Menú */}
+        {/* Menú con dos columnas */}
         <AnimatePresence>
           {open && (
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
               style={{
                 position: "absolute",
                 right: 0,
                 top: "calc(100% + 10px)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-end",
+                display: "grid",
+                gridTemplateColumns: "auto auto",
+                alignItems: "flex-start",
                 gap: 10,
               }}
             >
-              {/* caret */}
-              <div
+              {/* columna izquierda: social bubbles */}
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
                 style={{
-                  position: "absolute", top: -6, right: 22,
-                  transform: "rotate(45deg)", width: 12, height: 12,
-                  background: "#fff",
-                  borderLeft: "1px solid rgba(0,0,0,0.1)",
-                  borderTop: "1px solid rgba(0,0,0,0.1)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  gap: 10,
+                  marginTop: 6,
                 }}
-              />
+              >
+                <SocialBubbles
+                  fixed={false}
+                  direction="column"
+                  gap={10}
+                  bubbleSize={36}
+                  iconSize={18}
+                  
+                  brandHover
+                 
+                />
+              </motion.div>
 
-              {/* enlaces principales */}
-              {links.map((item, i) => (
-                <motion.div
-                  key={item.to}
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.9 }}
-                  transition={{ duration: 0.2, ease: "easeOut", delay: i * 0.05 }}
-                  style={{ position: "relative", zIndex: 1 }}
-                >
-                  <Link
-                    to={item.to}
-                    onClick={() => setOpen(false)}
-                    style={{
-                      display: "block",
-                      padding: "10px 18px",
-                      textDecoration: "none",
-                      background: "#fff",
-                      color: "#000",
-                      borderRadius: 9999,
-                      boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
-                      fontSize: 14, fontWeight: 500,
-                      transition: "background .2s ease, transform .2s ease",
-                      whiteSpace: "nowrap",
-                    }}
-                    onMouseEnter={e => (e.currentTarget.style.background = "#f1f1f1")}
-                    onMouseLeave={e => (e.currentTarget.style.background = "#fff")}
+              {/* columna derecha: enlaces principales */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25, ease: "easeOut", staggerChildren: 0.05 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  gap: 10,
+                }}
+              >
+                {links.map((item, i) => (
+                  <motion.div
+                    key={item.to}
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.9 }}
+                    transition={{ duration: 0.2, ease: "easeOut", delay: i * 0.05 }}
+                    style={{ position: "relative", zIndex: 1 }}
                   >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-
-              {/* fila de “social bubbles” */}
-            <div style={{ marginTop: 12 }}>
-              <SocialBubbles/>
-            </div>
+                   <Link
+  to={item.to}
+  onClick={() => setOpen(false)}
+  style={{
+    display: "block",
+    padding: "10px 18px",
+    textDecoration: "none",
+    background: "#fff",
+    color: "#000",
+    borderRadius: 9999,
+    boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
+    fontSize: 14,
+    fontWeight: 500,
+    transition: "transform .18s ease, background .18s ease, color .18s ease",
+    whiteSpace: "nowrap",
+  }}
+  onMouseEnter={(e) => {
+    const el = e.currentTarget as HTMLAnchorElement;
+    el.style.transform = "translateY(-2px)";
+    el.style.background = "#000";
+    el.style.color = "#fff";
+  }}
+  onMouseLeave={(e) => {
+    const el = e.currentTarget as HTMLAnchorElement;
+    el.style.transform = "translateY(0)";
+    el.style.background = "#fff";
+    el.style.color = "#000";
+  }}
+>
+  {item.label}
+</Link>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
