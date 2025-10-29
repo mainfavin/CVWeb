@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import Project from "./pages/Project";
 import FabMenu from "./components/FabMenu";
@@ -14,6 +14,8 @@ import SiteLogo from "./components/SiteLogo";
 import Cookie from "./pages/Cookie";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import PageTransition from "./components/PageTransition";
+import Work from "./components/Work";
 
 
 
@@ -21,97 +23,27 @@ import Terms from "./pages/Terms";
 function AnimatedRoutes() {
   const location = useLocation();
 
+  const routeDefs = [
+    { path: "/", element: <Home /> },
+    { path: "/project/:slug", element: <Project /> },
+    { path: "/contact", element: <Contact /> },
+    { path: "/about", element: <About /> },
+    { path: "/cookie", element: <Cookie /> },
+    { path: "/privacy", element: <Privacy /> },
+    { path: "/terms", element: <Terms /> },
+    { path: "/work", element: <Work /> }, 
+  ];
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <motion.div
-              initial={{ opacity: 0, scale: 1.02, filter: "blur(8px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.98, filter: "blur(8px)" }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              <Home />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/project/:slug"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-            >
-              <Project />
-            </motion.div>
-          }
-        />
-        <Route path="/contact" element={
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-            >
-              <Contact />
-            </motion.div>
-          } />
-
-        <Route path="/about" element={
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-            >
-              <About />
-            </motion.div>
-          } />
-
-        <Route
-          path="/cookie"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-            >
-              <Cookie />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/privacy"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-            >
-              <Privacy />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-            >
-              <Terms />
-            </motion.div>
-          }
-        />
-
+        {routeDefs.map(r => (
+          <Route
+            key={r.path}
+            path={r.path}
+            element={<PageTransition>{r.element}</PageTransition>}
+          />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

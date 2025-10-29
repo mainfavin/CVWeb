@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import SocialBubbles from "./SocialBubbles";
 
 export default function FabMenu() {
   const [open, setOpen] = useState(false);
@@ -23,10 +24,12 @@ export default function FabMenu() {
 
   const links = [
     { to: "/", label: "Home" },
+    { to: "/work", label: "Work" },
     { to: "/about", label: "About" },
-    { to: "/contact", label: "Contact" },   
-    { to: "/reel", label: "Reel" },
+    { to: "/contact", label: "Contact" },
   ];
+
+ 
 
   return (
     <div
@@ -37,91 +40,61 @@ export default function FabMenu() {
         zIndex: 100,
       }}
     >
-      {/* ANCLA: tamaño fijo, sirve para que el menú se posicione en absoluto */}
+      {/* ancla fija para posicionar menú absoluto */}
       <div ref={boxRef} style={{ position: "relative", width: 60, height: 60 }}>
-        {/* Botón circular blanco (centrado dentro del ancla) */}
+        {/* Botón */}
         <button
           aria-expanded={open}
           aria-haspopup="menu"
           onClick={() => setOpen(v => !v)}
           style={{
-            position: "absolute",
-            inset: 0,                          // ocupa el ancla completa
+            position: "absolute", inset: 0,
             cursor: "pointer",
             background: "#fff",
             border: "1.5px solid rgba(0,0,0,0.12)",
             borderRadius: "50%",
-            boxShadow: open
-              ? "0 0 16px rgba(0,0,0,0.25)"
-              : "0 6px 20px rgba(0,0,0,0.20)",
+            boxShadow: open ? "0 0 16px rgba(0,0,0,0.25)" : "0 6px 20px rgba(0,0,0,0.20)",
             transition: "box-shadow .25s ease, transform .25s ease",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            display: "flex", alignItems: "center", justifyContent: "center",
           }}
         >
-          {/* Icono hamburguesa → X */}
-          <span
-            aria-hidden
-            style={{
-              position: "relative",
-              width: 26,
-              height: 18,
-              display: "block",
-              transform: "translateX(1px)",   // microajuste visual
-            }}
-          >
-            <span
-              style={{
-                position: "absolute",
-                left: 0, right: 0,
-                top: open ? "7.5px" : "0px",
-                height: 4,
-                borderRadius: 2,
-                background: "#000",
-                transform: open ? "rotate(45deg)" : "none",
-                transition: "transform .28s ease, top .28s ease",
-              }}
-            />
-            <span
-              style={{
-                position: "absolute",
-                left: 3, right: 3,
-                top: 7.5,
-                height: 3,
-                borderRadius: 2,
-                background: open ? "transparent" : "#7b7b7b",
-                transition: "opacity .2s ease",
-              }}
-            />
-            <span
-              style={{
-                position: "absolute",
-                left: 0, right: 0,
-                bottom: open ? "7.5px" : "0px",
-                height: 4,
-                borderRadius: 2,
-                background: "#000",
-                transform: open ? "rotate(-45deg)" : "none",
-                transition: "transform .28s ease, bottom .28s ease",
-              }}
-            />
+          {/* hamburguesa → X */}
+          <span aria-hidden style={{ position: "relative", width: 26, height: 18, display: "block", transform: "translateX(1px)" }}>
+            <span style={{
+              position: "absolute", left: 0, right: 0,
+              top: open ? "7.5px" : "0px",
+              height: 4, borderRadius: 2, background: "#000",
+              transform: open ? "rotate(45deg)" : "none",
+              transition: "transform .28s ease, top .28s ease",
+            }} />
+            <span style={{
+              position: "absolute", left: 3, right: 3, top: 7.5,
+              height: 3, borderRadius: 2,
+              background: open ? "transparent" : "#7b7b7b",
+              transition: "opacity .2s ease",
+            }} />
+            <span style={{
+              position: "absolute", left: 0, right: 0,
+              bottom: open ? "7.5px" : "0px",
+              height: 4, borderRadius: 2, background: "#000",
+              transform: open ? "rotate(-45deg)" : "none",
+              transition: "transform .28s ease, bottom .28s ease",
+            }} />
           </span>
         </button>
 
-        {/* Menú: ABSOLUTO respecto al ancla, no afecta al layout */}
+        {/* Menú */}
         <AnimatePresence>
           {open && (
-            <motion.nav
-              role="menu"
+            <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               style={{
                 position: "absolute",
-                right: 0,                      // 👈 pegado al borde derecho del botón
-                top: "calc(100% + 10px)",      // debajo del botón
+                right: 0,
+                top: "calc(100% + 10px)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-end",
@@ -131,25 +104,22 @@ export default function FabMenu() {
               {/* caret */}
               <div
                 style={{
-                  position: "absolute",
-                  top: -6,
-                  right: 22,
-                  transform: "rotate(45deg)",
-                  width: 12,
-                  height: 12,
+                  position: "absolute", top: -6, right: 22,
+                  transform: "rotate(45deg)", width: 12, height: 12,
                   background: "#fff",
                   borderLeft: "1px solid rgba(0,0,0,0.1)",
                   borderTop: "1px solid rgba(0,0,0,0.1)",
                 }}
               />
 
+              {/* enlaces principales */}
               {links.map((item, i) => (
                 <motion.div
                   key={item.to}
                   initial={{ opacity: 0, y: -10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.9 }}
-                  transition={{ duration: 0.22, ease: "easeOut", delay: i * 0.05 }}
+                  transition={{ duration: 0.2, ease: "easeOut", delay: i * 0.05 }}
                   style={{ position: "relative", zIndex: 1 }}
                 >
                   <Link
@@ -161,10 +131,9 @@ export default function FabMenu() {
                       textDecoration: "none",
                       background: "#fff",
                       color: "#000",
-                      borderRadius: 9999,        // burbuja
+                      borderRadius: 9999,
                       boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
-                      fontSize: 14,
-                      fontWeight: 500,
+                      fontSize: 14, fontWeight: 500,
                       transition: "background .2s ease, transform .2s ease",
                       whiteSpace: "nowrap",
                     }}
@@ -175,7 +144,12 @@ export default function FabMenu() {
                   </Link>
                 </motion.div>
               ))}
-            </motion.nav>
+
+              {/* fila de “social bubbles” */}
+            <div style={{ marginTop: 12 }}>
+              <SocialBubbles/>
+            </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
