@@ -122,7 +122,7 @@ export default function Contact() {
       </section>
 
       {/* Firma gigante propia (reacciona al cursor) */}
-      <BigMarquee text="MARCOS INFANTE VIÑUELA" height="24vh" speed={24} contrast={0.06} />
+      <BigMarquee text="MARCOS INFANTE VIÑUELA" height="24vh"  speed={24} contrast={0.8} fill="solid"  strokeWidth={1} />
 
      
 
