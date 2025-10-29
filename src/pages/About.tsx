@@ -1,48 +1,47 @@
+import MiniGallery from "../components/MiniGallery";
+import Footer from "../components/Footer";
 import FilmFrame from "../components/FilmFrame";
+import BigMarquee from "../components/BigMarquee";
 
 export default function About() {
-  return (
-    <main style={{ minHeight: "100vh", background: "#0e0e0e", color: "#fff" }}>
-      <div style={{ width: "min(92vw, 1400px)", margin: "0 auto", padding: "6vh 0" }}>
-        {/* Pastilla de título */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 12,
-            background: "#f3efe6",
-            color: "#111",
-            padding: "10px 16px",
-            borderRadius: 12,
-            boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-          }}
-        >
-          WHO WE ARE
-        </div>
+  const gallery = [
+    { src: "/images/about/gallery1.jpg", alt: "shot 1" },
+    { src: "/images/about/gallery2.jpg", alt: "shot 2" },
+    { src: "/images/about/gallery3.jpg", alt: "shot 3" },
+    { src: "/images/about/gallery4.jpg", alt: "shot 4" },
+    { src: "/images/about/gallery5.jpg", alt: "shot 5" },
+    { src: "/images/about/gallery6.jpg", alt: "shot 6" },
+  ];
 
-        {/* Grid foto + texto en marco cinematográfico */}
+  return (
+    <main style={{ background: "#0e0e0e", color: "#fff" }}>
+      <div style={{ width: "100%", padding: "6vh 0" }}>
+        <BigMarquee text="Who am I?" speed={40} height={70} contrast={0.04}/>
+
+        {/* HERO: retrato / texto */}
         <section
           style={{
-            marginTop: "4vh",
+            width: "min(1400px, 92vw)",
+            margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             gap: "2rem",
+            gridTemplateColumns: "1fr 1fr",
           }}
         >
-          <FilmFrame width="100%" height="min(70vh, 720px)" curveX={18} curveY={18} vignette={0.2}>
+          <FilmFrame width="100%" height="min(70vh, 720px)" curveX={18} curveY={18} vignette={0.18}>
+            {/* usa tu foto (colócala en /public/images/about/me6.jpg) */}
             <img
-              src="/images/about/portrait.jpg"
-              alt="Portrait"
+              src="/images/about/me6.jpg"
+              alt="Marcos Infante Viñuela"
               style={{
                 position: "absolute",
-                top: "50%", left: "50%",
-                width: "120%", height: "120%",
+                inset: 0,
+                width: "100%",
+                height: "100%",
                 objectFit: "cover",
-                transform: "translate(-50%,-50%) scale(1.18)",
+                transform: "scale(1.18)",
+                filter: "grayscale(20%) brightness(.98)",
               }}
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
             />
           </FilmFrame>
 
@@ -58,141 +57,133 @@ export default function About() {
                 gap: "1rem",
               }}
             >
-              <div style={{ opacity: 0.8, letterSpacing: "0.18em", fontSize: 12 }}>FOUNDER</div>
-              <h2 style={{ margin: 0, lineHeight: 1.05, fontSize: "clamp(28px, 6vw, 56px)" }}>
-                TU NOMBRE
-                <br /> APELLIDO
-              </h2>
-              <p style={{ lineHeight: 1.6, opacity: 0.9 }}>
-                Pequeña bio: director/a, developer, lo que quieras contar. Añade 3–5 frases:
-                trayectoria, enfoque, premios, intereses. Mantén el tono humano y directo.
+              <div style={{ opacity: 0.8, letterSpacing: "0.18em", fontSize: 12 }}>ABOUT</div>
+              <h1 style={{ margin: 0, lineHeight: 1.05, fontSize: "clamp(32px, 5.2vw, 64px)" }}>
+                Marcos<br />Infante Viñuela
+              </h1>
+              <div style={{ opacity: 0.8, marginTop: 6 }}>Filmmaker · Developer · Story-driven</div>
+              <p style={{ lineHeight: 1.6, opacity: 0.92 }}>
+                Me interesan las historias íntimas, el ritmo y el detalle. Combino dirección
+                y desarrollo web para crear experiencias con peso visual: transiciones, parallax
+                y texto que respira. Trabajo en proyectos personales y colaboraciones.
               </p>
+              <ul style={{ lineHeight: 1.6, opacity: 0.9, paddingLeft: "1.1em", margin: 0 }}>
+                <li>12+ proyectos personales (corto, docu, piezas web interactivas)</li>
+                <li>TypeScript/React + motion; edición/color/sonido</li>
+                <li>Abierto a freelance / colab</li>
+              </ul>
             </div>
           </FilmFrame>
         </section>
 
-        {/* Footer estilo Siena: sitemap, contacto, sociales y legales */}
-        <footer style={{ marginTop: "8vh", paddingTop: "6vh", borderTop: "1px dotted rgba(255,255,255,0.25)" }}>
-          {/* SITEMAP */}
-          <div style={{ textAlign: "center", opacity: 0.7, letterSpacing: "0.3em", marginBottom: 18 }}>
-            SITEMAP
-          </div>
-          <nav
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 16,
-              alignItems: "center",
-              marginBottom: "6vh",
-            }}
-          >
-            {[
-              { href: "/", label: "HOME" },
-              { href: "/work", label: "WORK" },       // crea esta ruta cuando quieras
-              { href: "/about", label: "ABOUT" },
-              { href: "/contact", label: "CONTACT" }, // crea esta ruta cuando quieras
-            ].map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  fontSize: "clamp(28px, 5vw, 44px)",
-                  fontWeight: 800,
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {l.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* CONTACT */}
-          <div style={{ textAlign: "center", opacity: 0.7, letterSpacing: "0.3em", marginBottom: 12 }}>
-            CONTACT US
-          </div>
-          <div
-            style={{
-              display: "grid",
-              placeItems: "center",
-              paddingBottom: "4vh",
-              borderBottom: "1px dotted rgba(255,255,255,0.25)",
-              marginBottom: "4vh",
-            }}
-          >
-            <a
-              href="mailto:hola@tudominio.com"
+        {/* Chips informativos */}
+        <section
+          style={{
+            width: "min(1400px, 92vw)",
+            margin: "3.2rem auto 2rem",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "10px",
+          }}
+        >
+          {["Filosofía", "Servicios", "Disponibilidad"].map((t) => (
+            <div
+              key={t}
               style={{
-                color: "#fff",
-                textDecoration: "underline",
-                fontSize: "clamp(22px, 4vw, 36px)",
-                fontWeight: 800,
-                letterSpacing: "0.04em",
+                padding: "10px 14px",
+                border: "1px solid rgba(255,255,255,0.18)",
+                borderRadius: 14,
+                background: "rgba(255,255,255,0.03)",
+                backdropFilter: "blur(6px)",
+                fontWeight: 600,
+                opacity: 0.95,
               }}
             >
-              HOLA@TUDOMINIO.COM
-            </a>
-            <div style={{ marginTop: 8, opacity: 0.7, letterSpacing: "0.3em", fontSize: 12 }}>
-              INQUIRIES
+              {t}
             </div>
-          </div>
+          ))}
+        </section>
 
-          {/* Sociales y legales */}
+        {/* Mini-galería */}
+        <section style={{ width: "min(1400px, 92vw)", margin: "0 auto" }}>
+          <MiniGallery items={gallery} />
+        </section>
+
+        {/* Highlights / Skills */}
+        <section
+          style={{
+            width: "min(1400px, 92vw)",
+            margin: "3.5rem auto 0",
+            display: "grid",
+            gap: "2rem",
+            gridTemplateColumns: "1fr 1fr",
+          }}
+        >
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto 1fr",
-              alignItems: "center",
-              gap: 12,
+              borderRadius: 18,
+              border: "1px solid rgba(255,255,255,0.15)",
+              padding: "clamp(18px, 3vw, 28px)",
+              background: "rgba(255,255,255,0.03)",
             }}
           >
-            {/* sociales */}
-            <div style={{ display: "flex", gap: 16 }}>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram" style={{ color: "#fff" }}>
-                {IconInstagram}
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" title="LinkedIn" style={{ color: "#fff" }}>
-                {IconLinkedIn}
-              </a>
-              <a href="https://x.com" target="_blank" rel="noreferrer" title="X" style={{ color: "#fff" }}>
-                {IconX}
-              </a>
+            <div style={{ opacity: 0.8, letterSpacing: "0.12em", fontSize: 12, marginBottom: 8 }}>
+              HIGHLIGHTS
             </div>
-
-            {/* copy */}
-            <div style={{ textAlign: "center", opacity: 0.75, fontSize: 12 }}>
-              ©{new Date().getFullYear()} · TU NOMBRE / PORTFOLIO
-            </div>
-
-            {/* legales */}
-            <div style={{ display: "flex", gap: 18, justifyContent: "flex-end", opacity: 0.85, fontSize: 12 }}>
-              <a href="/cookie" style={{ color: "#fff", textDecoration: "none" }}>COOKIE</a>
-              <a href="/privacy" style={{ color: "#fff", textDecoration: "none" }}>PRIVACY</a>
-              <a href="/terms" style={{ color: "#fff", textDecoration: "none" }}>TERMS</a>
-            </div>
+            <ul style={{ lineHeight: 1.7, margin: 0 }}>
+              <li>12 proyectos personales</li>
+              <li>Selecciones en fest. X, Y</li>
+              <li>Piezas interactivas con enfoque cinematográfico</li>
+            </ul>
           </div>
-        </footer>
+
+          <div
+            style={{
+              borderRadius: 18,
+              border: "1px solid rgba(255,255,255,0.15)",
+              padding: "clamp(18px, 3vw, 28px)",
+              background: "rgba(255,255,255,0.03)",
+            }}
+          >
+            <div style={{ opacity: 0.8, letterSpacing: "0.12em", fontSize: 12, marginBottom: 8 }}>
+              STACK / SKILLS
+            </div>
+            <ul style={{ lineHeight: 1.7, margin: 0 }}>
+              <li>TypeScript, React, Vite</li>
+              <li>Motion/Parallax, edición/color/sonido</li>
+              <li>Diseño de interacción y ritmo</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* CTA suave */}
+        <section
+          style={{
+            width: "min(1400px, 92vw)",
+            margin: "3.5rem auto 0",
+            border: "1px dotted rgba(255,255,255,0.2)",
+            borderRadius: 18,
+            padding: "2.2rem",
+            textAlign: "center",
+            background: "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+          }}
+        >
+          <h3 style={{ margin: 0, fontSize: "clamp(20px, 3.4vw, 34px)" }}>
+            Disponible para colaboraciones
+          </h3>
+          <div style={{ marginTop: 8, opacity: 0.8 }}>
+            Escríbeme a <a href="mailto:hola@tudominio.com" style={{ color: "#fff" }}>hola@tudominio.com</a>
+          </div>
+        </section>
       </div>
+
+      <Footer />
+      {/* Responsive simple */}
+      <style>{`
+        @media (max-width: 900px) {
+          section[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </main>
   );
 }
-
-/* --- Iconos SVG en línea --- */
-const IconInstagram = (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <rect x="2" y="2" width="20" height="20" rx="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
-  </svg>
-);
-const IconLinkedIn = (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.2 2.4-2.5 4.9-2.5C22.4 7.7 24 10 24 13.6V24h-5v-9.1c0-2.2-.04-5-3.1-5-3.1 0-3.5 2.4-3.5 4.8V24H8z" />
-  </svg>
-);
-const IconX = (
-  <svg width="20" height="20" viewBox="0 0 1200 1227" fill="currentColor">
-    <path d="M714 519L1165 0H1031L673 412 383 0H0l470 637L0 1227h134l379-432 307 432h383zM182 95h212l814 1085H996z"/>
-  </svg>
-);
