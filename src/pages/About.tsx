@@ -2,6 +2,8 @@ import MiniGallery from "../components/MiniGallery";
 import Footer from "../components/Footer";
 import FilmFrame from "../components/FilmFrame";
 import BigMarquee from "../components/BigMarquee";
+import ProfileCV from "../components/ProfileCV";
+import MovingQuote from "../components/MovingQuote";
 
 export default function About() {
   const gallery = [
@@ -16,7 +18,7 @@ export default function About() {
   return (
     <main style={{ background: "#0e0e0e", color: "#fff" }}>
       <div style={{ width: "100%", padding: "6vh 0" }}>
-        <BigMarquee text="Who am I?" speed={40} height={70} contrast={0.04}/>
+        <BigMarquee text="Who am I?" speed={40} height={70} contrast={0.04} />
 
         {/* HERO: retrato / texto */}
         <section
@@ -29,7 +31,6 @@ export default function About() {
           }}
         >
           <FilmFrame width="100%" height="min(70vh, 720px)" curveX={18} curveY={18} vignette={0.18}>
-            {/* usa tu foto (colócala en /public/images/about/me6.jpg) */}
             <img
               src="/images/about/me6.jpg"
               alt="Marcos Infante Viñuela"
@@ -63,9 +64,9 @@ export default function About() {
               </h1>
               <div style={{ opacity: 0.8, marginTop: 6 }}>Filmmaker · Developer · Story-driven</div>
               <p style={{ lineHeight: 1.6, opacity: 0.92 }}>
-                Me interesan las historias íntimas, el ritmo y el detalle. Combino dirección
-                y desarrollo web para crear experiencias con peso visual: transiciones, parallax
-                y texto que respira. Trabajo en proyectos personales y colaboraciones.
+                Me interesan las historias íntimas, el ritmo y el detalle. Combino dirección y
+                desarrollo web para crear experiencias con peso visual: transiciones, parallax y
+                texto que respira. Trabajo en proyectos personales y colaboraciones.
               </p>
               <ul style={{ lineHeight: 1.6, opacity: 0.9, paddingLeft: "1.1em", margin: 0 }}>
                 <li>12+ proyectos personales (corto, docu, piezas web interactivas)</li>
@@ -76,87 +77,18 @@ export default function About() {
           </FilmFrame>
         </section>
 
-        {/* Chips informativos */}
-        <section
-          style={{
-            width: "min(1400px, 92vw)",
-            margin: "3.2rem auto 2rem",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "10px",
-          }}
-        >
-          {["Filosofía", "Servicios", "Disponibilidad"].map((t) => (
-            <div
-              key={t}
-              style={{
-                padding: "10px 14px",
-                border: "1px solid rgba(255,255,255,0.18)",
-                borderRadius: 14,
-                background: "rgba(255,255,255,0.03)",
-                backdropFilter: "blur(6px)",
-                fontWeight: 600,
-                opacity: 0.95,
-              }}
-            >
-              {t}
-            </div>
-          ))}
-        </section>
+    {/* Frase de Filosofía Destacada */}
+      <MovingQuote quote="The only constant in life is change, never stop moving." fontSize="clamp(1.5rem, 8vw, 4.2rem)" speed={3} />
+
 
         {/* Mini-galería */}
         <section style={{ width: "min(1400px, 92vw)", margin: "0 auto" }}>
           <MiniGallery items={gallery} />
         </section>
 
-        {/* Highlights / Skills */}
-        <section
-          style={{
-            width: "min(1400px, 92vw)",
-            margin: "3.5rem auto 0",
-            display: "grid",
-            gap: "2rem",
-            gridTemplateColumns: "1fr 1fr",
-          }}
-        >
-          <div
-            style={{
-              borderRadius: 18,
-              border: "1px solid rgba(255,255,255,0.15)",
-              padding: "clamp(18px, 3vw, 28px)",
-              background: "rgba(255,255,255,0.03)",
-            }}
-          >
-            <div style={{ opacity: 0.8, letterSpacing: "0.12em", fontSize: 12, marginBottom: 8 }}>
-              HIGHLIGHTS
-            </div>
-            <ul style={{ lineHeight: 1.7, margin: 0 }}>
-              <li>12 proyectos personales</li>
-              <li>Selecciones en fest. X, Y</li>
-              <li>Piezas interactivas con enfoque cinematográfico</li>
-            </ul>
-          </div>
+      <ProfileCV />
 
-          <div
-            style={{
-              borderRadius: 18,
-              border: "1px solid rgba(255,255,255,0.15)",
-              padding: "clamp(18px, 3vw, 28px)",
-              background: "rgba(255,255,255,0.03)",
-            }}
-          >
-            <div style={{ opacity: 0.8, letterSpacing: "0.12em", fontSize: 12, marginBottom: 8 }}>
-              STACK / SKILLS
-            </div>
-            <ul style={{ lineHeight: 1.7, margin: 0 }}>
-              <li>TypeScript, React, Vite</li>
-              <li>Motion/Parallax, edición/color/sonido</li>
-              <li>Diseño de interacción y ritmo</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* CTA suave */}
+        {/* CTA suave (lo mantenemos) */}
         <section
           style={{
             width: "min(1400px, 92vw)",
@@ -168,20 +100,20 @@ export default function About() {
             background: "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
           }}
         >
-          <h3 style={{ margin: 0, fontSize: "clamp(20px, 3.4vw, 34px)" }}>
-            Disponible para colaboraciones
-          </h3>
+          <h3 style={{ margin: 0, fontSize: "clamp(20px, 3.4vw, 34px)" }}>Disponible para colaboraciones</h3>
           <div style={{ marginTop: 8, opacity: 0.8 }}>
-            Escríbeme a <a href="mailto:hola@tudominio.com" style={{ color: "#fff" }}>hola@tudominio.com</a>
+            Escríbeme a <a href="mailto:me@marcosinfante.com" style={{ color: "#fff" }}>me@marcosinfante.com</a>
           </div>
         </section>
       </div>
 
       <Footer />
+
       {/* Responsive simple */}
       <style>{`
         @media (max-width: 900px) {
           section[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+          div[style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>

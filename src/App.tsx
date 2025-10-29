@@ -8,6 +8,15 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import SiteLogo from "./components/SiteLogo";
 
+// --- IMPORTAR NUEVAS PÁGINAS ---
+// Estas páginas ya contienen sus propios componentes de reemplazo (Footer, BigMarquee, etc.)
+// para funcionar de forma independiente.
+import Cookie from "./pages/Cookie";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+
+
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -41,8 +50,68 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+              <Contact />
+            </motion.div>
+          } />
+
+        <Route path="/about" element={
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+              <About />
+            </motion.div>
+          } />
+
+        <Route
+          path="/cookie-policy"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+              <Cookie />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+              <Privacy />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/terms-of-use"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+              <Terms />
+            </motion.div>
+          }
+        />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
