@@ -12,9 +12,9 @@ type Props = {
 
 export default function Footer({
   socials = [
-    { name: "instagram", href: "https://instagram.com" },
+    { name: "instagram", href: "https://www.instagram.com/marcos__in/" },
     { name: "linkedin",  href: "https://www.linkedin.com/in/marcosinfantevin/"  },
-    { name: "mail",      href: "mailto:hola@tudominio.com" },
+    { name: "mail",      href: "mailto:contact@marcosinfante.com" },
     { name: "github",   href: "https://github.com/mainfavin?tab=repositories" },
   
   ],

@@ -73,7 +73,7 @@ function AnimatedRoutes() {
           } />
 
         <Route
-          path="/cookie-policy"
+          path="/cookie"
           element={
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -86,7 +86,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/privacy-policy"
+          path="/privacy"
           element={
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -99,7 +99,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/terms-of-use"
+          path="/terms"
           element={
             <motion.div
               initial={{ opacity: 0, y: 40 }}

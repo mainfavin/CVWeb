@@ -97,16 +97,16 @@ export default function Contact() {
                 
               
 
-              <FxLink href="mailto:hola@tudominio.com" style={{ fontSize: "clamp(22px, 3.2vw, 42px)", fontWeight: 800 }}>
-                hola@tudominio.com
+              <FxLink href="mailto:contact@marcosinfante.com" style={{ fontSize: "clamp(22px, 3.2vw, 42px)", fontWeight: 800 }}>
+                contact@marcosinfante.com
               </FxLink>
 
               <div style={{ marginTop: "1.2rem" }}>
                 <HoverPreviewLinks
                   items={[
-                    { label: "INSTAGRAM", href: "https://instagram.com/tuuser", preview: "/previews/instagram.jpg", external: true },
-                    { label: "LINKEDIN",  href: "https://linkedin.com/in/tu",   preview: "/previews/linkedin.jpg",  external: true },
-                    { label: "GITHUB",   href: "https://behance.net/tu",       preview: "/previews/github.jpg",   external: true },
+                    { label: "INSTAGRAM", href: "https://www.instagram.com/marcos__in/", preview: "/previews/instagram.jpg", external: true },
+                    { label: "LINKEDIN",  href: "https://www.linkedin.com/in/marcosinfantevin/" ,   preview: "/previews/linkedin.jpg",  external: true },
+                    { label: "GITHUB",   href:  "https://github.com/mainfavin?tab=repositories",       preview: "/previews/github.jpg",   external: true },
                   ]}
                 />
               </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // Definición de las props para hacer el componente configurable
 type MovingQuoteProps = {
