@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
-import Project from "./pages/Project";
 import FabMenu from "./components/FabMenu";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
@@ -16,6 +15,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import PageTransition from "./components/PageTransition";
 import Work from "./pages/Work";
+import ProjectPage from "./pages/ProjectPage";
 
 
 
@@ -25,7 +25,7 @@ function AnimatedRoutes() {
 
   const routeDefs = [
     { path: "/", element: <Home /> },
-    { path: "/project/:slug", element: <Project /> },
+    { path: "/project/:slug", element: <ProjectPage /> },
     { path: "/contact", element: <Contact /> },
     { path: "/about", element: <About /> },
     { path: "/cookie", element: <Cookie /> },
