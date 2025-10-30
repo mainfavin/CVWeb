@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import FilmFrame from "../components/FilmFrame";
 import Footer from "../components/Footer";
+import ProjectMenu from "../components/ProjectMenu";
 
 type SectionMeta = { id: string; title: string };
 
@@ -51,7 +52,9 @@ export default function ProjectPage() {
         </div>
 
         {/* HERO */}
-        <div style={{
+        <div
+        className="hero-grid" 
+        style={{
           display: "grid",
           gridTemplateColumns: "1.2fr .8fr",
           gap: "2rem",
@@ -97,22 +100,12 @@ export default function ProjectPage() {
             {!!p.links?.length && (
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 14 }}>
                 {p.links.map(l => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
+                  <a key={l.href} href={l.href} target="_blank" rel="noreferrer"
                     style={{
-                      padding: "8px 12px",
-                      borderRadius: 999,
-                      textDecoration: "none",
-                      color: "#fff",
-                      border: "1px solid rgba(255,255,255,.2)",
-                      background: "rgba(255,255,255,.06)",
-                      backdropFilter: "blur(6px)",
-                      fontSize: 14,
-                    }}
-                  >
+                      padding: "8px 12px", borderRadius: 999, textDecoration: "none",
+                      color: "#fff", border: "1px solid rgba(255,255,255,.2)",
+                      background: "rgba(255,255,255,.06)", backdropFilter: "blur(6px)", fontSize: 14,
+                    }}>
                     {l.label} →
                   </a>
                 ))}
@@ -120,7 +113,6 @@ export default function ProjectPage() {
             )}
           </div>
         </div>
-
         {/* Quick facts (opcional) */}
         {(p.goal || p.outcome) && (
           <div style={{
@@ -225,53 +217,14 @@ export default function ProjectPage() {
           {/* TOC (pegajoso) */}
           {!!toc.length && (
             <aside style={{ position: "relative" }}>
-              <div style={{
-                position: "sticky",
-                top: "18vh",
-                borderRadius: 14,
-                border: "1px solid rgba(255,255,255,.14)",
-                background: "rgba(255,255,255,.03)",
-                padding: 14,
-              }}>
-                <div style={{ opacity: .8, letterSpacing: ".12em", fontSize: 12, marginBottom: 8 }}>SECTIONS</div>
-                <nav style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                  {toc.map(item => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      style={{
-                        textDecoration: "none",
-                        color: "#fff",
-                        opacity: active === item.id ? 1 : .75,
-                        fontWeight: active === item.id ? 700 : 500,
-                        padding: "6px 8px",
-                        borderRadius: 8,
-                        background: active === item.id ? "rgba(255,255,255,.08)" : "transparent",
-                        transition: "background .18s ease, opacity .18s ease",
-                      }}
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                  {p.gallery?.length ? (
-                    <a
-                      href="#gallery"
-                      style={{
-                        textDecoration: "none",
-                        color: "#fff",
-                        opacity: active === "gallery" ? 1 : .75,
-                        fontWeight: active === "gallery" ? 700 : 500,
-                        padding: "6px 8px",
-                        borderRadius: 8,
-                        background: active === "gallery" ? "rgba(255,255,255,.08)" : "transparent",
-                        transition: "background .18s ease, opacity .18s ease",
-                      }}
-                    >
-                      Gallery
-                    </a>
-                  ) : null}
-                </nav>
-              </div>
+              <ProjectMenu
+                items={[
+                  ...toc.map(t => ({ id: t.id, label: t.title })),
+                  ...(p.gallery?.length ? [{ id: "gallery", label: "Gallery"}] : []),
+                ]}
+                activeId={active}
+                offsetTop={window.innerHeight * 0.18}
+              />
             </aside>
           )}
         </div>

@@ -18,4 +18,7 @@ export type Project = {
     body: string;
     media?: string[];
   }>;
+  stack?: string[];           // p.ej. ["TypeScript", "React", "Vite"]
+  longDescription?: string;   // texto largo para “Docs”
+  repo?: string;              // URL del repositorio
 };
