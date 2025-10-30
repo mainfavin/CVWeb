@@ -50,11 +50,11 @@ function Card({
               display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 12,
             }}
           >
-            <div>
-              <div style={{ fontSize: "clamp(18px, 2.4vw, 26px)", fontWeight: 800, letterSpacing: ".02em" }}>
+            <div style={{ flexShrink: 1, minWidth: 0 }}>
+              <div style={{ fontSize: "clamp(18px, 2.4vw, 40px)", fontWeight: 800, letterSpacing: ".02em" }}>
                 {title}
               </div>
-              {subtitle && <div style={{ opacity: .8, fontSize: 13, marginTop: 4 }}>{subtitle}</div>}
+              {subtitle && <div style={{ opacity: .8, fontSize: 13, marginTop: 4, marginRight: 10}}>{subtitle}</div>}
             </div>
             <div
               style={{
@@ -62,6 +62,7 @@ function Card({
                 border: "1px solid rgba(255,255,255,.22)",
                 padding: "6px 10px",
                 borderRadius: 999, fontSize: 12, backdropFilter: "blur(6px)",
+                flexShrink: 0,
               }}
             >
               View →
@@ -96,7 +97,7 @@ export default function Work() {
             opacity: 0.9,
           }}
         >
-          SELECTED PROJECTS
+          MARCOS' PROJECTS
         </div>
       </div>
 
