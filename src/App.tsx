@@ -1,25 +1,61 @@
-import SliderVertical from "./components/SliderVertical";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Home from "./pages/Home";
 import FabMenu from "./components/FabMenu";
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import SiteLogo from "./components/SiteLogo";
 
-export default function App() {
-  const images = [
-    "/images/image1.jpg",
-    "/images/image2.jpg",
-    "/images/image3.jpg",
-    "/images/image4.jpg",
+// --- IMPORTAR NUEVAS PÁGINAS ---
+// Estas páginas ya contienen sus propios componentes de reemplazo (Footer, BigMarquee, etc.)
+// para funcionar de forma independiente.
+import Cookie from "./pages/Cookie";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import PageTransition from "./components/PageTransition";
+import Work from "./pages/Work";
+import ProjectPage from "./pages/ProjectPage";
+
+
+
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  const routeDefs = [
+    { path: "/", element: <Home /> },
+    { path: "/project/:slug", element: <ProjectPage /> },
+    { path: "/contact", element: <Contact /> },
+    { path: "/about", element: <About /> },
+    { path: "/cookie", element: <Cookie /> },
+    { path: "/privacy", element: <Privacy /> },
+    { path: "/terms", element: <Terms /> },
+    { path: "/work", element: <Work /> }, 
   ];
 
   return (
-    <main style={{ background: "#0e0e0e", color: "#fff", height: "100vh", overflow: "hidden" }}>
-      <FabMenu shape="squircle" />
-      <SliderVertical
-        images={images}
-        wheelMult={1.0}
-        dragMult={1.2}
-        friction={0.95}
-        parallax={0.42}
-        baseDrift={0.08}
-      />
-    </main>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {routeDefs.map(r => (
+          <Route
+            key={r.path}
+            path={r.path}
+            element={<PageTransition>{r.element}</PageTransition>}
+          />
+        ))}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <SiteLogo />
+      <FabMenu />
+      <AnimatedRoutes />
+    </BrowserRouter>
   );
 }

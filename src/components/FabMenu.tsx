@@ -1,85 +1,190 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import SocialBubbles from "./SocialBubbles";
 
-type Shape = "pill" | "squircle";
-
-export default function FabMenu({
-  shape = "squircle",
-}: { shape?: Shape }) {
+export default function FabMenu() {
   const [open, setOpen] = useState(false);
+  const boxRef = useRef<HTMLDivElement>(null);
 
-  const baseBtn: React.CSSProperties = {
-    width: 56,
-    height: 48,
-    border: "1px solid rgba(255,255,255,0.14)",
-    background: "rgba(15,15,15,0.65)",
-    backdropFilter: "blur(8px)",
-    color: "#fff",
-    cursor: "pointer",
-    boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
-  };
+  // cerrar al clicar fuera / ESC
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (!boxRef.current) return;
+      if (!boxRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("keydown", onEsc);
+    return () => {
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("keydown", onEsc);
+    };
+  }, []);
 
-  const shapes: Record<Shape, React.CSSProperties> = {
-    pill: { borderRadius: 9999 },
-    squircle: { borderRadius: "28px 22px 26px 24px" },
-  };
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/work", label: "Work" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
     <div
       style={{
         position: "fixed",
-        top: 18,
-        left: "50%",
-        transform: "translateX(-50%)",
+        top: "clamp(12px, 2vh, 20px)",
+        right: "clamp(12px, 2vw, 20px)",
         zIndex: 100,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 10,
       }}
     >
-      <button
-        onClick={() => setOpen(v => !v)}
-        aria-label="Toggle menu"
-        style={{ ...baseBtn, ...shapes[shape] }}
-      >
-        ☰
-      </button>
-
-      {open && (
-        <div
+      <div ref={boxRef} style={{ position: "relative", width: 60, height: 60 }}>
+        {/* Botón */}
+        <button
+          aria-expanded={open}
+          aria-haspopup="menu"
+          onClick={() => setOpen(v => !v)}
           style={{
-            width: 260,
-            border: "1px solid rgba(255,255,255,0.12)",
-            background: "rgba(10,10,10,0.92)",
-            color: "#fff",
-            padding: 12,
-            borderRadius: 16,
-            boxShadow: "0 12px 30px rgba(0,0,0,0.45)",
-            backdropFilter: "blur(10px)",
+            position: "absolute", inset: 0,
+            cursor: "pointer",
+            background: "#fff",
+            border: "1.5px solid rgba(0,0,0,0.12)",
+            borderRadius: "50%",
+            boxShadow: open ? "0 0 16px rgba(0,0,0,0.25)" : "0 6px 20px rgba(0,0,0,0.20)",
+            transition: "box-shadow .25s ease, transform .25s ease",
+            display: "flex", alignItems: "center", justifyContent: "center",
           }}
         >
-          <MenuLink href="#home">Home</MenuLink>
-          <MenuLink href="#projects">Projects</MenuLink>
-          <MenuLink href="#about">About</MenuLink>
-          <MenuLink href="#contact">Contact</MenuLink>
-        </div>
-      )}
-    </div>
-  );
-}
+          {/* hamburguesa → X */}
+          <span aria-hidden style={{ position: "relative", width: 26, height: 18, display: "block", transform: "translateX(1px)" }}>
+            <span style={{
+              position: "absolute", left: 0, right: 0,
+              top: open ? "7.5px" : "0px",
+              height: 4, borderRadius: 2, background: "#000",
+              transform: open ? "rotate(45deg)" : "none",
+              transition: "transform .28s ease, top .28s ease",
+            }} />
+            <span style={{
+              position: "absolute", left: 3, right: 3, top: 7.5,
+              height: 3, borderRadius: 2,
+              background: open ? "transparent" : "#7b7b7b",
+              transition: "opacity .2s ease",
+            }} />
+            <span style={{
+              position: "absolute", left: 0, right: 0,
+              bottom: open ? "7.5px" : "0px",
+              height: 4, borderRadius: 2, background: "#000",
+              transform: open ? "rotate(-45deg)" : "none",
+              transition: "transform .28s ease, bottom .28s ease",
+            }} />
+          </span>
+        </button>
 
-function MenuLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return (
-    <a
-      {...props}
-      style={{
-        display: "block",
-        padding: "10px 8px",
-        borderRadius: 10,
-        textDecoration: "none",
-        color: "#fff",
-        opacity: 0.92,
-      }}
-    />
+        {/* Menú con dos columnas */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                right: 0,
+                top: "calc(100% + 10px)",
+                display: "grid",
+                gridTemplateColumns: "auto auto",
+                alignItems: "flex-start",
+                gap: 10,
+              }}
+            >
+              {/* columna izquierda: social bubbles */}
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  gap: 10,
+                  marginTop: 6,
+                }}
+              >
+                <SocialBubbles
+                  fixed={false}
+                  direction="column"
+                  gap={10}
+                  bubbleSize={36}
+                  iconSize={18}
+                  
+                  brandHover
+                 
+                />
+              </motion.div>
+
+              {/* columna derecha: enlaces principales */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25, ease: "easeOut", staggerChildren: 0.05 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  gap: 10,
+                }}
+              >
+                {links.map((item, i) => (
+                  <motion.div
+                    key={item.to}
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.9 }}
+                    transition={{ duration: 0.2, ease: "easeOut", delay: i * 0.05 }}
+                    style={{ position: "relative", zIndex: 1 }}
+                  >
+                   <Link
+  to={item.to}
+  onClick={() => setOpen(false)}
+  style={{
+    display: "block",
+    padding: "10px 18px",
+    textDecoration: "none",
+    background: "#fff",
+    color: "#000",
+    borderRadius: 9999,
+    boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
+    fontSize: 14,
+    fontWeight: 500,
+    transition: "transform .18s ease, background .18s ease, color .18s ease",
+    whiteSpace: "nowrap",
+  }}
+  onMouseEnter={(e) => {
+    const el = e.currentTarget as HTMLAnchorElement;
+    el.style.transform = "translateY(-2px)";
+    el.style.background = "#000";
+    el.style.color = "#fff";
+  }}
+  onMouseLeave={(e) => {
+    const el = e.currentTarget as HTMLAnchorElement;
+    el.style.transform = "translateY(0)";
+    el.style.background = "#fff";
+    el.style.color = "#000";
+  }}
+>
+  {item.label}
+</Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
   );
 }
