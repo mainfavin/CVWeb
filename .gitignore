@@ -60,5 +60,10 @@ yarn.lock
 build/
 lib/
 out/
+# Git LFS metadata
+*.psd
+*.zip
+*.rar
+*.7z
 
-public/images/
+
