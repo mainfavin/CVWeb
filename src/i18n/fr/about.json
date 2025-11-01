@@ -1,22 +1,22 @@
 {
   "about": {
-  "hero": {
-    "marquee": "Who am I?",
-    "alt": "Portrait of Marcos Infante Viñuela",
-    "section": "ABOUT",
-    "name": "Marcos Infante Viñuela",
-    "subtitle": "Computer Engineer · Front-end Developer · Data Engineer",
-    "description": "I’m a computer engineer who enjoys building expressive web experiences and intelligent systems. I spend my free time climbing and exploring nature — the same curiosity and balance I bring to my work. Technically, I focus on creating data-driven applications with React, TypeScript, and Python, integrating AI to automate and enhance real-world workflows.",
+    "hero": {
+      "marquee": "Qui suis-je ?",
+      "alt": "Portrait de Marcos Infante Viñuela",
+      "section": "À PROPOS",
+      "name": "Marcos Infante Viñuela",
+      "subtitle": "Ingénieur informatique · Développeur Front-end · Ingénieur en données",
+      "description": "Je suis ingénieur en informatique et je prends plaisir à créer des expériences web expressives et des systèmes intelligents. Pendant mon temps libre, je pratique l’escalade et j’aime la nature — la même curiosité et le même équilibre que j’apporte à mon travail. Sur le plan technique, je me concentre sur le développement d’applications basées sur les données avec React, TypeScript et Python, en intégrant l’IA pour automatiser et améliorer les flux de travail réels.",
       "list1": "Python, TypeScript, React, FastAPI, Docker, Airflow, LangChain, OpenAI API",
-      "list2": "Focused on AI integration, data automation, and motion-driven user experiences",
-      "list3": "Graduated in Computer Engineering ·  Based in the Netherlands · Open for collaborations"
+      "list2": "Spécialisé dans l’intégration de l’IA, l’automatisation des données et les expériences utilisateur dynamiques",
+      "list3": "Diplômé en ingénierie informatique · Basé aux Pays-Bas · Ouvert aux collaborations"
     },
     "quote": {
-      "text": "The only constant in life is change, never stop moving."
+      "text": "La seule constante dans la vie, c’est le changement — ne cesse jamais d’évoluer."
     },
     "cta": {
-      "title": "Available for collaborations",
-      "text": "Write to me at",
+      "title": "Disponible pour des collaborations",
+      "text": "Écris-moi à",
       "email": "me@marcosinfante.com"
     }
   }

@@ -2,19 +2,19 @@
   "contact": {
     "brand": "MARCOS INFANTE",
     "nav": {
-      "about": "ABOUT",
-      "work": "WORK",
+      "about": "OVER MIJ",
+      "work": "PROJECTEN",
       "contact": "CONTACT"
     },
     "hero": {
-      "title": "Let’s build thoughtful, cinematic web experiences.",
-      "paragraph": "Available for portfolio pieces, motion, brand sites and editorial personal pages. I can also help you migrate your domain from Squarespace to a modern React/Vite setup."
+      "title": "Laten we samen betekenisvolle digitale ervaringen creëren.",
+      "paragraph": "Of het nu gaat om een filmisch portfolio, een dynamische productpagina of een AI-aangedreven data-interface, ik ontwerp schone, expressieve en goed presterende webervaringen. Beschikbaar voor freelance opdrachten en creatieve samenwerkingen in heel Europa."
     },
     "links": {
-      "services": "See services",
-      "latestWork": "Latest work"
+      "services": "Bekijk diensten",
+      "latestWork": "Laatste projecten"
     },
-    "location": "Madrid, Spain · GMT+1",
+    "location": "Amsterdam, Nederland · GMT+1",
     "phone": {
       "es": "ES +34 644 98 33 44",
       "nl": "NL +31 06 20127319"
@@ -26,9 +26,10 @@
       "github": "GITHUB"
     },
     "billing": {
-      "title": "Billing / Studio",
+      "title": "Studio / Facturatiegegevens",
       "address1": "Kantershof 402, 1104GW · Amsterdam",
-      "address2": "The Netherlands"
+      "address2": "Nederland",
+      "note": "Freelance digitaal studio geregistreerd in de EU. Projecten beschikbaar op locatie of op afstand."
     },
     "signature": "MARCOS INFANTE VIÑUELA"
   }

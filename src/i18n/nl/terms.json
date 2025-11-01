@@ -1,22 +1,22 @@
 {
-      "terms": {
-    "title": "Terms of Use",
-    "subtitle": "Please read these terms carefully before using the website.",
+  "terms": {
+    "title": "Gebruiksvoorwaarden",
+    "subtitle": "Lees deze voorwaarden zorgvuldig voordat u de website gebruikt.",
     "section1": {
-      "title": "1. Content ownership",
-      "body": "All text, photography, and personal content featured on this site belong to Marcos Infante. You may not reproduce or redistribute this material without permission."
+      "title": "1. Eigendom van de inhoud",
+      "body": "Alle teksten, foto’s en persoonlijke inhoud op deze site zijn eigendom van Marcos Infante. Reproductie of herdistributie zonder toestemming is verboden."
     },
     "section2": {
-      "title": "2. Source code and use",
-      "body": "The source code for this website is publicly available. You are free to explore, reuse, or adapt it for your own projects — as long as you do not use or impersonate my personal identity, data, or likeness."
+      "title": "2. Broncode en gebruik",
+      "body": "De broncode van deze site is openbaar. U mag deze bekijken, hergebruiken of aanpassen voor uw eigen projecten — zolang u mijn identiteit, gegevens of persoonlijke afbeelding niet imiteert."
     },
     "section3": {
-      "title": "3. Liability",
-      "body": "This website is provided “as is.” I make no guarantees about availability or accuracy and am not responsible for any damages or losses resulting from its use."
+      "title": "3. Aansprakelijkheid",
+      "body": "Deze website wordt geleverd 'zoals hij is'. Er wordt geen garantie gegeven voor beschikbaarheid of nauwkeurigheid. Ik ben niet aansprakelijk voor schade of verlies als gevolg van het gebruik ervan."
     },
     "section4": {
-      "title": "4. Changes",
-      "body": "These terms may be updated occasionally. Continued use of the site implies acceptance of the latest version."
+      "title": "4. Wijzigingen",
+      "body": "Deze voorwaarden kunnen periodiek worden bijgewerkt. Voortgezet gebruik van de site impliceert acceptatie van de nieuwste versie."
     }
   }
 }

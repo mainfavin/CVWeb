@@ -1,18 +1,18 @@
 {
   "privacy": {
-    "title": "Privacy Policy",
-    "subtitle": "I respect your privacy. This website does not collect personal data or analytics information.",
+    "title": "Politique de Confidentialité",
+    "subtitle": "Je respecte votre vie privée. Ce site ne collecte aucune donnée personnelle ni information analytique.",
     "section1": {
-      "title": "1. Data collection",
-      "body": "No personal data, tracking information, or usage statistics are stored, processed, or analyzed. This site is a static portfolio with no login or analytics tools."
+      "title": "1. Collecte de données",
+      "body": "Aucune donnée personnelle, statistique ou de navigation n’est collectée ou analysée. Ce site est un portfolio statique sans connexion ni outils d’analyse."
     },
     "section2": {
-      "title": "2. External links",
-      "body": "This site may link to external pages (LinkedIn, GitHub, etc.). Those services may process data according to their own privacy policies."
+      "title": "2. Liens externes",
+      "body": "Ce site peut contenir des liens vers des pages externes (LinkedIn, GitHub, etc.). Ces services peuvent traiter des données selon leurs propres politiques de confidentialité."
     },
     "section3": {
       "title": "3. Contact",
-      "body": "If you reach me via email, your message and email address will only be used to respond to your inquiry — never stored, shared, or reused. Feel free to contact me with any questions about this policy."
+      "body": "Si vous me contactez par e-mail, votre message et votre adresse ne seront utilisés que pour vous répondre — jamais partagés ni stockés à long terme. N’hésitez pas à m’écrire pour toute question concernant cette politique."
     },
     "contactEmail": "contact@marcosinfante.com"
   }

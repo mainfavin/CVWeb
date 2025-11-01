@@ -1,22 +1,22 @@
 {
-      "terms": {
-    "title": "Terms of Use",
-    "subtitle": "Please read these terms carefully before using the website.",
+  "terms": {
+    "title": "Conditions d’Utilisation",
+    "subtitle": "Veuillez lire attentivement ces conditions avant d’utiliser le site.",
     "section1": {
-      "title": "1. Content ownership",
-      "body": "All text, photography, and personal content featured on this site belong to Marcos Infante. You may not reproduce or redistribute this material without permission."
+      "title": "1. Propriété du contenu",
+      "body": "Tous les textes, photographies et contenus personnels de ce site appartiennent à Marcos Infante. Toute reproduction ou redistribution est interdite sans autorisation préalable."
     },
     "section2": {
-      "title": "2. Source code and use",
-      "body": "The source code for this website is publicly available. You are free to explore, reuse, or adapt it for your own projects — as long as you do not use or impersonate my personal identity, data, or likeness."
+      "title": "2. Code source et utilisation",
+      "body": "Le code source de ce site est public. Vous pouvez l’explorer, le réutiliser ou l’adapter pour vos propres projets, à condition de ne pas usurper mon identité, mes données ou mon image personnelle."
     },
     "section3": {
-      "title": "3. Liability",
-      "body": "This website is provided “as is.” I make no guarantees about availability or accuracy and am not responsible for any damages or losses resulting from its use."
+      "title": "3. Responsabilité",
+      "body": "Ce site est fourni « tel quel ». Aucune garantie de disponibilité ou d’exactitude n’est donnée, et je ne suis pas responsable de dommages résultant de son utilisation."
     },
     "section4": {
-      "title": "4. Changes",
-      "body": "These terms may be updated occasionally. Continued use of the site implies acceptance of the latest version."
+      "title": "4. Modifications",
+      "body": "Ces conditions peuvent être mises à jour périodiquement. L’utilisation continue du site implique l’acceptation de la version la plus récente."
     }
   }
 }

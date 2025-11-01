@@ -1,22 +1,22 @@
 {
   "about": {
-  "hero": {
-    "marquee": "Who am I?",
-    "alt": "Portrait of Marcos Infante Viñuela",
-    "section": "ABOUT",
-    "name": "Marcos Infante Viñuela",
-    "subtitle": "Computer Engineer · Front-end Developer · Data Engineer",
-    "description": "I’m a computer engineer who enjoys building expressive web experiences and intelligent systems. I spend my free time climbing and exploring nature — the same curiosity and balance I bring to my work. Technically, I focus on creating data-driven applications with React, TypeScript, and Python, integrating AI to automate and enhance real-world workflows.",
+    "hero": {
+      "marquee": "¿Quién soy?",
+      "alt": "Retrato de Marcos Infante Viñuela",
+      "section": "SOBRE MÍ",
+      "name": "Marcos Infante Viñuela",
+      "subtitle": "Ingeniero Informático · Desarrollador Front-end · Ingeniero de Datos",
+      "description": "Soy ingeniero informático y disfruto creando experiencias web expresivas y sistemas inteligentes. En mi tiempo libre practico escalada y disfruto de la naturaleza, la misma curiosidad y equilibrio que aplico a mi trabajo. A nivel técnico, me centro en desarrollar aplicaciones basadas en datos con React, TypeScript y Python, integrando IA para automatizar y mejorar flujos de trabajo reales.",
       "list1": "Python, TypeScript, React, FastAPI, Docker, Airflow, LangChain, OpenAI API",
-      "list2": "Focused on AI integration, data automation, and motion-driven user experiences",
-      "list3": "Graduated in Computer Engineering ·  Based in the Netherlands · Open for collaborations"
+      "list2": "Enfocado en integración de IA, automatización de datos y experiencias de usuario con movimiento",
+      "list3": "Graduado en Ingeniería Informática · Residente en los Países Bajos · Abierto a colaboraciones"
     },
     "quote": {
-      "text": "The only constant in life is change, never stop moving."
+      "text": "La única constante en la vida es el cambio; nunca dejes de moverte."
     },
     "cta": {
-      "title": "Available for collaborations",
-      "text": "Write to me at",
+      "title": "Disponible para colaboraciones",
+      "text": "Escríbeme a",
       "email": "me@marcosinfante.com"
     }
   }

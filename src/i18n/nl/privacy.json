@@ -1,18 +1,18 @@
 {
   "privacy": {
-    "title": "Privacy Policy",
-    "subtitle": "I respect your privacy. This website does not collect personal data or analytics information.",
+    "title": "Privacybeleid",
+    "subtitle": "Ik respecteer uw privacy. Deze website verzamelt geen persoonlijke of analytische gegevens.",
     "section1": {
-      "title": "1. Data collection",
-      "body": "No personal data, tracking information, or usage statistics are stored, processed, or analyzed. This site is a static portfolio with no login or analytics tools."
+      "title": "1. Gegevensverzameling",
+      "body": "Er worden geen persoonlijke gegevens, gebruikersstatistieken of navigatiegegevens verzameld of geanalyseerd. Deze website is een statisch portfolio zonder login of analytische tools."
     },
     "section2": {
-      "title": "2. External links",
-      "body": "This site may link to external pages (LinkedIn, GitHub, etc.). Those services may process data according to their own privacy policies."
+      "title": "2. Externe links",
+      "body": "Deze website kan verwijzen naar externe pagina’s (zoals LinkedIn of GitHub). Deze diensten kunnen gegevens verwerken volgens hun eigen privacybeleid."
     },
     "section3": {
       "title": "3. Contact",
-      "body": "If you reach me via email, your message and email address will only be used to respond to your inquiry — never stored, shared, or reused. Feel free to contact me with any questions about this policy."
+      "body": "Als u contact met mij opneemt via e-mail, wordt uw bericht alleen gebruikt om te antwoorden — het wordt niet gedeeld of bewaard. Neem gerust contact op als u vragen hebt over dit beleid."
     },
     "contactEmail": "contact@marcosinfante.com"
   }

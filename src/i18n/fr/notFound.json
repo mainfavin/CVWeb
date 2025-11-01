@@ -1,9 +1,7 @@
 {
-    "notFound": {
-        "title": "404 - Page Not Found",
-        "subtitle": "Sorry, the page you are looking for does not exist.",
-        "cta": "Go back to Home"
-    }
-
-
+  "notFound": {
+    "title": "404 - Page non trouvée",
+    "subtitle": "Désolé, la page que vous recherchez n’existe pas.",
+    "cta": "Retour à l’accueil"
+  }
 }

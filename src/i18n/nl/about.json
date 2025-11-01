@@ -1,22 +1,22 @@
 {
   "about": {
-  "hero": {
-    "marquee": "Who am I?",
-    "alt": "Portrait of Marcos Infante Viñuela",
-    "section": "ABOUT",
-    "name": "Marcos Infante Viñuela",
-    "subtitle": "Computer Engineer · Front-end Developer · Data Engineer",
-    "description": "I’m a computer engineer who enjoys building expressive web experiences and intelligent systems. I spend my free time climbing and exploring nature — the same curiosity and balance I bring to my work. Technically, I focus on creating data-driven applications with React, TypeScript, and Python, integrating AI to automate and enhance real-world workflows.",
+    "hero": {
+      "marquee": "Wie ben ik?",
+      "alt": "Portret van Marcos Infante Viñuela",
+      "section": "OVER MIJ",
+      "name": "Marcos Infante Viñuela",
+      "subtitle": "Software Engineer · Front-end Ontwikkelaar · Data Engineer",
+      "description": "Ik ben een computer engineer met een passie voor het creëren van expressieve webervaringen en intelligente datasystemen. In mijn vrije tijd klim ik graag en geniet ik van de natuur — dezelfde nieuwsgierigheid en balans die ik in mijn werk toepas. Technisch gezien richt ik me op datagedreven toepassingen met React, TypeScript en Python, waarbij ik AI integreer om werkstromen te automatiseren en te verbeteren.",
       "list1": "Python, TypeScript, React, FastAPI, Docker, Airflow, LangChain, OpenAI API",
-      "list2": "Focused on AI integration, data automation, and motion-driven user experiences",
-      "list3": "Graduated in Computer Engineering ·  Based in the Netherlands · Open for collaborations"
+      "list2": "Gespecialiseerd in AI-integratie, data-automatisering en interactieve gebruikerservaringen",
+      "list3": "Afgestudeerd in Computer Engineering · Gevestigd in Nederland · Open voor samenwerkingen"
     },
     "quote": {
-      "text": "The only constant in life is change, never stop moving."
+      "text": "De enige constante in het leven is verandering — blijf altijd in beweging."
     },
     "cta": {
-      "title": "Available for collaborations",
-      "text": "Write to me at",
+      "title": "Beschikbaar voor samenwerkingen",
+      "text": "Schrijf me op",
       "email": "me@marcosinfante.com"
     }
   }

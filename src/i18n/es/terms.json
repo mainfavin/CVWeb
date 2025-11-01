@@ -1,22 +1,22 @@
 {
-      "terms": {
-    "title": "Terms of Use",
-    "subtitle": "Please read these terms carefully before using the website.",
+  "terms": {
+    "title": "Términos de Uso",
+    "subtitle": "Por favor, lee estos términos cuidadosamente antes de usar el sitio web.",
     "section1": {
-      "title": "1. Content ownership",
-      "body": "All text, photography, and personal content featured on this site belong to Marcos Infante. You may not reproduce or redistribute this material without permission."
+      "title": "1. Propiedad del contenido",
+      "body": "Todo el texto, fotografía y contenido personal de este sitio pertenecen a Marcos Infante. No está permitido reproducir ni redistribuir este material sin autorización."
     },
     "section2": {
-      "title": "2. Source code and use",
-      "body": "The source code for this website is publicly available. You are free to explore, reuse, or adapt it for your own projects — as long as you do not use or impersonate my personal identity, data, or likeness."
+      "title": "2. Código fuente y uso",
+      "body": "El código fuente de este sitio web es público. Puedes explorarlo, reutilizarlo o adaptarlo para tus propios proyectos — siempre que no uses ni suplantes mi identidad, datos o imagen personal."
     },
     "section3": {
-      "title": "3. Liability",
-      "body": "This website is provided “as is.” I make no guarantees about availability or accuracy and am not responsible for any damages or losses resulting from its use."
+      "title": "3. Responsabilidad",
+      "body": "Este sitio web se proporciona 'tal cual'. No garantizo disponibilidad ni precisión, y no soy responsable de daños o pérdidas derivados de su uso."
     },
     "section4": {
-      "title": "4. Changes",
-      "body": "These terms may be updated occasionally. Continued use of the site implies acceptance of the latest version."
+      "title": "4. Cambios",
+      "body": "Estos términos pueden actualizarse ocasionalmente. El uso continuado del sitio implica la aceptación de la versión más reciente."
     }
   }
 }

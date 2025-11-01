@@ -1,27 +1,27 @@
 {
   "hero": {
-    "eyebrow": "Welcome",
-    "title": "Marcos Infante — Personal Portfolio",
-    "subtitle1": "Computer Engineer specialized in Front-end Development, Data Engineering, and AI integration.",
-    "subtitle2": "Explore my work and learn more about me."
+    "eyebrow": "Welkom",
+    "title": "Marcos Infante — Persoonlijk Portfolio",
+    "subtitle1": "Computer Engineer gespecialiseerd in Front-end ontwikkeling, Data Engineering en AI-integratie.",
+    "subtitle2": "Ontdek mijn projecten en leer meer over mij."
   },
   "cards": {
     "work": {
-      "aria": "View Work",
-      "badge": "WORK",
+      "aria": "Bekijk projecten",
+      "badge": "PROJECTEN",
       "mini": "PORTFOLIO",
-      "title": "Selected Work",
-      "lead": "My personal projects and things I've developed.",
-      "cta": "Enter Work →"
+      "title": "Geselecteerde Projecten",
+      "lead": "Mijn persoonlijke projecten en gerealiseerde ontwikkelingen.",
+      "cta": "Ga naar Projecten →"
     },
     "about": {
-      "aria": "About Me",
-      "badge": "ABOUT",
+      "aria": "Over mij",
+      "badge": "OVER MIJ",
       "mini": "PORTFOLIO",
-      "title": "About Me",
-      "lead": "Who I am, process, principles and CV.",
-      "cta": "Read About →"
+      "title": "Over Mij",
+      "lead": "Wie ik ben, mijn proces, principes en CV.",
+      "cta": "Lees meer →"
     }
   },
-  "autoRedirect": "Auto-redirecting to {{seconds}}s…"
+  "autoRedirect": "Automatische doorverwijzing in {{seconds}}s…"
 }

@@ -34,6 +34,7 @@ export default function Home() {
           {/* WORK */}
           <Link
             to="/work"
+            data-card
             aria-label={t("cards.work.aria")}
             style={{ ...card, ...workCard }}
             onMouseEnter={() => warm("/Work")}
@@ -54,6 +55,7 @@ export default function Home() {
           {/* ABOUT */}
           <Link
             to="/about"
+            data-card
             aria-label={t("cards.about.aria")}
             style={{ ...card, ...aboutCard }}
             onMouseEnter={() => warm("/About")}
@@ -275,16 +277,17 @@ const media = `
     padding-top: 4vh !important;
     justify-content: flex-start !important;
   }
-  section[style*="grid-template-columns"] {
+  /* SOLO la grid de Home */
+  #home-cards-grid {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
   }
-  a[style*="height:"] {
+  /* SOLO las tarjetas de Home */
+  #home-cards-grid a[data-card] {
     height: min(42svh, 440px) !important;
   }
 }
 `;
-
 if (!document.getElementById("home-inline-styles")) {
   const s = document.createElement("style");
   s.id = "home-inline-styles";
