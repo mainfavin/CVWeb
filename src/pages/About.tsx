@@ -4,8 +4,12 @@ import FilmFrame from "../components/FilmFrame";
 import BigMarquee from "../components/BigMarquee";
 import ProfileCV from "../components/ProfileCV";
 import MovingQuote from "../components/MovingQuote";
+import { useTranslation } from "react-i18next";
+import { FxText } from "../components/HoverFx";
 
 export default function About() {
+  const { t } = useTranslation("about");
+
   const gallery = [
     { src: "/images/about/gallery1.jpg", alt: "shot 1" },
     { src: "/images/about/gallery2.jpg", alt: "shot 2" },
@@ -18,9 +22,14 @@ export default function About() {
   return (
     <main style={{ background: "#0e0e0e", color: "#fff" }}>
       <div style={{ width: "100%", padding: "6vh 0" }}>
-        <BigMarquee text="Who am I?" speed={40} height={70} contrast={0.04} />
+        <BigMarquee
+          text={t("about.hero.marquee")}
+          speed={40}
+          height={70}
+          contrast={0.04}
+        />
 
-        {/* HERO: retrato / texto */}
+        {/* HERO */}
         <section
           style={{
             width: "min(1400px, 92vw)",
@@ -33,7 +42,7 @@ export default function About() {
           <FilmFrame width="100%" height="min(70vh, 720px)" curveX={18} curveY={18} vignette={0.18}>
             <img
               src="/images/about/me6.jpg"
-              alt="Marcos Infante Viñuela"
+              alt={t("about.hero.alt")}
               style={{
                 position: "absolute",
                 inset: 0,
@@ -58,37 +67,43 @@ export default function About() {
                 gap: "1rem",
               }}
             >
-              <div style={{ opacity: 0.8, letterSpacing: "0.18em", fontSize: 12 }}>ABOUT</div>
+              <div style={{ opacity: 0.8, letterSpacing: "0.18em", fontSize: 12 }}>
+                <FxText>{t("about.hero.section")}</FxText>
+              </div>
+
               <h1 style={{ margin: 0, lineHeight: 1.05, fontSize: "clamp(32px, 5.2vw, 64px)" }}>
-                Marcos<br />Infante Viñuela
+                <FxText>{t("about.hero.name")}</FxText>
               </h1>
-              <div style={{ opacity: 0.8, marginTop: 6 }}>Filmmaker · Developer · Story-driven</div>
+
+              <div style={{ opacity: 0.8, marginTop: 6 }}>
+                <FxText>{t("about.hero.subtitle")}</FxText>
+              </div>
+
               <p style={{ lineHeight: 1.6, opacity: 0.92 }}>
-                Me interesan las historias íntimas, el ritmo y el detalle. Combino dirección y
-                desarrollo web para crear experiencias con peso visual: transiciones, parallax y
-                texto que respira. Trabajo en proyectos personales y colaboraciones.
+                <FxText>{t("about.hero.description")}</FxText>
               </p>
+
               <ul style={{ lineHeight: 1.6, opacity: 0.9, paddingLeft: "1.1em", margin: 0 }}>
-                <li>12+ proyectos personales (corto, docu, piezas web interactivas)</li>
-                <li>TypeScript/React + motion; edición/color/sonido</li>
-                <li>Abierto a freelance / colab</li>
+                <li><FxText>{t("about.hero.list1")}</FxText></li>
+                <li><FxText>{t("about.hero.list2")}</FxText></li>
+                <li><FxText>{t("about.hero.list3")}</FxText></li>
               </ul>
             </div>
           </FilmFrame>
         </section>
 
-        {/* Frase de Filosofía Destacada */}
-        <MovingQuote quote="The only constant in life is change, never stop moving." fontSize="clamp(1.5rem, 8vw, 4.2rem)" speed={3} />
+        <MovingQuote
+          quote={t("about.quote.text")}
+          fontSize="clamp(1.5rem, 8vw, 4.2rem)"
+          speed={3}
+        />
 
-
-        {/* Mini-galería */}
         <section style={{ width: "min(1400px, 92vw)", margin: "0 auto" }}>
           <MiniGallery items={gallery} />
         </section>
 
         <ProfileCV />
 
-        {/* CTA suave (lo mantenemos) */}
         <section
           style={{
             width: "min(1400px, 92vw)",
@@ -100,20 +115,25 @@ export default function About() {
             background: "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
           }}
         >
-          <h3 style={{ margin: 0, fontSize: "clamp(20px, 3.4vw, 34px)" }}>Disponible para colaboraciones</h3>
+          <h3 style={{ margin: 0, fontSize: "clamp(20px, 3.4vw, 34px)" }}>
+            <FxText>{t("about.cta.title")}</FxText>
+          </h3>
           <div style={{ marginTop: 8, opacity: 0.8 }}>
-            Escríbeme a <a href="mailto:me@marcosinfante.com" style={{ color: "#fff" }}>me@marcosinfante.com</a>
+            <FxText>
+              {t("about.cta.text")}
+            </FxText>{" "}
+            <a href="mailto:me@marcosinfante.com" style={{ color: "#fff" }}>
+              {t("about.cta.email")}
+            </a>
           </div>
         </section>
       </div>
 
       <Footer />
 
-      {/* Responsive simple */}
       <style>{`
         @media (max-width: 900px) {
           section[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-          div[style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>

@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
-const AUTO_TO_WORK_MS = 25000; 
+const AUTO_TO_WORK_MS = 25000;
 
 export default function Home() {
   const navigate = useNavigate();
+  const { t } = useTranslation("home");
+
   const reduced = useMemo(
     () => window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches,
     []
@@ -17,65 +20,66 @@ export default function Home() {
 
   return (
     <main style={wrap}>
-      {/* headline */}
       <div style={centerBlock}>
-      <header style={head}>
-        <div style={eyebrow}>Welcome</div>
-        <h1 style={title}>Marcos Infante — Personal Portfolio</h1>
-        <p style={subtitle}>
-         Computer Engineer specialized in Front-end Development, Data Engineering, and AI integration. 
-        </p>
-        <p style={subtitle}>
-          Explore my work and learn more about me.
-        </p>
-      </header>
+        {/* headline */}
+        <header style={head}>
+          <div style={eyebrow}>{t("hero.eyebrow")}</div>
+          <h1 style={title}>{t("hero.title")}</h1>
+          <p style={subtitle}>{t("hero.subtitle1")}</p>
+          <p style={subtitle}>{t("hero.subtitle2")}</p>
+        </header>
 
-      {/* split cards (centradas) */}
-      <section style={grid}>
-        {/* WORK */}
-        <Link
-          to="/work"
-          aria-label="View Work"
-          style={{ ...card, ...workCard }}
-          onMouseEnter={() => warm("/Work")}
-          onMouseMove={(e) => tilt(e, 10)}
-          onMouseLeave={(e) => untilt(e)}
-        >
-          <div style={{ ...stroke, WebkitTextStroke: "1px rgba(1, 1, 1, 1)" }}>WORK</div>
-          <div style={cardInner}>
-            <div style={mini}>PORTFOLIO</div>
-            <h2 style={{ ...cardTitle, color: "#111" }}>Selected Work</h2>
-            <p style={{ ...cardLead, color: "#1b1b1b" }}>
-              My personal projects and things I've developed.
-            </p>
-            <span style={{ ...cta, ...ctaDark }}>Enter Work →</span>
-          </div>
-        </Link>
+        {/* split cards */}
+        <section style={grid}>
+          {/* WORK */}
+          <Link
+            to="/work"
+            aria-label={t("cards.work.aria")}
+            style={{ ...card, ...workCard }}
+            onMouseEnter={() => warm("/Work")}
+            onMouseMove={(e) => tilt(e, 10)}
+            onMouseLeave={(e) => untilt(e)}
+          >
+            <div style={{ ...stroke, WebkitTextStroke: "1px rgba(1, 1, 1, 1)" }}>
+              {t("cards.work.badge")}
+            </div>
+            <div style={cardInner}>
+              <div style={mini}>{t("cards.work.mini")}</div>
+              <h2 style={{ ...cardTitle, color: "#111" }}>{t("cards.work.title")}</h2>
+              <p style={{ ...cardLead, color: "#1b1b1b" }}>{t("cards.work.lead")}</p>
+              <span style={{ ...cta, ...ctaDark }}>{t("cards.work.cta")}</span>
+            </div>
+          </Link>
 
-        {/* ABOUT */}
-        <Link
-          to="/about"
-          aria-label="About Me"
-          style={{ ...card, ...aboutCard }}
-          onMouseEnter={() => warm("/About")}
-          onMouseMove={(e) => tilt(e, 10)}
-          onMouseLeave={(e) => untilt(e)}
-        >
-          <div style={{ ...stroke, WebkitTextStroke: "1px rgba(255, 255, 255, 1)" }}>ABOUT</div>
-          <div style={cardInner}>
-            <div style={{ ...mini, color: "rgba(255,255,255,.7)" }}>PORTFOLIO</div>
-            <h2 style={cardTitle}>About Me</h2>
-            <p style={{ ...cardLead, color: "rgba(255,255,255,.9)" }}>
-              Who I am, process, principles and CV.
-            </p>
-            <span style={{ ...cta, ...ctaLight }}>Read About →</span>
-          </div>
-        </Link>
-      </section>
+          {/* ABOUT */}
+          <Link
+            to="/about"
+            aria-label={t("cards.about.aria")}
+            style={{ ...card, ...aboutCard }}
+            onMouseEnter={() => warm("/About")}
+            onMouseMove={(e) => tilt(e, 10)}
+            onMouseLeave={(e) => untilt(e)}
+          >
+            <div style={{ ...stroke, WebkitTextStroke: "1px rgba(255, 255, 255, 1)" }}>
+              {t("cards.about.badge")}
+            </div>
+            <div style={cardInner}>
+              <div style={{ ...mini, color: "rgba(255,255,255,.7)" }}>
+                {t("cards.about.mini")}
+              </div>
+              <h2 style={cardTitle}>{t("cards.about.title")}</h2>
+              <p style={{ ...cardLead, color: "rgba(255,255,255,.9)" }}>
+                {t("cards.about.lead")}
+              </p>
+              <span style={{ ...cta, ...ctaLight }}>{t("cards.about.cta")}</span>
+            </div>
+          </Link>
+        </section>
       </div>
+
       {!reduced && (
         <div style={autoHint}>
-          Auto-redirecting to <strong>Work</strong> in {AUTO_TO_WORK_MS / 1000}s…
+          {t("autoRedirect", { seconds: AUTO_TO_WORK_MS / 1000 })}
         </div>
       )}
     </main>
@@ -84,7 +88,9 @@ export default function Home() {
 
 /* ------ small helpers ------ */
 function warm(chunk: "/Work" | "/About") {
-  try { import(/* @vite-ignore */ `./${chunk}.tsx`); } catch { /* empty */ }
+  try {
+    import(/* @vite-ignore */ `./${chunk}.tsx`);
+  } catch { /* noop */ }
 }
 function tilt(e: React.MouseEvent, max = 8) {
   const el = e.currentTarget as HTMLAnchorElement;
@@ -99,8 +105,6 @@ function untilt(e: React.MouseEvent) {
   const el = e.currentTarget as HTMLAnchorElement;
   el.style.transform = "";
 }
-
-
 
 /* ------ styles ------ */
 const centerBlock: React.CSSProperties = {

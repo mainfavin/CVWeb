@@ -1,0 +1,36 @@
+{
+  "contact": {
+    "brand": "MARCOS INFANTE",
+    "nav": {
+      "about": "ABOUT",
+      "work": "WORK",
+      "contact": "CONTACT"
+    },
+    "hero": {
+      "title": "Let's craft meaningful digital experiences together.",
+      "paragraph": "Whether you need a cinematic portfolio, a dynamic product page, or an AI-driven data interface, I create clean, performant and expressive  experiences. Open for hire and freelance collaborations across Europe."
+    },
+    "links": {
+      "services": "Explore services",
+      "latestWork": "View latest work"
+    },
+    "location": "Amsterdam, The Netherlands · GMT+1",
+    "phone": {
+      "es": "ES +34 644 98 33 44",
+      "nl": "NL +31 06 20127319"
+    },
+    "email": "contact@marcosinfante.com",
+    "social": {
+      "instagram": "INSTAGRAM",
+      "linkedin": "LINKEDIN",
+      "github": "GITHUB"
+    },
+    "billing": {
+      "title": "Studio / Billing Information",
+      "address1": "Kantershof 402, 1104GW · Amsterdam",
+      "address2": "The Netherlands",
+      "note": "Freelance digital studio registered in the EU. Projects available on-site or remote."
+    },
+    "signature": "MARCOS INFANTE VIÑUELA"
+  }
+}

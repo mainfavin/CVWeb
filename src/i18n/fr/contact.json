@@ -1,0 +1,35 @@
+{
+  "contact": {
+    "brand": "MARCOS INFANTE",
+    "nav": {
+      "about": "ABOUT",
+      "work": "WORK",
+      "contact": "CONTACT"
+    },
+    "hero": {
+      "title": "Let’s build thoughtful, cinematic web experiences.",
+      "paragraph": "Available for portfolio pieces, motion, brand sites and editorial personal pages. I can also help you migrate your domain from Squarespace to a modern React/Vite setup."
+    },
+    "links": {
+      "services": "See services",
+      "latestWork": "Latest work"
+    },
+    "location": "Madrid, Spain · GMT+1",
+    "phone": {
+      "es": "ES +34 644 98 33 44",
+      "nl": "NL +31 06 20127319"
+    },
+    "email": "contact@marcosinfante.com",
+    "social": {
+      "instagram": "INSTAGRAM",
+      "linkedin": "LINKEDIN",
+      "github": "GITHUB"
+    },
+    "billing": {
+      "title": "Billing / Studio",
+      "address1": "Kantershof 402, 1104GW · Amsterdam",
+      "address2": "The Netherlands"
+    },
+    "signature": "MARCOS INFANTE VIÑUELA"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "about": {
+  "hero": {
+    "marquee": "Who am I?",
+    "alt": "Portrait of Marcos Infante Viñuela",
+    "section": "ABOUT",
+    "name": "Marcos Infante Viñuela",
+    "subtitle": "Computer Engineer · Front-end Developer · Data Engineer",
+    "description": "I’m a computer engineer who enjoys building expressive web experiences and intelligent systems. I spend my free time climbing and exploring nature — the same curiosity and balance I bring to my work. Technically, I focus on creating data-driven applications with React, TypeScript, and Python, integrating AI to automate and enhance real-world workflows.",
+      "list1": "Python, TypeScript, React, FastAPI, Docker, Airflow, LangChain, OpenAI API",
+      "list2": "Focused on AI integration, data automation, and motion-driven user experiences",
+      "list3": "Graduated in Computer Engineering ·  Based in the Netherlands · Open for collaborations"
+    },
+    "quote": {
+      "text": "The only constant in life is change, never stop moving."
+    },
+    "cta": {
+      "title": "Available for collaborations",
+      "text": "Write to me at",
+      "email": "me@marcosinfante.com"
+    }
+  }
+}

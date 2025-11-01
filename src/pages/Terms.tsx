@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import { useTranslation } from "react-i18next";
 
 export default function Terms() {
+  const { t } = useTranslation("terms");
+
   return (
     <main
       style={{
@@ -40,38 +43,31 @@ export default function Terms() {
               marginBottom: "1.2rem",
             }}
           >
-            Terms of Use 
+            {t("terms.title")}
           </h1>
 
-          <p style={{ opacity: 0.85, marginBottom: "2.5rem" }}>
-            By using this website, you agree to the following terms and
-            conditions.
-          </p>
+          <p style={{ opacity: 0.85 }}>{t("terms.subtitle")}</p>
 
           <div style={{ textAlign: "left" }}>
-            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>1. Content ownership</h3>
-            <p style={{ opacity: 0.8 }}>
-              All text, photography, and personal content featured on this site belong to Marcos Infante.  
-              You may not reproduce or redistribute this material without permission.
-            </p>
+            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>
+              {t("terms.section1.title")}
+            </h3>
+            <p style={{ opacity: 0.8 }}>{t("terms.section1.body")}</p>
 
-            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>2. Source code and use</h3>
-            <p style={{ opacity: 0.8 }}>
-              The source code for this website is publicly available.  
-              You are free to explore, reuse, or adapt it for your own projects — as long as you do not use or impersonate my personal identity, data, or likeness.
-            </p>
+            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>
+              {t("terms.section2.title")}
+            </h3>
+            <p style={{ opacity: 0.8 }}>{t("terms.section2.body")}</p>
 
-            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>3. Liability</h3>
-            <p style={{ opacity: 0.8 }}>
-              This website is provided “as is.”  
-              I make no guarantees about availability or accuracy and am not responsible for any damages or losses resulting from its use.
-            </p>
+            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>
+              {t("terms.section3.title")}
+            </h3>
+            <p style={{ opacity: 0.8 }}>{t("terms.section3.body")}</p>
 
-            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>4. Changes</h3>
-            <p style={{ opacity: 0.8 }}>
-              These terms may be updated occasionally.  
-              Continued use of the site implies acceptance of the latest version.
-            </p>
+            <h3 style={{ marginTop: "2rem", opacity: 0.9 }}>
+              {t("terms.section4.title")}
+            </h3>
+            <p style={{ opacity: 0.8 }}>{t("terms.section4.body")}</p>
           </div>
         </motion.div>
       </div>

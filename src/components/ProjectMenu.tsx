@@ -1,6 +1,13 @@
 import Icon from "./Icon";
+import { useTranslation } from "react-i18next";
 
-type Item = { id: string; label: string; icon?: "github" };
+type Item = {
+  id: string;
+  label?: string;         // compatibilidad: texto directo
+  labelKey?: string;      // NUEVO: clave i18n, ej: "project.menu.overview"
+  icon?: "github";
+};
+
 type Props = {
   items: Item[];
   activeId?: string | null;
@@ -8,6 +15,8 @@ type Props = {
 };
 
 export default function ProjectMenu({ items, activeId, offsetTop = 0 }: Props) {
+  const { t } = useTranslation(["project", "common"]); // usa los namespaces que tengas
+
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
@@ -19,7 +28,7 @@ export default function ProjectMenu({ items, activeId, offsetTop = 0 }: Props) {
 
   return (
     <nav
-      aria-label="Project sections"
+      aria-label={t("project:menu.aria", "Project sections")}
       style={{
         position: "sticky",
         top: 16,
@@ -31,6 +40,7 @@ export default function ProjectMenu({ items, activeId, offsetTop = 0 }: Props) {
     >
       {items.map((it) => {
         const active = activeId === it.id;
+        const label = it.labelKey ? t(it.labelKey) : it.label ?? it.id;
         return (
           <a
             key={it.id}
@@ -55,7 +65,7 @@ export default function ProjectMenu({ items, activeId, offsetTop = 0 }: Props) {
             onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
           >
             {it.icon && <Icon name={it.icon} size={16} color={active ? "#000" : "#fff"} />}
-            <span>{it.label}</span>
+            <span>{label}</span>
           </a>
         );
       })}

@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "eyebrow": "Welcome",
+    "title": "Marcos Infante — Personal Portfolio",
+    "subtitle1": "Computer Engineer specialized in Front-end Development, Data Engineering, and AI integration.",
+    "subtitle2": "Explore my work and learn more about me."
+  },
+  "cards": {
+    "work": {
+      "aria": "View Work",
+      "badge": "WORK",
+      "mini": "PORTFOLIO",
+      "title": "Selected Work",
+      "lead": "My personal projects and things I've developed.",
+      "cta": "Enter Work →"
+    },
+    "about": {
+      "aria": "About Me",
+      "badge": "ABOUT",
+      "mini": "PORTFOLIO",
+      "title": "About Me",
+      "lead": "Who I am, process, principles and CV.",
+      "cta": "Read About →"
+    }
+  },
+  "autoRedirect": "Auto-redirecting to {{seconds}}s…"
+}

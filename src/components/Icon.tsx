@@ -1,4 +1,4 @@
-type IconName = "instagram" | "linkedin" | "mail" | "github";
+type IconName = "instagram" | "linkedin" | "mail" | "github" | "en"| "es"| "nl"| "fr";
 
 type IconProps = {
   name: IconName;

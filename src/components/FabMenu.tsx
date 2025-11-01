@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SocialBubbles from "./SocialBubbles";
+import LanguageBubbles from "./LanguajeBubbles";
 
 export default function FabMenu() {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,9 @@ export default function FabMenu() {
       if (!boxRef.current) return;
       if (!boxRef.current.contains(e.target as Node)) setOpen(false);
     };
-    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     window.addEventListener("mousedown", onDown);
     window.addEventListener("keydown", onEsc);
     return () => {
@@ -43,40 +46,72 @@ export default function FabMenu() {
         <button
           aria-expanded={open}
           aria-haspopup="menu"
-          onClick={() => setOpen(v => !v)}
+          onClick={() => setOpen((v) => !v)}
           style={{
-            position: "absolute", inset: 0,
+            position: "absolute",
+            inset: 0,
             cursor: "pointer",
             background: "#fff",
             border: "1.5px solid rgba(0,0,0,0.12)",
             borderRadius: "50%",
-            boxShadow: open ? "0 0 16px rgba(0,0,0,0.25)" : "0 6px 20px rgba(0,0,0,0.20)",
+            boxShadow: open
+              ? "0 0 16px rgba(0,0,0,0.25)"
+              : "0 6px 20px rgba(0,0,0,0.20)",
             transition: "box-shadow .25s ease, transform .25s ease",
-            display: "flex", alignItems: "center", justifyContent: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {/* hamburguesa → X */}
-          <span aria-hidden style={{ position: "relative", width: 26, height: 18, display: "block", transform: "translateX(1px)" }}>
-            <span style={{
-              position: "absolute", left: 0, right: 0,
-              top: open ? "7.5px" : "0px",
-              height: 4, borderRadius: 2, background: "#000",
-              transform: open ? "rotate(45deg)" : "none",
-              transition: "transform .28s ease, top .28s ease",
-            }} />
-            <span style={{
-              position: "absolute", left: 3, right: 3, top: 7.5,
-              height: 3, borderRadius: 2,
-              background: open ? "transparent" : "#7b7b7b",
-              transition: "opacity .2s ease",
-            }} />
-            <span style={{
-              position: "absolute", left: 0, right: 0,
-              bottom: open ? "7.5px" : "0px",
-              height: 4, borderRadius: 2, background: "#000",
-              transform: open ? "rotate(-45deg)" : "none",
-              transition: "transform .28s ease, bottom .28s ease",
-            }} />
+          <span
+            aria-hidden
+            style={{
+              position: "relative",
+              width: 26,
+              height: 18,
+              display: "block",
+              transform: "translateX(1px)",
+            }}
+          >
+            <span
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                top: open ? "7.5px" : "0px",
+                height: 4,
+                borderRadius: 2,
+                background: "#000",
+                transform: open ? "rotate(45deg)" : "none",
+                transition: "transform .28s ease, top .28s ease",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                left: 3,
+                right: 3,
+                top: 7.5,
+                height: 3,
+                borderRadius: 2,
+                background: open ? "transparent" : "#7b7b7b",
+                transition: "opacity .2s ease",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: open ? "7.5px" : "0px",
+                height: 4,
+                borderRadius: 2,
+                background: "#000",
+                transform: open ? "rotate(-45deg)" : "none",
+                transition: "transform .28s ease, bottom .28s ease",
+              }}
+            />
           </span>
         </button>
 
@@ -105,24 +140,58 @@ export default function FabMenu() {
                 exit={{ opacity: 0, x: 10 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: 10,
+                  display: "grid",
+                  gridTemplateColumns: "auto auto", // 👈 dos columnas (redes + idiomas)
+                  gap: 14,
+                  alignItems: "start",
+                  justifyContent: "center",
                   marginTop: 6,
                 }}
               >
-                <SocialBubbles
-                  fixed={false}
-                  direction="column"
-                  gap={10}
-                  bubbleSize={36}
-                  iconSize={18}
-                  
-                  brandHover
-                 
-                />
+                                <motion.div
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: 10,
+                  }}
+                >
+                  <LanguageBubbles
+                    fixed={false}
+                    gap={10}
+                    bubbleSize={36}
+                   
+                    
+                  />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: 10,
+                  }}
+                >
+                  <SocialBubbles
+                    fixed={false}
+                    direction="column"
+                    gap={10}
+                    bubbleSize={36}
+                    iconSize={18}
+                    brandHover
+                  />
+                </motion.div>
+
+               
+
               </motion.div>
 
               {/* columna derecha: enlaces principales */}
@@ -130,7 +199,11 @@ export default function FabMenu() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25, ease: "easeOut", staggerChildren: 0.05 }}
+                transition={{
+                  duration: 0.25,
+                  ease: "easeOut",
+                  staggerChildren: 0.05,
+                }}
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -144,40 +217,45 @@ export default function FabMenu() {
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -8, scale: 0.9 }}
-                    transition={{ duration: 0.2, ease: "easeOut", delay: i * 0.05 }}
+                    transition={{
+                      duration: 0.2,
+                      ease: "easeOut",
+                      delay: i * 0.05,
+                    }}
                     style={{ position: "relative", zIndex: 1 }}
                   >
-                   <Link
-  to={item.to}
-  onClick={() => setOpen(false)}
-  style={{
-    display: "block",
-    padding: "10px 18px",
-    textDecoration: "none",
-    background: "#fff",
-    color: "#000",
-    borderRadius: 9999,
-    boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
-    fontSize: 14,
-    fontWeight: 500,
-    transition: "transform .18s ease, background .18s ease, color .18s ease",
-    whiteSpace: "nowrap",
-  }}
-  onMouseEnter={(e) => {
-    const el = e.currentTarget as HTMLAnchorElement;
-    el.style.transform = "translateY(-2px)";
-    el.style.background = "#000";
-    el.style.color = "#fff";
-  }}
-  onMouseLeave={(e) => {
-    const el = e.currentTarget as HTMLAnchorElement;
-    el.style.transform = "translateY(0)";
-    el.style.background = "#fff";
-    el.style.color = "#000";
-  }}
->
-  {item.label}
-</Link>
+                    <Link
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      style={{
+                        display: "block",
+                        padding: "10px 18px",
+                        textDecoration: "none",
+                        background: "#fff",
+                        color: "#000",
+                        borderRadius: 9999,
+                        boxShadow: "0 3px 12px rgba(0,0,0,0.15)",
+                        fontSize: 14,
+                        fontWeight: 500,
+                        transition:
+                          "transform .18s ease, background .18s ease, color .18s ease",
+                        whiteSpace: "nowrap",
+                      }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLAnchorElement;
+                        el.style.transform = "translateY(-2px)";
+                        el.style.background = "#000";
+                        el.style.color = "#fff";
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLAnchorElement;
+                        el.style.transform = "translateY(0)";
+                        el.style.background = "#fff";
+                        el.style.color = "#000";
+                      }}
+                    >
+                      {item.label}
+                    </Link>
                   </motion.div>
                 ))}
               </motion.div>

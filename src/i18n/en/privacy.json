@@ -1,0 +1,19 @@
+{
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "I respect your privacy. This website does not collect personal data or analytics information.",
+    "section1": {
+      "title": "1. Data collection",
+      "body": "No personal data, tracking information, or usage statistics are stored, processed, or analyzed. This site is a static portfolio with no login or analytics tools."
+    },
+    "section2": {
+      "title": "2. External links",
+      "body": "This site may link to external pages (LinkedIn, GitHub, etc.). Those services may process data according to their own privacy policies."
+    },
+    "section3": {
+      "title": "3. Contact",
+      "body": "If you reach me via email, your message and email address will only be used to respond to your inquiry — never stored, shared, or reused. Feel free to contact me with any questions about this policy."
+    },
+    "contactEmail": "contact@marcosinfante.com"
+  }
+}
