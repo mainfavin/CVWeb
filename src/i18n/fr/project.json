@@ -1,0 +1,72 @@
+{
+  "projects": {
+    "aiEtlSystem": {
+      "title": "Système ETL optimisé par l’IA",
+      "subtitle": "Automatisation de pipelines de données avec des modèles de langage",
+      "overview": "Framework ETL modulaire intégrant des modèles de langage pour générer des métadonnées et détecter des événements à partir de données non structurées.",
+      "goal": "Concevoir une chaîne d’ingestion robuste capable d’enrichissement sémantique grâce à l’IA et aux bases vectorielles.",
+      "outcome": "Extraction de métadonnées entièrement automatisée avec FastAPI, Airflow et Qdrant.",
+      "sections": [
+        {
+          "title": "Architecture",
+          "body": "Airflow orchestre l’ingestion et la transformation tandis que LangChain coordonne les appels aux LLMs et l’enrichissement des données."
+        },
+        {
+          "title": "API & Interface",
+          "body": "FastAPI expose des endpoints pour les requêtes de métadonnées et le monitoring, complétés par une interface légère en React."
+        }
+      ]
+    },
+    "webPortfolio": {
+      "title": "Portfolio cinématique",
+      "subtitle": "Portfolio personnel centré sur le mouvement, réalisé avec React et Framer Motion",
+      "overview": "Site de portfolio dynamique conçu pour mettre en valeur l’interactivité, la fluidité des animations et une esthétique web moderne.",
+      "goal": "Créer une expérience web engageante et performante pour présenter des projets.",
+      "outcome": "Site réactif, optimisé GPU, offrant une expérience utilisateur cinématique.",
+      "sections": [
+        {
+          "title": "Langage visuel",
+          "body": "Composé autour d’une esthétique filmique, de couches parallax fluides et d’éléments d’interface modulaires."
+        },
+        {
+          "title": "Développement",
+          "body": "Développé avec React, Vite, Framer Motion et i18next pour un support complet de la localisation."
+        }
+      ]
+    },
+    "yamlAssistant": {
+      "title": "Assistant conversationnel YAML",
+      "subtitle": "Outil de configuration et de validation piloté par l’IA",
+      "overview": "Assistant intelligent qui génère et valide des schémas YAML/JSON à l’aide de modèles de langage avancés.",
+      "goal": "Simplifier les workflows de configuration complexes via une interaction en langage naturel.",
+      "outcome": "Productivité et précision accrues dans la génération et la validation de schémas.",
+      "sections": [
+        {
+          "title": "Intégration LLM",
+          "body": "Basé sur LangChain et l’API OpenAI pour gérer un raisonnement multi-étapes dans la génération structurée."
+        },
+        {
+          "title": "Couche de validation",
+          "body": "Inclut un validateur Python personnalisé pour la validation syntaxique et de schéma en temps réel."
+        }
+      ]
+    },
+    "cliDatacontractValidator": {
+      "title": "CLI de validation de contrats de données",
+      "subtitle": "Outil en ligne de commande pour la validation automatisée des schémas dans les pipelines ETL",
+      "overview": "CLI légère en Python pour valider les contrats et schémas de données au sein de processus ETL.",
+      "goal": "Assurer la cohérence des données et prévenir la dérive de schéma dans des pipelines automatisés.",
+      "outcome": "Validation continue intégrée aux workflows CI/CD avec une configuration minimale.",
+      "sections": [
+        {
+          "title": "Mise en œuvre",
+          "body": "Développé en Python avec Click, compatible avec JSON Schema et des configurations basées sur YAML."
+        },
+        {
+          "title": "Intégration",
+          "body": "S’intègre facilement aux pipelines CI/CD via GitHub Actions et des environnements Docker."
+        }
+      ]
+    }
+  }
+}

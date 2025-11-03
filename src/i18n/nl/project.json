@@ -1,0 +1,72 @@
+{
+  "projects": {
+    "aiEtlSystem": {
+      "title": "AI-versterkt ETL-systeem",
+      "subtitle": "Automatisering van datapipelines met taalmodellen",
+      "overview": "Modulair ETL-framework dat taalmodellen integreert om metadata te genereren en gebeurtenissen te detecteren uit ongestructureerde data.",
+      "goal": "Een robuuste ingestieketen ontwerpen met semantische verrijking door AI en vectordatabanken.",
+      "outcome": "Volledig geautomatiseerde metadata-extractie met FastAPI, Airflow en Qdrant.",
+      "sections": [
+        {
+          "title": "Architectuur",
+          "body": "Airflow orkestreert ingestie en transformatie, terwijl LangChain LLM-aanroepen en dataverrijking coördineert."
+        },
+        {
+          "title": "API & Interface",
+          "body": "FastAPI biedt endpoints voor metadata-queries en monitoring, aangevuld met een lichte React-interface."
+        }
+      ]
+    },
+    "webPortfolio": {
+      "title": "Cinematisch portfolio",
+      "subtitle": "Een motion-first persoonlijk portfolio met React en Framer Motion",
+      "overview": "Dynamische portfoliosite ontworpen om interactiviteit, vloeiende animaties en moderne webesthetiek te benadrukken.",
+      "goal": "Een aantrekkelijke en performante webervaring creëren om projecten te presenteren.",
+      "outcome": "Responsieve site, GPU-geoptimaliseerd, met een filmische gebruikerservaring.",
+      "sections": [
+        {
+          "title": "Vormtaal",
+          "body": "Gebaseerd op filmische compositie, soepele parallax-lagen en modulaire UI-componenten."
+        },
+        {
+          "title": "Ontwikkeling",
+          "body": "Gerealiseerd met React, Vite, Framer Motion en i18next voor volledige meertalige ondersteuning."
+        }
+      ]
+    },
+    "yamlAssistant": {
+      "title": "Conversationele YAML-assistent",
+      "subtitle": "AI-gestuurde tool voor configuratie en validatie",
+      "overview": "Intelligente assistent die YAML/JSON-schema’s genereert en valideert met behulp van geavanceerde taalmodellen.",
+      "goal": "Complexe configuratieworkflows vereenvoudigen via interactie in natuurlijke taal.",
+      "outcome": "Hogere productiviteit en nauwkeurigheid bij het opstellen en valideren van schema’s.",
+      "sections": [
+        {
+          "title": "LLM-integratie",
+          "body": "Gebouwd met LangChain en de OpenAI-API om meerstapsredeneren voor gestructureerde generatie te ondersteunen."
+        },
+        {
+          "title": "Validatielaag",
+          "body": "Bevat een aangepaste Python-validator voor realtime syntaxis- en schema-validatie."
+        }
+      ]
+    },
+    "cliDatacontractValidator": {
+      "title": "CLI voor datacontract-validatie",
+      "subtitle": "Commandline-tool voor geautomatiseerde schema-validatie in ETL-pipelines",
+      "overview": "Lichte Python-CLI voor het valideren van datacontracten en schema’s binnen ETL-processen.",
+      "goal": "Dataconsistentie waarborgen en schema-drift voorkomen in geautomatiseerde pipelines.",
+      "outcome": "Continue validatie in CI/CD-workflows met minimale configuratie.",
+      "sections": [
+        {
+          "title": "Implementatie",
+          "body": "Ontwikkeld in Python met Click; ondersteunt JSON Schema en YAML-gebaseerde configuraties."
+        },
+        {
+          "title": "Integratie",
+          "body": "Eenvoudig te integreren in CI/CD-pipelines via GitHub Actions en Docker-omgevingen."
+        }
+      ]
+    }
+  }
+}

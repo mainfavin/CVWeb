@@ -1,0 +1,68 @@
+{
+  "cv": {
+    "skills": {
+      "title": "SKILLS",
+      "languages": "LANGUAGES",
+      "technical": "TECHNICAL",
+      "ai": "AI / AUTOMATION",
+      "learning": "LEARNING"
+    },
+    "education": {
+      "title": "EDUCATION",
+      "items": [
+        {
+          "degree": "Bachelor's Degree in Computer Engineering",
+          "school": "Universidad de La Rioja",
+          "date": "Graduated Jul 2025 · Logroño, SP"
+        },
+        {
+          "degree": "Introduction to Computer Science (CS50x)",
+          "school": "Harvard University (edX)",
+          "date": "Oct 2025 · Online"
+        }
+      ]
+    },
+    "experience": {
+      "title": "EXPERIENCE",
+      "company": "SDG Group Spain — Data Engineering Internship",
+      "period": "Sep 2024 – Jun 2025",
+      "points": [
+        "Designed and implemented a modular ETL system for processing unstructured data (text, audio, video).",
+        "Researched and integrated large language models (LLMs) for metadata generation and event detection.",
+        "Optimized data for vector database storage (Qdrant) and created an API for its management.",
+        "Developed a custom user interface (UI) adapted to client needs and flexibility."
+      ]
+    },
+    "projects": {
+      "title": "PROJECTS",
+      "items": [
+        {
+          "category": "FRONTEND DEVELOPMENT",
+          "title": "Portfolio Website",
+          "desc": "Cinematic portfolio focused on interactivity, smooth motion, and parallax design."
+        },
+        {
+          "category": "APPLIED AI / ML",
+          "title": "Conversational assistant for YAML generation",
+          "desc": "AI assistant for generating and validating configurations using language models and APIs."
+        },
+        {
+          "category": "DATA PIPELINES / LLM INTEGRATION",
+          "title": "AI enhanced ETL system",
+          "desc": "Modular ETL framework integrating language models for smart metadata extraction."
+        },
+        {
+          "category": "DATA ENGINEERING TOOLS",
+          "title": "CLI for data-contract validation",
+          "desc": "Lightweight Python tool for automated validation of data schemas and contracts in ETL processes."
+        }
+      ]
+    },
+    "curriculum": {
+      "title": "CURRICULUM",
+      "button": "⬇ Download CV",
+      "privacy": "PRIVACY",
+      "terms": "TERMS"
+    }
+  }
+}

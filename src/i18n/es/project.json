@@ -1,0 +1,72 @@
+{
+  "projects": {
+    "aiEtlSystem": {
+      "title": "Sistema ETL Potenciado con IA",
+      "subtitle": "Automatización de pipelines con modelos de lenguaje",
+      "overview": "Framework ETL modular que integra modelos de lenguaje para generar metadatos y detectar eventos en datos no estructurados.",
+      "goal": "Diseñar una ingesta robusta capaz de enriquecimiento semántico usando IA y bases vectoriales.",
+      "outcome": "Se logró una extracción automática de metadatos con FastAPI, Airflow y Qdrant.",
+      "sections": [
+        {
+          "title": "Arquitectura",
+          "body": "Airflow orquesta tareas de ingesta y transformación, mientras LangChain coordina las llamadas a los modelos de lenguaje."
+        },
+        {
+          "title": "API e Interfaz",
+          "body": "FastAPI expone endpoints para consultas de metadatos, junto a una interfaz ligera en React."
+        }
+      ]
+    },
+    "webPortfolio": {
+      "title": "Sitio Web de Portafolio Cinemático",
+      "subtitle": "Un portafolio personal centrado en el movimiento y la interacción",
+      "overview": "Un sitio dinámico diseñado para resaltar la interacción, el movimiento fluido y una estética web moderna.",
+      "goal": "Crear una experiencia web atractiva y de alto rendimiento para mostrar proyectos.",
+      "outcome": "Sitio totalmente responsivo, optimizado para GPU, con una experiencia cinemática.",
+      "sections": [
+        {
+          "title": "Lenguaje Visual",
+          "body": "Basado en una composición fílmica, capas parallax suaves y componentes modulares."
+        },
+        {
+          "title": "Desarrollo",
+          "body": "Desarrollado con React, Vite, Framer Motion e i18next para soporte multilenguaje completo."
+        }
+      ]
+    },
+    "yamlAssistant": {
+      "title": "Asistente Conversacional YAML",
+      "subtitle": "Herramienta inteligente de configuración y validación",
+      "overview": "Asistente de IA que genera y valida esquemas YAML/JSON utilizando modelos de lenguaje avanzados.",
+      "goal": "Simplificar flujos complejos de configuración mediante interacción en lenguaje natural.",
+      "outcome": "Aumentó la productividad y precisión en la generación y validación de esquemas.",
+      "sections": [
+        {
+          "title": "Integración con LLMs",
+          "body": "Construido con LangChain y OpenAI API para gestionar razonamiento multi-etapa en generación estructurada."
+        },
+        {
+          "title": "Capa de Validación",
+          "body": "Incluye un validador personalizado en Python para verificación sintáctica y de esquema en tiempo real."
+        }
+      ]
+    },
+    "cliDatacontractValidator": {
+      "title": "CLI para Validación de Contratos de Datos",
+      "subtitle": "Herramienta de línea de comandos para validación automatizada en pipelines ETL",
+      "overview": "CLI ligera en Python para validar contratos y esquemas de datos en procesos ETL.",
+      "goal": "Garantizar la consistencia de datos y evitar desviaciones de esquema en pipelines automatizados.",
+      "outcome": "Permite validación continua en flujos CI/CD con mínima configuración.",
+      "sections": [
+        {
+          "title": "Implementación",
+          "body": "Desarrollado en Python con Click, compatible con configuraciones basadas en JSONSchema y YAML."
+        },
+        {
+          "title": "Integración",
+          "body": "Integrado fácilmente en pipelines CI/CD mediante GitHub Actions y entornos Docker."
+        }
+      ]
+    }
+  }
+}

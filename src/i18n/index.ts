@@ -11,7 +11,8 @@ import privacyEn from "./en/privacy.json";
 import termsEn from "./en/terms.json";
 import homeEn from "./en/home.json";
 import notFoundEn from "./en/notFound.json";
-
+import projectEn from "./en/project.json";
+import cvEn from "./en/cv.json";
 /* ========= ES ========= */
 import aboutEs from "./es/about.json";
 import contactEs from "./es/contact.json";
@@ -21,7 +22,8 @@ import privacyEs from "./es/privacy.json";
 import termsEs from "./es/terms.json";
 import homeEs from "./es/home.json";
 import notFoundEs from "./es/notFound.json";
-
+import projectEs from "./es/project.json";
+import cvEs from "./es/cv.json";
 /* ========= NL ========= */
 import aboutNl from "./nl/about.json";
 import contactNl from "./nl/contact.json";
@@ -31,7 +33,8 @@ import privacyNl from "./nl/privacy.json";
 import termsNl from "./nl/terms.json";
 import homeNl from "./nl/home.json";
 import notFoundNl from "./nl/notFound.json";
-
+import projectNl from "./nl/project.json";
+import cvNl from "./nl/cv.json";
 /* ========= FR ========= */
 import aboutFr from "./fr/about.json";
 import contactFr from "./fr/contact.json";
@@ -41,6 +44,8 @@ import privacyFr from "./fr/privacy.json";
 import termsFr from "./fr/terms.json";
 import homeFr from "./fr/home.json";
 import notFoundFr from "./fr/notFound.json";
+import projectFr from "./fr/project.json";
+import cvFr from "./fr/cv.json";
 
 /* ========= helper para idioma inicial ========= */
 const getInitialLang = () => {
@@ -57,7 +62,7 @@ i18n
   .init({
     lng: getInitialLang(),
     fallbackLng: "en",
-    ns: ["about", "contact", "work", "cookie", "privacy", "terms", "home", "notFound"],
+    ns: ["about", "contact", "work", "cookie", "privacy", "terms", "home", "notFound","project","cv"],
     defaultNS: "home",
     resources: {
       en: {
@@ -69,6 +74,8 @@ i18n
         terms: termsEn,
         home: homeEn,
         notFound: notFoundEn,
+        project: projectEn,
+        cv: cvEn,
       },
       es: {
         about: aboutEs,
@@ -79,6 +86,8 @@ i18n
         terms: termsEs,
         home: homeEs,
         notFound: notFoundEs,
+        project: projectEs,
+        cv: cvEs,
       },
       nl: {
         about: aboutNl,
@@ -89,6 +98,8 @@ i18n
         terms: termsNl,
         home: homeNl,
         notFound: notFoundNl,
+        project: projectNl,
+        cv: cvNl,
       },
       fr: {
         about: aboutFr,
@@ -99,6 +110,8 @@ i18n
         terms: termsFr,
         home: homeFr,
         notFound: notFoundFr,
+        project: projectFr,
+        cv: cvFr,
       },
     },
     interpolation: { escapeValue: false },

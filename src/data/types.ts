@@ -1,6 +1,7 @@
 export type Project = {
   slug: string;
-  title: string;
+  i18nKey: string;             // clave para traducción en i18n
+  title?: string;              // puede venir del JSON
   subtitle?: string;
   year?: number;
   cover: string;
@@ -18,7 +19,7 @@ export type Project = {
     body: string;
     media?: string[];
   }>;
-  stack?: string[];           // p.ej. ["TypeScript", "React", "Vite"]
-  longDescription?: string;   // texto largo para “Docs”
-  repo?: string;              // URL del repositorio
+  stack?: string[];
+  longDescription?: string;
+  repo?: string;
 };

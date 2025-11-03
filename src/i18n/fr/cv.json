@@ -1,0 +1,68 @@
+{
+  "cv": {
+    "skills": {
+      "title": "COMPÉTENCES",
+      "languages": "LANGAGES",
+      "technical": "TECHNIQUE",
+      "ai": "IA / AUTOMATISATION",
+      "learning": "EN APPRENTISSAGE"
+    },
+    "education": {
+      "title": "FORMATION",
+      "items": [
+        {
+          "school": "Universidad de La Rioja",
+          "degree": "Licence en Ingénierie Informatique",
+          "date": "Diplômé juil. 2025 · Logroño, ES"
+        },
+        {
+          "school": "Harvard University (edX)",
+          "degree": "Introduction à l’informatique (CS50x)",
+          "date": "oct. 2025 · En ligne"
+        }
+      ]
+    },
+    "experience": {
+      "title": "EXPÉRIENCE",
+      "company": "SDG Group Spain — Stage en Data Engineering",
+      "period": "sept. 2024 – juin 2025",
+      "points": [
+        "Conception et mise en place d’un système ETL modulaire pour des données non structurées (texte, audio, vidéo).",
+        "Recherche et intégration de LLMs pour la génération de métadonnées et la détection d’événements.",
+        "Optimisation pour bases de données vectorielles (Qdrant) et création d’une API de gestion.",
+        "Développement d’une interface utilisateur (UI) personnalisée selon les besoins du client."
+      ]
+    },
+    "projects": {
+      "title": "PROJETS",
+      "items": [
+        {
+          "category": "DÉVELOPPEMENT FRONTEND",
+          "title": "Portfolio Website",
+          "desc": "Portfolio cinématique axé sur l’interactivité, l’animation fluide et le parallax."
+        },
+        {
+          "category": "IA / ML APPLIQUÉE",
+          "title": "Assistant conversationnel pour la génération YAML",
+          "desc": "Assistant IA pour générer et valider des configurations à l’aide de modèles de langage et d’APIs."
+        },
+        {
+          "category": "PIPELINES DE DONNÉES / INTÉGRATION LLM",
+          "title": "Système ETL amélioré par l’IA",
+          "desc": "Framework ETL modulaire intégrant des modèles de langage pour une extraction intelligente de métadonnées."
+        },
+        {
+          "category": "OUTILS D’INGÉNIERIE DES DONNÉES",
+          "title": "CLI de validation de contrats de données",
+          "desc": "Outil Python léger pour la validation automatique de schémas et contrats dans les processus ETL."
+        }
+      ]
+    },
+    "curriculum": {
+      "title": "CURRICULUM",
+      "button": "⬇ Télécharger le CV",
+      "privacy": "CONFIDENTIALITÉ",
+      "terms": "CONDITIONS"
+    }
+  }
+}

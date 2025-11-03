@@ -1,0 +1,68 @@
+{
+  "cv": {
+    "skills": {
+      "title": "VAARDIGHEDEN",
+      "languages": "TALEN",
+      "technical": "TECHNISCH",
+      "ai": "AI / AUTOMATISERING",
+      "learning": "AAN HET LEREN"
+    },
+    "education": {
+      "title": "OPLEIDING",
+      "items": [
+        {
+          "school": "Universidad de La Rioja",
+          "degree": "Bachelor Informatica-ingenieurswetenschappen",
+          "date": "Afgestudeerd jul. 2025 · Logroño, ES"
+        },
+        {
+          "school": "Harvard University (edX)",
+          "degree": "Inleiding tot Computerwetenschappen (CS50x)",
+          "date": "okt. 2025 · Online"
+        }
+      ]
+    },
+    "experience": {
+      "title": "ERVARING",
+      "company": "SDG Group Spain — Stage Data Engineering",
+      "period": "sep. 2024 – jun. 2025",
+      "points": [
+        "Ontwerp en implementatie van een modulair ETL-systeem voor ongestructureerde data (tekst, audio, video).",
+        "Onderzoek en integratie van LLM’s voor metadatageneratie en gebeurtenisdetectie.",
+        "Geoptimaliseerd voor vectordatabanken (Qdrant) en een API gebouwd voor beheer.",
+        "Een aangepaste gebruikersinterface (UI) ontwikkeld op basis van klantbehoeften."
+      ]
+    },
+    "projects": {
+      "title": "PROJECTEN",
+      "items": [
+        {
+          "category": "FRONTEND-ONTWIKKELING",
+          "title": "Portfolio Website",
+          "desc": "Cinematische portfolio met focus op interactiviteit, vloeiende beweging en parallax."
+        },
+        {
+          "category": "TOEGEPASTE AI / ML",
+          "title": "Conversationele assistent voor YAML-generatie",
+          "desc": "AI-assistent voor het genereren en valideren van configuraties met taalmodellen en API’s."
+        },
+        {
+          "category": "DATAPIJPLIJNEN / LLM-INTEGRATIE",
+          "title": "AI-versterkt ETL-systeem",
+          "desc": "Modulair ETL-framework dat taalmodellen integreert voor slimme metadata-extractie."
+        },
+        {
+          "category": "DATA-ENGINEERINGTOOLS",
+          "title": "CLI voor datacontract-validatie",
+          "desc": "Lichte Python-tool voor automatische validatie van schema’s en datacontracten in ETL-processen."
+        }
+      ]
+    },
+    "curriculum": {
+      "title": "CURRICULUM",
+      "button": "⬇ CV downloaden",
+      "privacy": "PRIVACY",
+      "terms": "VOORWAARDEN"
+    }
+  }
+}

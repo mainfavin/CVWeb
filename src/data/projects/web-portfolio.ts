@@ -22,21 +22,17 @@ export const webPortfolio: Project = {
     { label: "Live", href: "https://project-demo.com" },
   ],
 
-  overview:
-    "Brief introduction of what the project is about. Explain its purpose, the problem it solves, or what you learned from it.",
+  overview: "Brief introduction of what the project is about. Explain its purpose, the problem it solves, or what you learned from it.",
 
-  goal:
-    "What was the objective of this project? Keep it concise but informative.",
+  goal: "What was the objective of this project? Keep it concise but informative.",
 
-  outcome:
-    "What did you achieve? Mention results, improvements, or key takeaways.",
+  outcome: "What did you achieve? Mention results, improvements, or key takeaways.",
 
   sections: [
     {
       id: "context",
       title: "Context",
-      body:
-        "Give some background: what inspired this, what problem existed, and why it mattered.\n\nAdd line breaks with '\\n\\n' for paragraphs.",
+      body: "Give some background: what inspired this, what problem existed, and why it mattered.\n\nAdd line breaks with '\\n\\n' for paragraphs.",
       media: [
         "/images/projects/example/shot1.jpg",
         "/images/projects/example/shot2.jpg",
@@ -47,15 +43,13 @@ export const webPortfolio: Project = {
     {
       id: "process",
       title: "Process / Approach",
-      body:
-        "Explain your development, design, or creative process. You can include insights or architecture notes.",
+      body: "Explain your development, design, or creative process. You can include insights or architecture notes.",
       media: ["/images/projects/example/shot3.jpg"],
     },
     {
       id: "features",
       title: "Features",
-      body:
-        "List key features or highlights:\n• Interactive animations\n• Modular architecture\n• Responsive design",
+      body: "List key features or highlights:\n• Interactive animations\n• Modular architecture\n• Responsive design",
     },
   ],
 
@@ -66,6 +60,6 @@ export const webPortfolio: Project = {
     "/images/projects/example/gallery4.jpg",
   ],
 
-  description:
-    "Optional meta description — short version for SEO or previews.",
+  description: "Optional meta description — short version for SEO or previews.",
+  i18nKey: "webPortfolio", // CLAVE que conecta con i18n
 };

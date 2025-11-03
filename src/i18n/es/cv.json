@@ -1,0 +1,68 @@
+{
+  "cv": {
+    "skills": {
+      "title": "HABILIDADES",
+      "languages": "LENGUAJES",
+      "technical": "TÉCNICO",
+      "ai": "IA / AUTOMATIZACIÓN",
+      "learning": "APRENDIENDO"
+    },
+    "education": {
+      "title": "EDUCACIÓN",
+      "items": [
+        {
+          "school": "Universidad de La Rioja",
+          "degree": "Grado en Ingeniería Informática",
+          "date": "Graduado Jul 2025 · Logroño, ES"
+        },
+        {
+          "school": "Harvard University (edX)",
+          "degree": "Introducción a la Informática (CS50x)",
+          "date": "Oct 2025 · Online"
+        }
+      ]
+    },
+    "experience": {
+      "title": "EXPERIENCIA",
+      "company": "SDG Group Spain — Prácticas en Ingeniería de Datos",
+      "period": "Sep 2024 – Jun 2025",
+      "points": [
+        "Diseño e implementación de un sistema ETL modular para datos no estructurados (texto, audio, vídeo).",
+        "Investigación e integración de LLMs para generación de metadatos y detección de eventos.",
+        "Optimización para bases de datos vectoriales (Qdrant) y creación de una API para su gestión.",
+        "Desarrollo de una interfaz de usuario (UI) personalizada según las necesidades del cliente."
+      ]
+    },
+    "projects": {
+      "title": "PROYECTOS",
+      "items": [
+        {
+          "category": "DESARROLLO FRONTEND",
+          "title": "Portfolio Website",
+          "desc": "Portafolio cinemático centrado en interacción, movimiento fluido y parallax."
+        },
+        {
+          "category": "IA / ML APLICADA",
+          "title": "Asistente conversacional para generar YAML",
+          "desc": "Asistente de IA para generar y validar configuraciones usando modelos de lenguaje y APIs."
+        },
+        {
+          "category": "PIPELINES DE DATOS / INTEGRACIÓN LLM",
+          "title": "Sistema ETL potenciado con IA",
+          "desc": "Framework ETL modular que integra modelos de lenguaje para extraer metadatos de forma inteligente."
+        },
+        {
+          "category": "HERRAMIENTAS DE DATA ENGINEERING",
+          "title": "CLI para validación de contratos de datos",
+          "desc": "Herramienta ligera en Python para validar esquemas y contratos en procesos ETL."
+        }
+      ]
+    },
+    "curriculum": {
+      "title": "CURRICULUM",
+      "button": "⬇ Descargar CV",
+      "privacy": "PRIVACIDAD",
+      "terms": "TÉRMINOS"
+    }
+  }
+}

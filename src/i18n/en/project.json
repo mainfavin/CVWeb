@@ -1,0 +1,72 @@
+{
+  "projects": {
+    "aiEtlSystem": {
+      "title": "AI-Enhanced ETL System",
+      "subtitle": "Data pipeline automation with language models",
+      "overview": "A modular ETL framework integrating large language models to generate metadata and detect events from unstructured data.",
+      "goal": "Design a robust ingestion pipeline capable of semantic enrichment using AI and vector databases.",
+      "outcome": "Achieved fully automated metadata extraction with FastAPI, Airflow, and Qdrant.",
+      "sections": [
+        {
+          "title": "Architecture",
+          "body": "Airflow orchestrates ingestion and transformation tasks while LangChain coordinates LLM calls and data enrichment."
+        },
+        {
+          "title": "API & Interface",
+          "body": "FastAPI provides access to metadata queries and monitoring endpoints, complemented by a lightweight React-based UI."
+        }
+      ]
+    },
+    "webPortfolio": {
+      "title": "Cinematic Portfolio Website",
+      "subtitle": "A motion-first personal portfolio built with React and Framer Motion",
+      "overview": "A dynamic portfolio website designed to highlight interactivity, fluid motion, and modern web aesthetics.",
+      "goal": "Create an engaging and performant web experience for showcasing projects.",
+      "outcome": "Delivered a responsive, GPU-optimized site with a cinematic user experience.",
+      "sections": [
+        {
+          "title": "Design Language",
+          "body": "Built around a filmic composition style, smooth parallax layers, and modular UI elements."
+        },
+        {
+          "title": "Development",
+          "body": "Developed using React, Vite, Framer Motion, and i18next for full localization support."
+        }
+      ]
+    },
+    "yamlAssistant": {
+      "title": "Conversational YAML Assistant",
+      "subtitle": "AI-driven configuration and validation tool",
+      "overview": "An intelligent assistant that generates and validates YAML/JSON schemas using large language models.",
+      "goal": "Simplify complex configuration workflows through natural language interaction.",
+      "outcome": "Improved productivity and accuracy in schema generation and validation processes.",
+      "sections": [
+        {
+          "title": "LLM Integration",
+          "body": "Built with LangChain and OpenAI API to handle multi-step reasoning for structured data generation."
+        },
+        {
+          "title": "Validation Layer",
+          "body": "Includes a custom Python validator for real-time syntax and schema validation."
+        }
+      ]
+    },
+    "cliDatacontractValidator": {
+      "title": "CLI for Data-Contract Validation",
+      "subtitle": "Command-line tool for automated schema validation in ETL pipelines",
+      "overview": "A lightweight Python-based CLI that validates data contracts and schemas in ETL processes.",
+      "goal": "Ensure data consistency and prevent schema drift in automated data pipelines.",
+      "outcome": "Enabled continuous validation in CI/CD workflows with minimal configuration.",
+      "sections": [
+        {
+          "title": "Implementation",
+          "body": "Developed with Python and Click, supporting both JSONSchema and YAML-based configurations."
+        },
+        {
+          "title": "Integration",
+          "body": "Seamlessly integrated into CI/CD pipelines via GitHub Actions and Docker environments."
+        }
+      ]
+    }
+  }
+}
