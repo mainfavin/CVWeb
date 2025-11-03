@@ -1,6 +1,14 @@
 {
   "projects": {
     "aiEtlSystem": {
+      "slug": "ai-etl-system",
+      "cover": "/images/projects/ai-etl/cover.jpg",
+      "year": 2024,
+      "role": "ML Engineer / Backend",
+      "tech": ["FastAPI", "Airflow", "LangChain", "Qdrant"],
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/your/ai-etl" }
+      ],
       "title": "AI-Enhanced ETL System",
       "subtitle": "Data pipeline automation with language models",
       "overview": "A modular ETL framework integrating large language models to generate metadata and detect events from unstructured data.",
@@ -8,16 +16,29 @@
       "outcome": "Achieved fully automated metadata extraction with FastAPI, Airflow, and Qdrant.",
       "sections": [
         {
+          "id": "architecture",
           "title": "Architecture",
-          "body": "Airflow orchestrates ingestion and transformation tasks while LangChain coordinates LLM calls and data enrichment."
+          "body": "Airflow orchestrates ingestion and transformation tasks while LangChain coordinates LLM calls and data enrichment.",
+          "markdown": "/docs/architecture.md"
         },
         {
+          "id": "api-interface",
           "title": "API & Interface",
-          "body": "FastAPI provides access to metadata queries and monitoring endpoints, complemented by a lightweight React-based UI."
+          "body": "FastAPI provides access to metadata queries and monitoring endpoints, complemented by a lightweight React-based UI.",
+          "markdown": "/docs/deployment.md"
         }
       ]
     },
     "webPortfolio": {
+      "slug": "web-portfolio",
+      "cover": "/images/projects/example/shot1.jpg",
+      "year": 2025,
+      "role": "Developer / Designer",
+      "tech": ["TypeScript", "React", "Framer Motion", "Node.js"],
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/username/repo" },
+        { "label": "Live", "href": "https://project-demo.com" }
+      ],
       "title": "Cinematic Portfolio Website",
       "subtitle": "A motion-first personal portfolio built with React and Framer Motion",
       "overview": "A dynamic portfolio website designed to highlight interactivity, fluid motion, and modern web aesthetics.",
@@ -25,16 +46,38 @@
       "outcome": "Delivered a responsive, GPU-optimized site with a cinematic user experience.",
       "sections": [
         {
+          "id": "design-language",
           "title": "Design Language",
           "body": "Built around a filmic composition style, smooth parallax layers, and modular UI elements."
         },
         {
+          "id": "development",
           "title": "Development",
           "body": "Developed using React, Vite, Framer Motion, and i18next for full localization support."
+        },
+         {
+          "id": "architecture",
+          "title": "Architecture",
+          "body": "Airflow orchestrates ingestion and transformation tasks while LangChain coordinates LLM calls and data enrichment.",
+          "markdown": "/docs/webPortfolio/architecture.md"
+        },
+        {
+          "id": "api-interface",
+          "title": "API & Interface",
+          "body": "FastAPI provides access to metadata queries and monitoring endpoints, complemented by a lightweight React-based UI.",
+          "markdown": "/docs/deployment.md"
         }
       ]
     },
     "yamlAssistant": {
+      "slug": "yaml-assistant",
+      "cover": "/images/projects/yaml/cover.jpg",
+      "year": 2024,
+      "role": "AI Engineer",
+      "tech": ["OpenAI", "LangChain", "Python"],
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/your/yaml-assistant" }
+      ],
       "title": "Conversational YAML Assistant",
       "subtitle": "AI-driven configuration and validation tool",
       "overview": "An intelligent assistant that generates and validates YAML/JSON schemas using large language models.",
@@ -42,16 +85,26 @@
       "outcome": "Improved productivity and accuracy in schema generation and validation processes.",
       "sections": [
         {
+          "id": "llm-integration",
           "title": "LLM Integration",
           "body": "Built with LangChain and OpenAI API to handle multi-step reasoning for structured data generation."
         },
         {
+          "id": "validation-layer",
           "title": "Validation Layer",
           "body": "Includes a custom Python validator for real-time syntax and schema validation."
         }
       ]
     },
     "cliDatacontractValidator": {
+      "slug": "cli-datacontract-validator",
+      "cover": "/images/projects/cli/cover.jpg",
+      "year": 2023,
+      "role": "Backend Engineer",
+      "tech": ["Python", "Click", "JSON Schema", "YAML"],
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/your/cli-datacontract-validator" }
+      ],
       "title": "CLI for Data-Contract Validation",
       "subtitle": "Command-line tool for automated schema validation in ETL pipelines",
       "overview": "A lightweight Python-based CLI that validates data contracts and schemas in ETL processes.",
@@ -59,10 +112,12 @@
       "outcome": "Enabled continuous validation in CI/CD workflows with minimal configuration.",
       "sections": [
         {
+          "id": "implementation",
           "title": "Implementation",
           "body": "Developed with Python and Click, supporting both JSONSchema and YAML-based configurations."
         },
         {
+          "id": "integration",
           "title": "Integration",
           "body": "Seamlessly integrated into CI/CD pipelines via GitHub Actions and Docker environments."
         }
