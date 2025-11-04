@@ -1,16 +1,39 @@
-// src/pages/Work.tsx
-import { useCallback } from "react";
-import { projects } from "../data/projects";
-import FilmFrame from "../components/FilmFrame";
+import { useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
+import FilmFrame from "../components/FilmFrame";
 import BigMarquee from "../components/BigMarquee";
-import { useTranslation } from "react-i18next"; // <-- Agregado
+import Footer from "../components/Footer";
+import { useTranslation } from "react-i18next";
 
+/* ========= Tipos ========= */
+type LinkItem = { label: string; href: string };
+type ProjectLite = {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  cover?: string;
+  year?: number;
+  role?: string;
+  tech?: string[];
+  links?: LinkItem[];
+};
+
+function isProjectRecord(v: unknown): v is Record<string, ProjectLite> {
+  return !!v && typeof v === "object" && !Array.isArray(v);
+}
+
+/* ========= Card Component ========= */
 function Card({
-  cover, title, subtitle, slug,
-}: { cover: string; title: string; subtitle?: string; slug: string }) {
-
+  cover,
+  title,
+  subtitle,
+  slug,
+}: {
+  cover: string;
+  title: string;
+  subtitle?: string;
+  slug: string;
+}) {
   const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = e.currentTarget;
     const rect = el.getBoundingClientRect();
@@ -19,35 +42,35 @@ function Card({
     const px = (x / rect.width) * 2 - 1;
     const py = (y / rect.height) * 2 - 1;
 
-    el.style.transform = `perspective(900px) rotateX(${(-py * 6).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg)`;
+    el.style.transform = `perspective(900px) rotateX(${(-py * 6).toFixed(
+      2
+    )}deg) rotateY(${(px * 6).toFixed(2)}deg)`;
 
     const img = el.querySelector("img") as HTMLImageElement | null;
-    if (img) img.style.transform = `translate(-50%,-50%) scale(1.12) translate(${px * 6}px, ${py * 6}px)`;
+    if (img)
+      img.style.transform = `translate(-50%,-50%) scale(1.12) translate(${px * 6}px, ${py * 6}px)`;
   }, []);
 
   const onLeave = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = e.currentTarget;
     el.style.transform = ``;
     const img = el.querySelector("img") as HTMLImageElement | null;
-    if (img) img.style.transform = `translate(-50%,-50%) scale(1.12) translate(0px, 0px)`;
+    if (img)
+      img.style.transform = `translate(-50%,-50%) scale(1.12) translate(0px, 0px)`;
   }, []);
-  
+
   return (
-    <Link to={`/project/${slug}`} style={{ textDecoration: 'none' }}>
-      <div 
-        style={cardStyle} 
-        onMouseMove={onMove} 
-        onMouseLeave={onLeave} 
+    <Link to={`/project/${slug}`} style={{ textDecoration: "none" }}>
+      <div
+        style={cardStyle}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
         aria-label={`View project: ${title}`}
       >
         <FilmFrame width="100%" height="100%" curveX={12} curveY={12} vignette={0.16}>
-          <img
-            src={cover}
-            alt={title}
-            style={imgStyle}
-          />
+          <img src={cover} alt={title} style={imgStyle} />
         </FilmFrame>
-        
+
         <div style={contentStyle}>
           <h3 style={titleStyle}>{title}</h3>
           {subtitle && <p style={subtitleStyle}>{subtitle}</p>}
@@ -57,12 +80,32 @@ function Card({
   );
 }
 
+/* ========= Página Work ========= */
 export default function Work() {
-  const { t } = useTranslation("work"); 
+  const { t } = useTranslation("work");
+
+  // Leer los proyectos desde el namespace "work"
+  const projects = useMemo<ProjectLite[]>(() => {
+    const raw = t("work.projects", { returnObjects: true }) as unknown;
+
+    if (Array.isArray(raw)) {
+      return raw as ProjectLite[];
+    }
+    if (isProjectRecord(raw)) {
+      return Object.values(raw);
+    }
+    return [];
+  }, [t]);
+
+  // Ordenar por año descendente
+  const ordered = useMemo(
+    () => [...projects].sort((a, b) => (b.year ?? 0) - (a.year ?? 0)),
+    [projects]
+  );
 
   return (
     <main style={{ background: "#0e0e0e", color: "#fff" }}>
-      {/* Marquee */}
+      {/* Marquee superior */}
       <BigMarquee
         text={t("work.marquee")}
         height="10vh"
@@ -71,8 +114,8 @@ export default function Work() {
         fill="solid"
         strokeWidth={1}
       />
-      
-      {/* Título centrado sobre la galería */}
+
+      {/* Encabezado */}
       <div style={{ width: "min(1400px, 92vw)", margin: "0 auto 2.2rem", textAlign: "center" }}>
         <div
           style={{
@@ -87,11 +130,11 @@ export default function Work() {
             opacity: 0.9,
           }}
         >
-          {t("work.eyebrow")} {/* <-- Reemplazado */}
+          {t("work.eyebrow")}
         </div>
       </div>
 
-      {/* Grid de tarjetas */}
+      {/* Grid de proyectos */}
       <section
         style={{
           width: "min(1400px, 92vw)",
@@ -101,22 +144,20 @@ export default function Work() {
           gap: "28px",
         }}
       >
-        {projects.map((p) => (
-          // Asumiendo que `p.title` y `p.subtitle` son manejados por `projects.ts`
-          // Si el contenido completo del proyecto se carga desde el JSON, necesitas reestructurar esto.
-          <Card 
-            key={p.slug} 
-            slug={p.slug} 
-            cover={p.cover} 
-            title={p.title} 
-            subtitle={p.subtitle} 
+        {ordered.map((p) => (
+          <Card
+            key={p.slug}
+            cover={p.cover ?? ""}
+            title={p.title}
+            subtitle={p.subtitle}
+            slug={p.slug}
           />
         ))}
       </section>
 
       <Footer />
 
-      {/* responsive */}
+      {/* Responsive */}
       <style>{`
         @media (max-width: 1000px) {
           section[style*="grid-template-columns: repeat(3, 1fr)"] {
@@ -133,16 +174,16 @@ export default function Work() {
   );
 }
 
-/* --- estilos --- */
+/* ========= Estilos ========= */
 const cardStyle: React.CSSProperties = {
   position: "relative",
   overflow: "hidden",
   borderRadius: 12,
   cursor: "pointer",
-  transition: 'transform .3s cubic-bezier(.22,.61,.36,1)',
-  willChange: 'transform',
-  height: 'min(50vh, 500px)',
-  border: '1px solid rgba(255,255,255,.1)',
+  transition: "transform .3s cubic-bezier(.22,.61,.36,1)",
+  willChange: "transform",
+  height: "min(50vh, 500px)",
+  border: "1px solid rgba(255,255,255,.1)",
 };
 
 const imgStyle: React.CSSProperties = {
@@ -154,7 +195,7 @@ const imgStyle: React.CSSProperties = {
   objectFit: "cover",
   transform: "translate(-50%,-50%) scale(1.12)",
   filter: "grayscale(20%) brightness(.95)",
-  transition: 'transform .4s cubic-bezier(.22,.61,.36,1)',
+  transition: "transform .4s cubic-bezier(.22,.61,.36,1)",
 };
 
 const contentStyle: React.CSSProperties = {

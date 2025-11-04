@@ -18,19 +18,75 @@
       ]
     },
     "webPortfolio": {
-      "title": "Cinematisch portfolio",
-      "subtitle": "Een motion-first persoonlijk portfolio met React en Framer Motion",
-      "overview": "Dynamische portfoliosite ontworpen om interactiviteit, vloeiende animaties en moderne webesthetiek te benadrukken.",
-      "goal": "Een aantrekkelijke en performante webervaring creëren om projecten te presenteren.",
-      "outcome": "Responsieve site, GPU-geoptimaliseerd, met een filmische gebruikerservaring.",
+      "slug": "web-portfolio",
+      "cover": "/images/logo.png",
+      "year": 2025,
+      "role": "Ontwikkelaar / Ontwerper",
+      "tech": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Framer Motion",
+        "TailwindCSS",
+        "i18next"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/mainfavin/CVWeb"
+        }
+      ],
+      "title": "Cinematisch Portfolio",
+      "subtitle": "Een motion-first persoonlijk portfolio gebouwd met React en Framer Motion",
+      "overview": "Deze website is ontworpen als een persoonlijk experiment waarin esthetische intentie wordt gecombineerd met technische discipline. Het is niet zomaar een portfolio — het is een levendige interface die beweging, ritme en precisie via code uitdrukt.",
+      "goal": "Een boeiende en snelle webervaring creëren om projecten en technische documentatie te presenteren.",
+      "outcome": "Een meertalige, GPU-geoptimaliseerde website met vloeiende animaties en dynamische projectpagina’s op basis van JSON + Markdown opgeleverd.",
       "sections": [
         {
-          "title": "Vormtaal",
-          "body": "Gebaseerd op filmische compositie, soepele parallax-lagen en modulaire UI-componenten."
+          "id": "design-language",
+          "title": "Ontwerp Taal",
+          "body": "Gebouwd rond een filmische compositiestijl, zachte parallaxlagen en subtiele bewegingen. Het kleurenpalet gebruikt neutrale achtergronden met ingetogen accenten geïnspireerd door cinematografie. Beweging is hier functioneel — het leidt het oog en bepaalt het navigatieritme.",
+          "media": [
+            "/images/projects/webPortfolio/about.jpg",
+            "/images/projects/webPortfolio/contact.jpg",
+            "/images/projects/webPortfolio/home.jpg"
+          ]
         },
         {
-          "title": "Ontwikkeling",
-          "body": "Gerealiseerd met React, Vite, Framer Motion en i18next voor volledige meertalige ondersteuning."
+          "id": "architecture-stack",
+          "title": "Architectuur & Stack",
+          "body": "De site is gebouwd met React en TypeScript, met Vite voor snelle iteraties en een schone, modulaire opbouw. Alles — van lay-outlogica tot animatie — is met de hand gemaakt, zonder zware frameworks, om volledige controle te behouden over structuur, prestaties en visuele consistentie. Pagina’s bestaan uit herbruikbare componenten met één duidelijke verantwoordelijkheid: animatie, responsieve lay-out of contentflow.",
+          "markdown": "/docs/webPortfolio/architecture.md"
+        },
+        {
+          "id": "interaction-motion",
+          "title": "Interactie & Bewegingsontwerp",
+          "body": "Animatie is hier structureel. Met Framer Motion en aangepaste natuurkundige effecten behoudt de site zijn vloeiendheid op alle apparaten, met subtiele parallax, soepele overgangen en tastbare interacties zonder afleiding."
+        },
+        {
+          "id": "design-system",
+          "title": "Designsysteem ",
+          "body": "Visueel ontwerp en code zijn nauw verbonden. Componenten gebruiken getypte inline-stijlen en herbruikbare bewegingsprimitieven voor voorspelbare overgangen. Het project ondersteunt meerdere talen (EN/ES/FR/NL) via i18next met JSON-namespaces per pagina, wat lokalisatie eenvoudig en onderhoudbaar maakt.",
+          "media": [
+            "/images/projects/webPortfolio/menu.jpg"
+          ]
+        },
+        {
+          "id": "performance-deployment",
+          "title": "Prestaties & Implementatie",
+          "body": "De build is lichtgewicht en de assets zijn geoptimaliseerd voor progressieve laadprestaties. De site wordt gehost op Cloudflare Pages, met gebruik van een wereldwijd CDN en HTTP/3 voor lage latentie. De architectuur balanceert esthetische complexiteit met prestatiediscipline om soepele bewegingen te garanderen, zelfs op midrange-apparaten.",
+          "markdown": "/docs/webPortfolio/deployment.md"
+        },
+        {
+          "id": "readme",
+          "title": "README / Documentatie",
+          "body": "Alle informatie over installatie, setup en implementatie is te vinden in het README-bestand van het project.",
+          "markdown": "/docs/webPortfolio/README.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Reflectie",
+          "body": "Dit project weerspiegelt mijn benadering van ontwikkeling: een combinatie van engineering, storytelling en motion design. Elke animatie en overgang heeft een doel — om interactie intuïtief en levendig te laten aanvoelen."
         }
       ]
     },

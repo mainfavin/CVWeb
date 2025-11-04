@@ -1,6 +1,41 @@
 {
   "work": {
-    "marquee": " PROYECTOS · ",
-    "eyebrow": "PROYECTOS DE MARCOS"
+    "marquee": " TRABAJO · ",
+    "eyebrow": "PROYECTOS DE MARCOS",
+    "projects": {
+      "aiEtlSystem": {
+        "slug": "ai-etl-system",
+        "title": "Sistema ETL impulsado por IA",
+        "subtitle": "Extracción, transformación y carga de datos automatizada con integración de IA",
+        "i18nKey": "aiEtlSystem",
+        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "year": 2024
+      },
+      "cliDatacontractValidator": {
+        "slug": "cli-datacontract-validator",
+        "title": "cli-datacontract-validator",
+        "subtitle": "Extracción, transformación y carga de datos automatizada con integración de IA",
+        "i18nKey": "cliDatacontractValidator",
+        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "year": 2025
+      },
+      "webPortfolio": {
+        "slug": "web-portfolio",
+        "title": "Portafolio Web",
+        "subtitle": "Extracción, transformación y carga de datos automatizada con integración de IA",
+        "i18nKey": "webPortfolio",
+        "cover": "/images/image2.jpg",
+        "year": 2025
+      },
+      "yamlAssistant": {
+        "slug": "yaml-assistant",
+        "title": "Asistente YAML",
+        "subtitle": "Tu compañero inteligente para crear archivos de configuración YAML",
+        "year": 2024,
+        "cover": "/images/projects/example/shot4.jpg",
+        "description": "Descripción meta opcional — versión corta para SEO o vistas previas.",
+        "i18nKey": "yamlAssistant"
+      }
+    }
   }
 }

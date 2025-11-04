@@ -2,12 +2,20 @@
   "projects": {
     "aiEtlSystem": {
       "slug": "ai-etl-system",
-      "cover": "/images/projects/ai-etl/cover.jpg",
+      "cover": "/images/image1.jpg",
       "year": 2024,
       "role": "ML Engineer / Backend",
-      "tech": ["FastAPI", "Airflow", "LangChain", "Qdrant"],
+      "tech": [
+        "FastAPI",
+        "Airflow",
+        "LangChain",
+        "Qdrant"
+      ],
       "links": [
-        { "label": "GitHub", "href": "https://github.com/your/ai-etl" }
+        {
+          "label": "GitHub",
+          "href": "https://github.com/your/ai-etl"
+        }
       ],
       "title": "AI-Enhanced ETL System",
       "subtitle": "Data pipeline automation with language models",
@@ -31,41 +39,73 @@
     },
     "webPortfolio": {
       "slug": "web-portfolio",
-      "cover": "/images/projects/example/shot1.jpg",
+      "cover": "/images/logo.png",
       "year": 2025,
       "role": "Developer / Designer",
-      "tech": ["TypeScript", "React", "Framer Motion", "Node.js"],
+      "tech": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Framer Motion",
+        "TailwindCSS",
+        "i18next"
+      ],
       "links": [
-        { "label": "GitHub", "href": "https://github.com/username/repo" },
-        { "label": "Live", "href": "https://project-demo.com" }
+        {
+          "label": "GitHub",
+          "href": "https://github.com/mainfavin/CVWeb"
+        }
       ],
       "title": "Cinematic Portfolio Website",
       "subtitle": "A motion-first personal portfolio built with React and Framer Motion",
-      "overview": "A dynamic portfolio website designed to highlight interactivity, fluid motion, and modern web aesthetics.",
-      "goal": "Create an engaging and performant web experience for showcasing projects.",
-      "outcome": "Delivered a responsive, GPU-optimized site with a cinematic user experience.",
+      "overview": "This website was designed as a personal experiment in merging aesthetic intent with engineering discipline. It’s not meant to be just a portfolio — it’s a living interface, built to express motion, rhythm, and precision through code.",
+      "goal": "Create an engaging and performant web experience for showcasing projects and technical documentation.",
+      "outcome": "Delivered a multilingual, GPU-optimized website with smooth animations and dynamic project pages powered by JSON + Markdown.",
       "sections": [
         {
           "id": "design-language",
           "title": "Design Language",
-          "body": "Built around a filmic composition style, smooth parallax layers, and modular UI elements."
+          "body": "Built around a filmic composition style, soft parallax layers, and subtle motion. The palette favors neutral backgrounds with restrained accents inspired by cinematography. Motion is not decorative — it guides the eye and sets the rhythm of navigation.",
+          "media": [
+            "/images/projects/webPortfolio/about.jpg",
+            "/images/projects/webPortfolio/contact.jpg",
+            "/images/projects/webPortfolio/home.jpg"
+            
+          ]
         },
         {
-          "id": "development",
-          "title": "Development",
-          "body": "Developed using React, Vite, Framer Motion, and i18next for full localization support."
-        },
-         {
-          "id": "architecture",
-          "title": "Architecture",
-          "body": "Airflow orchestrates ingestion and transformation tasks while LangChain coordinates LLM calls and data enrichment.",
+          "id": "architecture-stack",
+          "title": "Architecture & Stack",
+          "body": "The site is built with React and TypeScript, using Vite for fast iteration and a clean, modular build. Everything — from layout logic to motion — is handcrafted, without heavy frameworks, to maintain control over structure, performance, and design consistency. Pages compose reusable components that each have a single responsibility: animation primitives, responsive layout, or content flow.",
           "markdown": "/docs/webPortfolio/architecture.md"
         },
         {
-          "id": "api-interface",
-          "title": "API & Interface",
-          "body": "FastAPI provides access to metadata queries and monitoring endpoints, complemented by a lightweight React-based UI.",
-          "markdown": "/docs/deployment.md"
+          "id": "interaction-motion",
+          "title": "Interaction & Motion Design",
+          "body": "Animation here is structural. Using Framer Motion and custom physics-based effects, the site keeps fluidity across devices with subtle parallax, smooth transitions, and interactions that feel tactile without being intrusive."
+        },
+        {
+          "id": "design-system",
+          "title": "Design System & Maintainability",
+          "body": "Visual design and code are tightly coupled. Components use typed inline styles and composable motion primitives for predictable transitions. The project integrates multilingual support (EN/ES/FR/NL) via i18next with per-page JSON namespaces to keep localization simple and maintainable.",
+          "media": ["/images/projects/webPortfolio/menu.jpg"]
+        },
+        {
+          "id": "performance-deployment",
+          "title": "Performance & Deployment",
+          "body": "The build is lightweight and assets are optimized for progressive loading. The site deploys to Cloudflare Pages, leveraging its global CDN and HTTP/3 for low latency. The architecture balances aesthetic complexity with performance discipline to keep motion smooth on mid-range devices.",
+          "markdown": "/docs/webPortfolio/deployment.md"
+        },
+        {
+          "id": "readme",
+          "title": "README / Documentation",
+          "body": "Full setup, installation, and deployment details live in the project README.",
+          "markdown": "/docs/webPortfolio/README.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Reflection",
+          "body": "This project reflects my approach to development: a blend of engineering, storytelling, and motion design. Every animation and transition serves a purpose — to make interaction feel intuitive and alive."
         }
       ]
     },
@@ -74,9 +114,16 @@
       "cover": "/images/projects/yaml/cover.jpg",
       "year": 2024,
       "role": "AI Engineer",
-      "tech": ["OpenAI", "LangChain", "Python"],
+      "tech": [
+        "OpenAI",
+        "LangChain",
+        "Python"
+      ],
       "links": [
-        { "label": "GitHub", "href": "https://github.com/your/yaml-assistant" }
+        {
+          "label": "GitHub",
+          "href": "https://github.com/your/yaml-assistant"
+        }
       ],
       "title": "Conversational YAML Assistant",
       "subtitle": "AI-driven configuration and validation tool",
@@ -101,9 +148,17 @@
       "cover": "/images/projects/cli/cover.jpg",
       "year": 2023,
       "role": "Backend Engineer",
-      "tech": ["Python", "Click", "JSON Schema", "YAML"],
+      "tech": [
+        "Python",
+        "Click",
+        "JSON Schema",
+        "YAML"
+      ],
       "links": [
-        { "label": "GitHub", "href": "https://github.com/your/cli-datacontract-validator" }
+        {
+          "label": "GitHub",
+          "href": "https://github.com/your/cli-datacontract-validator"
+        }
       ],
       "title": "CLI for Data-Contract Validation",
       "subtitle": "Command-line tool for automated schema validation in ETL pipelines",

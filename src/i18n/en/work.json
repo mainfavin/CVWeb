@@ -1,6 +1,42 @@
 {
-    "work": {
-        "marquee": " WORK · ",
-        "eyebrow": "MARCOS' PROJECTS"
+  "work": {
+    "marquee": " WORK · ",
+    "eyebrow": "MARCOS' PROJECTS",
+    "projects": {
+      "aiEtlSystem": {
+        "slug": "ai-etl-system",
+        "title": "AI-Powered ETL System",
+        "subtitle": "Automated data extraction, transformation, and loading with AI integration",
+        "i18nKey": "aiEtlSystem",
+        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "year": 2024
+      },
+      "cliDatacontractValidator": {
+        "slug": "cli-datacontract-validator",
+        "title": "cli-datacontract-validator",
+        "subtitle": "Automated data extraction, transformation, and loading with AI integration",
+        "i18nKey": "cliDatacontractValidator",
+        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "year": 2025
+      },
+      "webPortfolio": {
+        "slug": "web-portfolio",
+        "title": "Web Portfolio",
+        "subtitle": "Automated data extraction, transformation, and loading with AI integration",
+        "i18nKey": "webPortfolio",
+        "cover": "/images/image2.jpg",
+        "year": 2025
+
+      },
+      "yamlAssistant": {
+        "slug": "yaml-assistant",
+        "title": "YAML Assistant",
+        "subtitle": "Your smart companion for creating configuration YAML files",
+        "year": 2024,
+        "cover": "/images/projects/example/shot4.jpg",
+        "description": "Optional meta description — short version for SEO or previews.",
+        "i18nKey": "yamlAssistant"
+      }
+    }
   }
-}
+} 

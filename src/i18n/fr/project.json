@@ -18,19 +18,75 @@
       ]
     },
     "webPortfolio": {
-      "title": "Portfolio cinématique",
-      "subtitle": "Portfolio personnel centré sur le mouvement, réalisé avec React et Framer Motion",
-      "overview": "Site de portfolio dynamique conçu pour mettre en valeur l’interactivité, la fluidité des animations et une esthétique web moderne.",
-      "goal": "Créer une expérience web engageante et performante pour présenter des projets.",
-      "outcome": "Site réactif, optimisé GPU, offrant une expérience utilisateur cinématique.",
+      "slug": "web-portfolio",
+      "cover": "/images/logo.png",
+      "year": 2025,
+      "role": "Développeur / Designer",
+      "tech": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Framer Motion",
+        "TailwindCSS",
+        "i18next"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/mainfavin/CVWeb"
+        }
+      ],
+      "title": "Portfolio Cinématique",
+      "subtitle": "Un portfolio personnel centré sur le mouvement, développé avec React et Framer Motion",
+      "overview": "Ce site a été conçu comme une expérience personnelle visant à unir intention esthétique et rigueur technique. Ce n’est pas seulement un portfolio — c’est une interface vivante, créée pour exprimer le mouvement, le rythme et la précision à travers le code.",
+      "goal": "Créer une expérience web immersive et performante pour présenter des projets et de la documentation technique.",
+      "outcome": "Mise en ligne d’un site multilingue optimisé pour le GPU, avec des animations fluides et des pages de projets dynamiques propulsées par JSON + Markdown.",
       "sections": [
         {
-          "title": "Langage visuel",
-          "body": "Composé autour d’une esthétique filmique, de couches parallax fluides et d’éléments d’interface modulaires."
+          "id": "design-language",
+          "title": "Langage Visuel",
+          "body": "Construit autour d’une composition d’inspiration cinématographique, avec des couches de parallaxe douces et un mouvement subtil. La palette privilégie des tons neutres et des accents mesurés inspirés du cinéma. Le mouvement n’est pas décoratif — il guide le regard et rythme la navigation.",
+          "media": [
+            "/images/projects/webPortfolio/about.jpg",
+            "/images/projects/webPortfolio/contact.jpg",
+            "/images/projects/webPortfolio/home.jpg"
+          ]
         },
         {
-          "title": "Développement",
-          "body": "Développé avec React, Vite, Framer Motion et i18next pour un support complet de la localisation."
+          "id": "architecture-stack",
+          "title": "Architecture & Stack",
+          "body": "Le site est développé avec React et TypeScript, utilisant Vite pour une itération rapide et une structure modulaire claire. Chaque aspect — de la mise en page à l’animation — est conçu à la main, sans frameworks lourds, afin de garder un contrôle total sur la structure, la performance et la cohérence du design. Les pages s’appuient sur des composants réutilisables, chacun ayant une responsabilité claire : animation, mise en page réactive ou flux de contenu.",
+          "markdown": "/docs/webPortfolio/architecture.md"
+        },
+        {
+          "id": "interaction-motion",
+          "title": "Interaction & Mouvement",
+          "body": "L’animation ici fait partie de la structure. Grâce à Framer Motion et à des effets physiques personnalisés, le site reste fluide sur tous les appareils, avec des transitions douces, une parallaxe légère et des interactions tactiles naturelles."
+        },
+        {
+          "id": "design-system",
+          "title": "Système de Design ",
+          "body": "Le design visuel et le code sont étroitement liés. Les composants utilisent des styles typés en ligne et des primitives de mouvement modulables pour des transitions prévisibles. Le projet intègre la prise en charge multilingue (EN/ES/FR/NL) via i18next avec des namespaces JSON par page pour simplifier la localisation et la maintenance.",
+          "media": [
+            "/images/projects/webPortfolio/menu.jpg"
+          ]
+        },
+        {
+          "id": "performance-deployment",
+          "title": "Performance & Déploiement",
+          "body": "La build est légère et les ressources sont optimisées pour un chargement progressif. Le site est déployé sur Cloudflare Pages, utilisant son CDN mondial et HTTP/3 pour une faible latence. L’architecture équilibre complexité visuelle et discipline de performance pour assurer une fluidité parfaite, même sur des appareils intermédiaires.",
+          "markdown": "/docs/webPortfolio/deployment.md"
+        },
+        {
+          "id": "readme",
+          "title": "README / Documentation",
+          "body": "Tous les détails d’installation, de configuration et de déploiement sont disponibles dans le README du projet.",
+          "markdown": "/docs/webPortfolio/README.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Réflexion",
+          "body": "Ce projet reflète ma vision du développement : un équilibre entre ingénierie, narration et design du mouvement. Chaque animation et transition a une intention — rendre l’interaction intuitive et vivante."
         }
       ]
     },

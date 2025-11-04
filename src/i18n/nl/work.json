@@ -1,6 +1,41 @@
 {
   "work": {
-    "marquee": " PROJECTEN · ",
-    "eyebrow": "MARCOS’ PROJECTEN"
+    "marquee": " WERK · ",
+    "eyebrow": "MARCOS' PROJECTEN",
+    "projects": {
+      "aiEtlSystem": {
+        "slug": "ai-etl-system",
+        "title": "AI-gestuurd ETL-systeem",
+        "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
+        "i18nKey": "aiEtlSystem",
+        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "year": 2024
+      },
+      "cliDatacontractValidator": {
+        "slug": "cli-datacontract-validator",
+        "title": "cli-datacontract-validator",
+        "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
+        "i18nKey": "cliDatacontractValidator",
+        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "year": 2025
+      },
+      "webPortfolio": {
+        "slug": "web-portfolio",
+        "title": "Webportfolio",
+        "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
+        "i18nKey": "webPortfolio",
+        "cover": "/images/image2.jpg",
+        "year": 2025
+      },
+      "yamlAssistant": {
+        "slug": "yaml-assistant",
+        "title": "YAML Assistent",
+        "subtitle": "Je slimme partner voor het creëren van configuratie YAML-bestanden",
+        "year": 2024,
+        "cover": "/images/projects/example/shot4.jpg",
+        "description": "Optionele metabeschrijving — korte versie voor SEO of previews.",
+        "i18nKey": "yamlAssistant"
+      }
+    }
   }
 }
