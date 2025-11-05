@@ -1,39 +1,92 @@
 {
   "projects": {
-    "aiEtlSystem": {
+    "aiEnhancedEtl": {
       "slug": "ai-etl-system",
-      "cover": "/images/image1.jpg",
-      "year": 2024,
-      "role": "ML Engineer / Backend",
+      "cover": "/images/projects/ai-etl-system/1.png",
+      "year": 2025,
+      "role": "ML Engineer / Backend Developer",
       "tech": [
-        "FastAPI",
-        "Airflow",
+        "Python",
+        "Docker",
         "LangChain",
-        "Qdrant"
+        "Whisper",
+        "Qdrant",
+        "YAML",
+        "FastAPI",
+        "Clip4Clip",
+        "MoviePy"
+      ],
+      "tags": [
+        "AI",
+        "ETL",
+        "Multimedia",
+        "Vector DB",
+        "Automation",
+        "LLM"
       ],
       "links": [
         {
           "label": "GitHub",
-          "href": "https://github.com/your/ai-etl"
-        }
-      ],
-      "title": "AI-Enhanced ETL System",
-      "subtitle": "Data pipeline automation with language models",
-      "overview": "A modular ETL framework integrating large language models to generate metadata and detect events from unstructured data.",
-      "goal": "Design a robust ingestion pipeline capable of semantic enrichment using AI and vector databases.",
-      "outcome": "Achieved fully automated metadata extraction with FastAPI, Airflow, and Qdrant.",
-      "sections": [
-        {
-          "id": "architecture",
-          "title": "Architecture",
-          "body": "Airflow orchestrates ingestion and transformation tasks while LangChain coordinates LLM calls and data enrichment.",
-          "markdown": "/docs/architecture.md"
+          "href": "https://github.com/mainfavin/AI-enhanced-ETL"
         },
         {
-          "id": "api-interface",
-          "title": "API & Interface",
-          "body": "FastAPI provides access to metadata queries and monitoring endpoints, complemented by a lightweight React-based UI.",
-          "markdown": "/docs/deployment.md"
+          "label": "Docker Hub",
+          "href": "https://hub.docker.com/r/papimarkiss/ai-enhanced-etl"
+        }
+      ],
+      "title": "AI-Enhanced Multimedia ETL",
+      "subtitle": "A generative AI system for extracting, transforming, and loading unstructured multimedia data.",
+      "overview": "A modular and containerized ETL engine that automates multimedia processing — from video and audio segmentation to transcription, description, embedding generation, and vector storage — all configurable via YAML or a conversational assistant.",
+      "goal": "Build an accessible, scalable pipeline for transforming unstructured multimedia data into searchable semantic representations.",
+      "outcome": "Delivered a fully functional, Dockerized AI-powered ETL framework capable of multimodal processing and semantic retrieval using vector databases.",
+      "impact": [
+        "Achieved complete automation of multimedia ingestion and transformation through modular pipelines.",
+        "Enabled semantic search and retrieval across audio, video, and text embeddings.",
+        "Reduced setup and configuration effort to minutes via YAML and a conversational interface."
+      ],
+      "contributions": [
+        "Designed a clean Domain-Application-Infrastructure architecture for modular scalability.",
+        "Integrated LLMs and multimodal models (Whisper, Clip4Clip, MiniLM, Wav2Vec) for semantic enrichment.",
+        "Implemented concurrent pipelines and a Multipipeline manager for parallel ETL execution.",
+        "Developed YAML-driven configuration validated by JSON Schema."
+      ],
+      "sections": [
+        {
+          "id": "media-gallery",
+          "title": "Media Gallery",
+          "media": [
+            "/images/projects/ai-etl-system/2.png",
+            "/images/projects/ai-etl-system/3.png",
+            "/images/projects/ai-etl-system/4.png"
+          ]
+        },
+        {
+          "id": "context",
+          "title": "Context & Motivation",
+          "markdown": "/docs/aiEnhancedEtl/context.md"
+        },
+        {
+          "id": "architecture",
+          "title": "Architecture & Design",
+          "markdown": {
+            "en": "/docs/aiEnhancedEtl/architecture.en.md",
+            "es": "/docs/aiEnhancedEtl/architecture.es.md"
+          }
+        },
+        {
+          "id": "workflow",
+          "title": "ETL Workflow",
+          "markdown": "/docs/aiEnhancedEtl/workflow.md"
+        },
+        {
+          "id": "implementation",
+          "title": "Implementation Details",
+          "markdown": "/docs/aiEnhancedEtl/implementation.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Reflection & Future Work",
+          "markdown": "/docs/aiEnhancedEtl/reflection.md"
         }
       ]
     },
@@ -70,7 +123,6 @@
             "/images/projects/webPortfolio/about.jpg",
             "/images/projects/webPortfolio/contact.jpg",
             "/images/projects/webPortfolio/home.jpg"
-            
           ]
         },
         {
@@ -88,7 +140,9 @@
           "id": "design-system",
           "title": "Design System & Maintainability",
           "body": "Visual design and code are tightly coupled. Components use typed inline styles and composable motion primitives for predictable transitions. The project integrates multilingual support (EN/ES/FR/NL) via i18next with per-page JSON namespaces to keep localization simple and maintainable.",
-          "media": ["/images/projects/webPortfolio/menu.jpg"]
+          "media": [
+            "/images/projects/webPortfolio/menu.jpg"
+          ]
         },
         {
           "id": "performance-deployment",

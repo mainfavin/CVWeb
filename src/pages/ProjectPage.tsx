@@ -14,7 +14,7 @@ type SectionData = {
   title: string;
   body?: string;
   media?: string[];
-  markdown?: string;
+  markdown?: string, Record<string, string>;
 };
 type ProjectData = {
   slug: string;
