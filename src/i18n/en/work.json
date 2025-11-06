@@ -8,7 +8,7 @@
         "title": "AI-Powered ETL System",
         "subtitle": "Automated data extraction, transformation, and loading with AI integration",
         "i18nKey": "aiEtlSystem",
-        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "cover": "/images/projects/example/gallery1.jpg",
         "year": 2024
       },
       "cliDatacontractValidator": {
@@ -16,7 +16,7 @@
         "title": "cli-datacontract-validator",
         "subtitle": "Automated data extraction, transformation, and loading with AI integration",
         "i18nKey": "cliDatacontractValidator",
-        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "cover": "/images/projects/example/gallery2.jpg",
         "year": 2025
       },
       "webPortfolio": {
@@ -24,7 +24,7 @@
         "title": "Web Portfolio",
         "subtitle": "Automated data extraction, transformation, and loading with AI integration",
         "i18nKey": "webPortfolio",
-        "cover": "/images/image2.jpg",
+        "cover": "/images/projects/example/gallery3.jpg",
         "year": 2025
 
       },
@@ -33,7 +33,7 @@
         "title": "YAML Assistant",
         "subtitle": "Your smart companion for creating configuration YAML files",
         "year": 2024,
-        "cover": "/images/projects/example/shot4.jpg",
+        "cover": "/images/projects/example/gallery4.jpg",
         "description": "Optional meta description — short version for SEO or previews.",
         "i18nKey": "yamlAssistant"
       }

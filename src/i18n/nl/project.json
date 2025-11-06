@@ -1,19 +1,89 @@
 {
   "projects": {
-    "aiEtlSystem": {
-      "title": "AI-versterkt ETL-systeem",
-      "subtitle": "Automatisering van datapipelines met taalmodellen",
-      "overview": "Modulair ETL-framework dat taalmodellen integreert om metadata te genereren en gebeurtenissen te detecteren uit ongestructureerde data.",
-      "goal": "Een robuuste ingestieketen ontwerpen met semantische verrijking door AI en vectordatabanken.",
-      "outcome": "Volledig geautomatiseerde metadata-extractie met FastAPI, Airflow en Qdrant.",
-      "sections": [
+    "aiEnhancedEtl": {
+      "slug": "ai-etl-system",
+      "cover": "/images/projects/ai-etl-system/1.png",
+      "year": 2025,
+      "role": "ML-ingenieur / Backend-ontwikkelaar",
+      "tech": [
+        "Python",
+        "Docker",
+        "LangChain",
+        "Whisper",
+        "Qdrant",
+        "YAML",
+        "FastAPI",
+        "Clip4Clip",
+        "MoviePy"
+      ],
+      "tags": [
+        "AI",
+        "ETL",
+        "Multimedia",
+        "Vector DB",
+        "Automatisering",
+        "LLM"
+      ],
+      "links": [
         {
-          "title": "Architectuur",
-          "body": "Airflow orkestreert ingestie en transformatie, terwijl LangChain LLM-aanroepen en dataverrijking coördineert."
+          "label": "GitHub",
+          "href": "https://github.com/mainfavin/AI-enhanced-ETL"
         },
         {
-          "title": "API & Interface",
-          "body": "FastAPI biedt endpoints voor metadata-queries en monitoring, aangevuld met een lichte React-interface."
+          "label": "Docker Hub",
+          "href": "https://hub.docker.com/r/papimarkiss/ai-enhanced-etl"
+        }
+      ],
+      "title": "AI-Verbeterde Multimedia ETL",
+      "subtitle": "Een generatief AI-systeem voor het extraheren, transformeren en laden van ongestructureerde multimediagegevens.",
+      "overview": "Een modulaire en containergebaseerde ETL-engine die multimediaverwerking automatiseert — van video- en audiosplitsing tot transcriptie, beschrijving, embedding-generatie en vectoropslag — volledig configureerbaar via YAML of een conversatie-assistent.",
+      "goal": "Een toegankelijke en schaalbare pijplijn bouwen om ongestructureerde multimediagegevens om te zetten in doorzoekbare semantische representaties.",
+      "outcome": "Een volledig functioneel, door AI aangedreven en Docker-gebaseerd ETL-framework geleverd dat multimodaal verwerken en semantisch ophalen ondersteunt met behulp van vectordatabases.",
+      "impact": [
+        "Volledige automatisering van multimedia-invoer en -transformatie via modulaire pijplijnen.",
+        "Mogelijk gemaakt semantisch zoeken en ophalen over audio-, video- en tekstembeddings.",
+        "Installatie en configuratie teruggebracht tot enkele minuten dankzij YAML en een conversatie-interface."
+      ],
+      "contributions": [
+        "Een duidelijke Domain–Application–Infrastructure-architectuur ontworpen voor modulaire schaalbaarheid.",
+        "Integratie van LLM’s en multimodale modellen (Whisper, Clip4Clip, MiniLM, Wav2Vec) voor semantische verrijking.",
+        "Parallelle pijplijnen en een Multipipeline-manager geïmplementeerd voor gelijktijdige ETL-uitvoering.",
+        "YAML-gestuurde configuratie ontwikkeld, gevalideerd via JSON Schema."
+      ],
+      "sections": [
+        {
+          "id": "media-gallery",
+          "title": "Mediagalerij",
+          "media": [
+            "/images/projects/ai-etl-system/2.png",
+            "/images/projects/ai-etl-system/3.png",
+            "/images/projects/ai-etl-system/4.png"
+          ]
+        },
+        {
+          "id": "context",
+          "title": "Context en Motivatie",
+          "markdown": "/docs/aiEnhancedEtl/nl/workflow.nl.md"
+        },
+        {
+          "id": "architecture",
+          "title": "Architectuur en Ontwerp",
+          "markdown": "/docs/aiEnhancedEtl/nl/architecture.nl.md"
+        },
+        {
+          "id": "workflow",
+          "title": "ETL-Workflow",
+          "markdown": "/docs/aiEnhancedEtl/nl/workflow.nl.md"
+        },
+        {
+          "id": "implementation",
+          "title": "Implementatiedetails",
+          "markdown": "/docs/aiEnhancedEtl/nl/implementation.nl.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Reflectie en Toekomstig Werk",
+          "markdown": "/docs/aiEnhancedEtl/nl/reflection.nl.md"
         }
       ]
     },

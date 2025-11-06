@@ -51,7 +51,6 @@ const yamlAssistant: Project = {
   subtitle: "Your smart companion for creating configuration YAML files",
   year: 2025,
   cover: "/images/projects/example/shot4.jpg",
-  
   description: "Optional meta description — short version for SEO or previews.",
   i18nKey: "yamlAssistant", // CLAVE que conecta con i18n
 };

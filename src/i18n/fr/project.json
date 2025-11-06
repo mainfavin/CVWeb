@@ -1,19 +1,89 @@
 {
   "projects": {
-    "aiEtlSystem": {
-      "title": "Système ETL optimisé par l’IA",
-      "subtitle": "Automatisation de pipelines de données avec des modèles de langage",
-      "overview": "Framework ETL modulaire intégrant des modèles de langage pour générer des métadonnées et détecter des événements à partir de données non structurées.",
-      "goal": "Concevoir une chaîne d’ingestion robuste capable d’enrichissement sémantique grâce à l’IA et aux bases vectorielles.",
-      "outcome": "Extraction de métadonnées entièrement automatisée avec FastAPI, Airflow et Qdrant.",
-      "sections": [
+    "aiEnhancedEtl": {
+      "slug": "ai-etl-system",
+      "cover": "/images/projects/ai-etl-system/1.png",
+      "year": 2025,
+      "role": "Ingénieur ML / Développeur Backend",
+      "tech": [
+        "Python",
+        "Docker",
+        "LangChain",
+        "Whisper",
+        "Qdrant",
+        "YAML",
+        "FastAPI",
+        "Clip4Clip",
+        "MoviePy"
+      ],
+      "tags": [
+        "IA",
+        "ETL",
+        "Multimédia",
+        "Base de Données Vectorielle",
+        "Automatisation",
+        "LLM"
+      ],
+      "links": [
         {
-          "title": "Architecture",
-          "body": "Airflow orchestre l’ingestion et la transformation tandis que LangChain coordonne les appels aux LLMs et l’enrichissement des données."
+          "label": "GitHub",
+          "href": "https://github.com/mainfavin/AI-enhanced-ETL"
         },
         {
-          "title": "API & Interface",
-          "body": "FastAPI expose des endpoints pour les requêtes de métadonnées et le monitoring, complétés par une interface légère en React."
+          "label": "Docker Hub",
+          "href": "https://hub.docker.com/r/papimarkiss/ai-enhanced-etl"
+        }
+      ],
+      "title": "ETL Multimédia Amélioré par l’IA",
+      "subtitle": "Un système d’IA générative pour extraire, transformer et charger des données multimédias non structurées.",
+      "overview": "Moteur ETL modulaire et conteneurisé automatisant le traitement multimédia — de la segmentation audio et vidéo à la transcription, la description, la génération d’embeddings et le stockage vectoriel — entièrement configurable via YAML ou un assistant conversationnel.",
+      "goal": "Créer un pipeline accessible et évolutif pour transformer des données multimédias non structurées en représentations sémantiques interrogeables.",
+      "outcome": "Livraison d’un framework ETL entièrement fonctionnel et dockerisé, alimenté par l’IA, capable de traitement multimodal et de recherche sémantique à l’aide de bases de données vectorielles.",
+      "impact": [
+        "Automatisation complète de l’ingestion et de la transformation multimédia via des pipelines modulaires.",
+        "Permet la recherche et la récupération sémantique sur des embeddings audio, vidéo et texte.",
+        "Réduction du temps de configuration et de déploiement à quelques minutes grâce à YAML et une interface conversationnelle."
+      ],
+      "contributions": [
+        "Conception d’une architecture claire Domain–Application–Infrastructure pour une évolutivité modulaire.",
+        "Intégration de LLMs et de modèles multimodaux (Whisper, Clip4Clip, MiniLM, Wav2Vec) pour l’enrichissement sémantique.",
+        "Mise en œuvre de pipelines concurrents et d’un gestionnaire Multipipeline pour une exécution ETL parallèle.",
+        "Développement d’une configuration basée sur YAML validée par JSON Schema."
+      ],
+      "sections": [
+        {
+          "id": "media-gallery",
+          "title": "Galerie Multimédia",
+          "media": [
+            "/images/projects/ai-etl-system/2.png",
+            "/images/projects/ai-etl-system/3.png",
+            "/images/projects/ai-etl-system/4.png"
+          ]
+        },
+        {
+          "id": "context",
+          "title": "Contexte et Motivation",
+          "markdown": "/docs/aiEnhancedEtl/fr/workflow.fr.md"
+        },
+        {
+          "id": "architecture",
+          "title": "Architecture et Conception",
+          "markdown": "/docs/aiEnhancedEtl/fr/architecture.fr.md"
+        },
+        {
+          "id": "workflow",
+          "title": "Flux ETL",
+          "markdown": "/docs/aiEnhancedEtl/fr/workflow.fr.md"
+        },
+        {
+          "id": "implementation",
+          "title": "Détails de Mise en Œuvre",
+          "markdown": "/docs/aiEnhancedEtl/fr/implementation.fr.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Réflexion et Travaux Futurs",
+          "markdown": "/docs/aiEnhancedEtl/fr/reflection.fr.md"
         }
       ]
     },

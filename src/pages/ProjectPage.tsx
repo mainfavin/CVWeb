@@ -14,7 +14,7 @@ type SectionData = {
   title: string;
   body?: string;
   media?: string[];
-  markdown?: string, Record<string, string>;
+  markdown?: string;
 };
 type ProjectData = {
   slug: string;
@@ -109,7 +109,7 @@ export default function ProjectPage() {
 
         {/* Si no hay proyecto, mostramos un fallback sin cortar hooks */}
         {!project ? (
-          <div style={{ padding: "2rem 0" }}>Project not found.</div>
+          <div style={{ padding: "2rem 0" }}>Documenting the project, this will be up in a few days :) -Marcos</div>
         ) : (
           <>
             {/* HERO */}

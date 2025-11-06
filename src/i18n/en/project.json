@@ -63,30 +63,27 @@
         {
           "id": "context",
           "title": "Context & Motivation",
-          "markdown": "/docs/aiEnhancedEtl/context.md"
+          "markdown": "/docs/aiEnhancedEtl/en/workflow.en.md"
         },
         {
           "id": "architecture",
           "title": "Architecture & Design",
-          "markdown": {
-            "en": "/docs/aiEnhancedEtl/architecture.en.md",
-            "es": "/docs/aiEnhancedEtl/architecture.es.md"
-          }
+          "markdown":  "/docs/aiEnhancedEtl/en/architecture.en.md"
         },
         {
           "id": "workflow",
           "title": "ETL Workflow",
-          "markdown": "/docs/aiEnhancedEtl/workflow.md"
+          "markdown": "/docs/aiEnhancedEtl/en/workflow.en.md"
         },
         {
           "id": "implementation",
           "title": "Implementation Details",
-          "markdown": "/docs/aiEnhancedEtl/implementation.md"
+          "markdown": "/docs/aiEnhancedEtl/en/implementation.en.md"
         },
         {
           "id": "reflection",
           "title": "Reflection & Future Work",
-          "markdown": "/docs/aiEnhancedEtl/reflection.md"
+          "markdown": "/docs/aiEnhancedEtl/en/reflection.en.md"
         }
       ]
     },

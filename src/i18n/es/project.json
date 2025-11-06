@@ -1,19 +1,89 @@
 {
   "projects": {
-    "aiEtlSystem": {
-      "title": "Sistema ETL Potenciado con IA",
-      "subtitle": "Automatización de pipelines con modelos de lenguaje",
-      "overview": "Framework ETL modular que integra modelos de lenguaje para generar metadatos y detectar eventos en datos no estructurados.",
-      "goal": "Diseñar una ingesta robusta capaz de enriquecimiento semántico usando IA y bases vectoriales.",
-      "outcome": "Se logró una extracción automática de metadatos con FastAPI, Airflow y Qdrant.",
-      "sections": [
+    "aiEnhancedEtl": {
+      "slug": "ai-etl-system",
+      "cover": "/images/projects/ai-etl-system/1.png",
+      "year": 2025,
+      "role": "Ingeniero de ML / Desarrollador Backend",
+      "tech": [
+        "Python",
+        "Docker",
+        "LangChain",
+        "Whisper",
+        "Qdrant",
+        "YAML",
+        "FastAPI",
+        "Clip4Clip",
+        "MoviePy"
+      ],
+      "tags": [
+        "IA",
+        "ETL",
+        "Multimedia",
+        "Base de Datos Vectorial",
+        "Automatización",
+        "LLM"
+      ],
+      "links": [
         {
-          "title": "Arquitectura",
-          "body": "Airflow orquesta tareas de ingesta y transformación, mientras LangChain coordina las llamadas a los modelos de lenguaje."
+          "label": "GitHub",
+          "href": "https://github.com/mainfavin/AI-enhanced-ETL"
         },
         {
-          "title": "API e Interfaz",
-          "body": "FastAPI expone endpoints para consultas de metadatos, junto a una interfaz ligera en React."
+          "label": "Docker Hub",
+          "href": "https://hub.docker.com/r/papimarkiss/ai-enhanced-etl"
+        }
+      ],
+      "title": "ETL Multimedia Mejorado con IA",
+      "subtitle": "Un sistema de IA generativa para extraer, transformar y cargar datos multimedia no estructurados.",
+      "overview": "Motor ETL modular y contenerizado que automatiza el procesamiento multimedia — desde la segmentación de vídeo y audio hasta la transcripción, descripción, generación de embeddings y almacenamiento vectorial — todo configurable mediante YAML o un asistente conversacional.",
+      "goal": "Desarrollar un pipeline accesible y escalable para transformar datos multimedia no estructurados en representaciones semánticas buscables.",
+      "outcome": "Se entregó un marco ETL totalmente funcional y dockerizado, impulsado por IA, capaz de realizar procesamiento multimodal y recuperación semántica mediante bases de datos vectoriales.",
+      "impact": [
+        "Automatización completa del proceso de ingestión y transformación multimedia mediante pipelines modulares.",
+        "Habilitó la búsqueda y recuperación semántica en audio, vídeo y texto a través de embeddings.",
+        "Redujo el tiempo de configuración e instalación a minutos mediante YAML y una interfaz conversacional."
+      ],
+      "contributions": [
+        "Diseño de una arquitectura limpia basada en Dominio–Aplicación–Infraestructura para escalabilidad modular.",
+        "Integración de LLMs y modelos multimodales (Whisper, Clip4Clip, MiniLM, Wav2Vec) para enriquecimiento semántico.",
+        "Implementación de pipelines concurrentes y un gestor Multipipeline para ejecución ETL paralela.",
+        "Desarrollo de configuración controlada por YAML validada mediante JSON Schema."
+      ],
+      "sections": [
+        {
+          "id": "media-gallery",
+          "title": "Galería Multimedia",
+          "media": [
+            "/images/projects/ai-etl-system/2.png",
+            "/images/projects/ai-etl-system/3.png",
+            "/images/projects/ai-etl-system/4.png"
+          ]
+        },
+        {
+          "id": "context",
+          "title": "Contexto y Motivación",
+          "markdown": "/docs/aiEnhancedEtl/es/workflow.es.md"
+        },
+        {
+          "id": "architecture",
+          "title": "Arquitectura y Diseño",
+          "markdown": "/docs/aiEnhancedEtl/es/architecture.es.md"
+        },
+        {
+          "id": "workflow",
+          "title": "Flujo ETL",
+          "markdown": "/docs/aiEnhancedEtl/es/workflow.es.md"
+        },
+        {
+          "id": "implementation",
+          "title": "Detalles de Implementación",
+          "markdown": "/docs/aiEnhancedEtl/es/implementation.es.md"
+        },
+        {
+          "id": "reflection",
+          "title": "Reflexión y Trabajo Futuro",
+          "markdown": "/docs/aiEnhancedEtl/es/reflection.es.md"
         }
       ]
     },
