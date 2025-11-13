@@ -13,7 +13,7 @@
       },
       "cliDatacontractValidator": {
         "slug": "cli-datacontract-validator",
-        "title": "cli-datacontract-validator",
+        "title": "Datacontract Validator",
         "subtitle": "Automated data extraction, transformation, and loading with AI integration",
         "i18nKey": "cliDatacontractValidator",
         "cover": "/images/projects/example/gallery2.jpg",

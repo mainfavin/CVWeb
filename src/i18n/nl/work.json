@@ -8,7 +8,7 @@
         "title": "AI-gestuurd ETL-systeem",
         "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
         "i18nKey": "aiEtlSystem",
-        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "cover": "/images/projects/example/gallery1.jpg",
         "year": 2024
       },
       "cliDatacontractValidator": {
@@ -16,7 +16,7 @@
         "title": "cli-datacontract-validator",
         "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
         "i18nKey": "cliDatacontractValidator",
-        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "cover": "/images/projects/example/gallery2.jpg",
         "year": 2025
       },
       "webPortfolio": {
@@ -24,7 +24,7 @@
         "title": "Webportfolio",
         "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
         "i18nKey": "webPortfolio",
-        "cover": "/images/image2.jpg",
+        "cover": "/images/projects/example/gallery3.jpg",
         "year": 2025
       },
       "yamlAssistant": {
@@ -32,7 +32,7 @@
         "title": "YAML Assistent",
         "subtitle": "Je slimme partner voor het creëren van configuratie YAML-bestanden",
         "year": 2024,
-        "cover": "/images/projects/example/shot4.jpg",
+        "cover": "/images/projects/example/gallery4.jpg",
         "description": "Optionele metabeschrijving — korte versie voor SEO of previews.",
         "i18nKey": "yamlAssistant"
       }

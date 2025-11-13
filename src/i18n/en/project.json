@@ -161,7 +161,7 @@
       ]
     },
     "yamlAssistant": {
-      "slug": "yaml-assistant",
+      
       "cover": "/images/projects/yaml/cover.jpg",
       "year": 2024,
       "role": "AI Engineer",
@@ -195,7 +195,7 @@
       ]
     },
     "cliDatacontractValidator": {
-      "slug": "cli-datacontract-validator",
+      
       "cover": "/images/projects/cli/cover.jpg",
       "year": 2023,
       "role": "Backend Engineer",

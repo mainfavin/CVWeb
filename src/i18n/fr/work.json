@@ -8,15 +8,15 @@
         "title": "Système ETL alimenté par l'IA",
         "subtitle": "Extraction, transformation et chargement automatisés des données avec intégration de l'IA",
         "i18nKey": "aiEtlSystem",
-        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "cover": "/images/projects/example/gallery1.jpg",
         "year": 2024
       },
       "cliDatacontractValidator": {
         "slug": "cli-datacontract-validator",
-        "title": "cli-datacontract-validator",
+        "title": "Datacontract Validator",
         "subtitle": "Extraction, transformation et chargement automatisés des données avec intégration de l'IA",
         "i18nKey": "cliDatacontractValidator",
-        "cover": "/images/projects/ai-etl-system/cover.jpg",
+        "cover": "/images/projects/example/gallery2.jpg",
         "year": 2025
       },
       "webPortfolio": {
@@ -24,7 +24,7 @@
         "title": "Portefeuille Web",
         "subtitle": "Extraction, transformation et chargement automatisés des données avec intégration de l'IA",
         "i18nKey": "webPortfolio",
-        "cover": "/images/image2.jpg",
+        "cover": "/images/projects/example/gallery3.jpg",
         "year": 2025
       },
       "yamlAssistant": {
@@ -32,7 +32,7 @@
         "title": "Assistant YAML",
         "subtitle": "Votre compagnon intelligent pour créer des fichiers de configuration YAML",
         "year": 2024,
-        "cover": "/images/projects/example/shot4.jpg",
+        "cover": "/images/projects/example/gallery4.jpg",
         "description": "Méta-description optionnelle — version courte pour le référencement (SEO) ou les aperçus.",
         "i18nKey": "yamlAssistant"
       }
