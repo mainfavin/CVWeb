@@ -11,14 +11,7 @@
         "cover": "/images/projects/example/gallery1.jpg",
         "year": 2024
       },
-      "cliDatacontractValidator": {
-        "slug": "cli-datacontract-validator",
-        "title": "Datacontract Validator",
-        "subtitle": "Automated data extraction, transformation, and loading with AI integration",
-        "i18nKey": "cliDatacontractValidator",
-        "cover": "/images/projects/example/gallery2.jpg",
-        "year": 2025
-      },
+      
       "webPortfolio": {
         "slug": "web-portfolio",
         "title": "Web Portfolio",

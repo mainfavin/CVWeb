@@ -11,14 +11,7 @@
         "cover": "/images/projects/example/gallery1.jpg",
         "year": 2024
       },
-      "cliDatacontractValidator": {
-        "slug": "cli-datacontract-validator",
-        "title": "cli-datacontract-validator",
-        "subtitle": "Geautomatiseerde data-extractie, -transformatie en -lading met AI-integratie",
-        "i18nKey": "cliDatacontractValidator",
-        "cover": "/images/projects/example/gallery2.jpg",
-        "year": 2025
-      },
+      
       "webPortfolio": {
         "slug": "web-portfolio",
         "title": "Webportfolio",

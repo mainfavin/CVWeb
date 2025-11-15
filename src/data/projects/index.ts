@@ -57,7 +57,7 @@ const yamlAssistant: Project = {
 
 export const projects: Project[] = [
   aiEtlSystem,
-  cliDatacontractValidator,
+  //cliDatacontractValidator,
   webPortfolio,
   yamlAssistant,
   
