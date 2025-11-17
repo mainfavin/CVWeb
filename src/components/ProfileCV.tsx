@@ -181,24 +181,14 @@ export default function ProfileCV() {
             </div>
           </div>
 
-          <div style={{ border: "1px solid rgba(255,255,255,0.1)", padding: "16px", borderRadius: "8px" }}>
-            <div style={{ opacity: 0.7, fontSize: 12, letterSpacing: ".08em", marginBottom: 6 }}>
-              {t("cv.projects.items.3.category")}
-            </div>
-            <div style={{ fontWeight: 700, marginBottom: "8px" }}>
-              {t("cv.projects.items.3.title")}
-            </div>
-            <div style={{ opacity: 0.85, fontSize: "15px" }}>
-              {t("cv.projects.items.3.desc")}
-            </div>
-          </div>
+         
         </div>
       </Row>
 
       {/* CURRICULUM (botón descarga) */}
       <Row title={t("cv.curriculum.title")}>
         <a
-          href="/Marcos_Infante_Curriculum.pdf"
+          href="/Marcos_Infante_CV.pdf"
           download="Marcos_Infante_CV.pdf"
           style={{
             display: "inline-block",
