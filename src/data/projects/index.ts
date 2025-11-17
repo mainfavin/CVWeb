@@ -21,7 +21,7 @@ const aiEtlSystem: Project = {
   links: [],
 };
 
-const cliDatacontractValidator: Project = {
+/*const cliDatacontractValidator: Project = {
   slug: "cli-datacontract-validator",
   title: "cli-datacontract-validator",
   subtitle: "Automated data extraction, transformation, and loading with AI integration",
@@ -32,7 +32,7 @@ const cliDatacontractValidator: Project = {
   tech: ["Python", "FastAPI", "Airflow", "LangChain", "Qdrant"],
   links: [{ label: "GitHub", href: "https://github.com/mainfavin/ai-etl-system" }],
 };
-
+*/
 const webPortfolio: Project = {
   slug: "web-portfolio",
   title: "WebPortolio",
