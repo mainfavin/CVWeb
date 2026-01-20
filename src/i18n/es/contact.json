@@ -14,10 +14,10 @@
       "services": "Ver servicios",
       "latestWork": "Ver últimos trabajos"
     },
-    "location": "Ámsterdam, Países Bajos · GMT+1",
+    "location": "Logroño, La Rioja · GMT+1",
     "phone": {
-      "es": "ES +34 644 98 33 44",
-      "nl": "NL +31 06 20127319"
+      "es": "ES +34 644 98 33 44"
+      
     },
     "email": "contact@marcosinfante.com",
     "social": {
@@ -27,8 +27,8 @@
     },
     "billing": {
       "title": "Estudio / Información de facturación",
-      "address1": "Kantershof 402, 1104GW · Ámsterdam",
-      "address2": "Países Bajos",
+      "address1": "Logroño, La Rioja",
+      "address2": "España",
       "note": "Estudio digital freelance registrado en la UE. Proyectos disponibles de forma presencial o remota."
     },
     "signature": "MARCOS INFANTE VIÑUELA"
